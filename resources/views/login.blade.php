@@ -7,7 +7,7 @@
 @endif
 <form method="post" action="login">
     @csrf
-    Email: <input name="email"><br>
+    Account: <input name="email"><br>
     Password: <input type="password" name="password">
     <button type="submit">Login</button>
 </form>

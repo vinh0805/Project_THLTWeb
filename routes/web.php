@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +11,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/login', 'Auth\LoginController@getLogin')->name('login');
 Route::post('/login', 'Auth\LoginController@postLogin');
 Route::get('/logout', 'Auth\LoginController@logout');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UsersAddFieldDeletedAt extends Migration
+class CreateLikeCommentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class UsersAddFieldDeletedAt extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->softDeletes('deleted_at', 0);
+        Schema::create('like_comment', function (Blueprint $table) {
+            $table->bigIncrements('like_comment_id');
+            $table->integer('comment_id');
+            $table->integer('user_id');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class UsersAddFieldDeletedAt extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
+        Schema::dropIfExists('like_comment');
     }
 }
