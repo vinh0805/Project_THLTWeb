@@ -41,7 +41,7 @@ class UserController extends Controller
     public function showProfile()
     {
         $this->authLogin();
-        return view('users.screen02-profile')->with('user', Session::get('sUser'));
+        return view('users.screen14-profile')->with('user', Session::get('sUser'));
     }
 
     public function updateProfile(Request $request, $userId)
@@ -50,8 +50,7 @@ class UserController extends Controller
         $user = $this->userRepository->find($userId);
         $data = $request->all();
 
-        $user->first_name = $data['first_name'];
-        $user->last_name = $data['last_name'];
+        $user->name = $data['name'];
         $user->email = $data['email'];
         $user->gender = $data['gender'];
         $date = strtotime($data['datepicker']);
@@ -74,7 +73,7 @@ class UserController extends Controller
     public function changePassword()
     {
         $this->authLogin();
-        return view('users.screen03-my-pass')->with('user', Session::get('sUser'));
+        return view('users.screen15-my-pass')->with('user', Session::get('sUser'));
     }
 
     public function updatePassword(Request $request, $userId)

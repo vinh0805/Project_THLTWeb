@@ -18,7 +18,7 @@ class LoginController extends Controller
     public function authLogin()
     {
         if (Session::get('sUser')) {
-            return redirect('me');
+            return redirect('home');
         } else {
             return redirect('login')->send();
         }
@@ -35,7 +35,7 @@ class LoginController extends Controller
         if (isset($user)) {
             if ($user->password == md5($request['password'])) {
                 Session::put('sUser', $user);
-                return redirect('me');
+                return redirect('home');
             }
         }
         return redirect('/login')->with('message', 'Wrong account or password!!');

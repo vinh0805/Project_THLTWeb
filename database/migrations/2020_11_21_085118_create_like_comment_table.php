@@ -14,7 +14,7 @@ class CreateLikeCommentTable extends Migration
     public function up()
     {
         Schema::create('like_comment', function (Blueprint $table) {
-            $table->bigIncrements('like_comment_id');
+            $table->bigIncrements('id');
             $table->integer('comment_id');
             $table->integer('user_id');
             $table->timestamps();

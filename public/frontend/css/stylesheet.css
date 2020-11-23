@@ -1,0 +1,274 @@
+body {
+
+}
+
+/* Login */
+button#loginButton {
+    opacity: 0.9;
+}
+
+span#loginError {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Menu */
+ul.menu{
+    text-align: center;
+    height: 70px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4a3d20;
+}
+li.menu {
+    text-align: center;
+    height: 70px;
+    font-weight: bold;
+    float: left;
+}
+li.menu.text {
+    padding-top: 10px;
+}
+li.menu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px 15px 0;
+    text-decoration: none;
+}
+li.menu.logo {
+    width: 275px;
+    height: 70px;
+}
+li.menu img#avatar {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+li.menu.avatar {
+    position: absolute;
+    right: 210px;
+}
+li.menu.name {
+    position: absolute;
+    left: 1150px;
+}
+li.menu a:hover {
+    background-color: #0080ff;
+}
+
+#header {
+    position: -webkit-sticky;
+    position: sticky;
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-top: 5px;
+}
+
+ /*Show profile */
+#datepicker {
+    background-color: white;
+}
+
+.radioGender {
+    margin: 0 10px 0 130px;
+}
+.radioLabel {
+    margin-right: 50px;
+}
+
+.star {
+    color: red;
+}
+
+#datepicker {
+    margin-bottom: 10px;
+}
+
+#endButtonsDiv {
+    text-align: center;
+}
+
+ /*Screen 3->9 */
+button.btn.btn-primary#submitButton {
+    width: 120px;
+    margin: 30px 0 0 15px;
+    position: relative;
+    /*left: 45%;*/
+    /*-ms-transform: translate(-50%, -50%);*/
+    /*transform: translate(-50%, -50%);*/
+}
+
+button.btn.btn-primary#goBackButton:hover {
+    background-color: #7a8793;
+}
+button.btn.btn-primary#goBackButton {
+    background-color: #666666;
+    width: 120px;
+    margin: 30px 15px 0 0;
+    position: relative;
+    /*left: 40%;*/
+    /*-ms-transform: translate(-50%, -50%);*/
+    /*transform: translate(-50%, -50%);*/
+}
+button.btn.btn-primary#goBackButton a#goBack {
+    color: white;
+}
+
+form.has-validation-callback {
+    padding: 20px;
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin-bottom: 200px;
+}
+span#changePassSpan{
+    margin-left: 150px;
+}
+span#changePassSpan2{
+    margin-left: 20px;
+}
+span#changeRoleSpan{
+    /*margin-left: 80px;*/
+}
+span#changeRoleSpan button{
+    background-color: green;
+}
+span#changeRoleSpan button:hover{
+    background-color: #00b44e;
+}
+button#changePassButton {
+    position: relative;
+}
+button#changePassButton a{
+    color: white;
+}
+
+div.form-group#formHeader {
+    border-bottom: solid 3px #0c525d;
+}
+
+div#updateSuccessfullyMessage {
+    position: center;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+}
+div#updateFailMessage {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+table#example1 tr td img.avatar{
+    width: 50px;
+    height: 50px;
+}
+
+table#example1 tr td i {
+    margin: 0 5px 0 5px;
+}
+table#example1 tr td.verifiedEmail {
+    color: green;
+}
+
+h1 {
+    display: inline-block;
+}
+
+div.addUserButton {
+    display: inline-block;
+    position: relative;
+    float: right;
+    margin: 10px 0 0 10px;
+}
+div.addUserButton a {
+    color: white;
+}
+div.addUserButton button:hover{
+    background-color: #00b44e;
+}
+div.addUserButton button {
+    width: 180px;
+    background-color: green;
+}
+h2 span#nameInfoH2 {
+    position: relative;
+    color: red;
+}
+h2#formHeader {
+    min-width: 300px;
+}
+
+input.radioRole {
+    margin: 0 0 0 100px;
+}
+
+/*#assignFormTopics[hidden], #assignFormTopics2[hidden] {*/
+/*    display: none;*/
+/*}*/
+
+/* Screen 10: showHistory Popup */
+td.showHistoryName{
+    height: 20px;
+    padding: 5px 5px 0 12px;
+    border-bottom: none;
+}
+p.showHistoryEmail{
+    height: 20px;
+    padding: 0 5px 5px 12px;
+    border-top: none;
+    color: dodgerblue;
+    font-style: italic;
+}
+
+/* Screen 12: show request Popup */
+div.form-group.showRequestInfoModalContent2 {
+    padding: 5px 5px 20px 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+td.showUserName{
+    height: 20px;
+    padding: 5px 5px 0 12px;
+    border-bottom: none;
+}
+p.showUserEmail{
+    height: 20px;
+    margin: 0;
+    border-top: none;
+    color: dodgerblue;
+    font-style: italic;
+}
+
+/*Screen 13: show request info Popup*/
+div.show-request-info-row {
+    width: 200px;
+    display: inline-block;
+}
+div.modal-body div label.show-request-info-row2 {
+    font-weight: normal;
+}
+
+/*Screen 13+14: change color by status*/
+label.newStatus {
+    color: #00aa00;
+}
+label.approvedStatus {
+    color: #5d36a4;
+}
+label.rejectedStatus {
+    color: red;
+}
+label.completedStatus {
+    color: darkgray;
+}
+
+/*Screen 15: add edit request*/
+textarea#reasonOfRequest {
+    padding: 5px 10px 5px 10px;
+}
