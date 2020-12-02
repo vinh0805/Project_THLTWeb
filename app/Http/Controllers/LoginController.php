@@ -48,4 +48,9 @@ class LoginController extends Controller
         Session::put('message', null);
         return redirect('login');
     }
+
+    public function signup()
+    {
+        return view('signup');
+    }
 }

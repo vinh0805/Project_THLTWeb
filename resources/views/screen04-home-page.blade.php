@@ -1,1 +1,4 @@
-HOME PAGE
+@extends('layout')
+@section('content')
+
+@endsection

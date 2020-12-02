@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Users;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 //use App\Models\Users;
@@ -44,6 +45,31 @@ class UserController extends Controller
         return view('users.screen14-profile')->with('user', Session::get('sUser'));
     }
 
+    public function createNewUser(Request $request)
+    {
+        $data = $request->all();
+        if (isset($data['gender'])) {
+            $user = new Users([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => md5($data['password']),
+                'gender' => $data['gender'],
+                'role' => 0
+            ]);
+        } else {
+            $user = new Users([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => md5($data['password']),
+                'role' => 0
+            ]);
+        }
+
+        $user->save();
+        Session::put('message', 'Đăng ký thành công!');
+        return redirect('login/');
+    }
+
     public function updateProfile(Request $request, $userId)
     {
         $this->authLogin();
@@ -60,7 +86,7 @@ class UserController extends Controller
         $avatar = $request->file('avatar');
         if ($avatar) {
             $avatarName = $avatar->getClientOriginalName();
-            $avatar->move('public/frontend/images/avatars', $avatarName);
+            $avatar->move('frontend/images/avatars', $avatarName);
             $data['avatar'] = $avatarName;
             $user->avatar = $data['avatar'];
         }
