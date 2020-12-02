@@ -16,10 +16,12 @@ Route::get('/login', 'Auth\LoginController@getLogin')->name('login');
 Route::post('/login', 'Auth\LoginController@postLogin');
 Route::post('/login-confirm', 'LoginController@loginConfirm');
 Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/signup', 'LoginController@signup');
+
 Route::get('/home', function (){
     return view('screen04-home-page');
 });
-
+Route::post('/signup-submit', 'UserController@createNewUser');
 // User
 Route::get('/me', 'UserController@showProfile');
 Route::post('/update-profile/{userId}', 'UserController@updateProfile');
