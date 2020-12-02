@@ -14,7 +14,7 @@ class CreateLikePostTable extends Migration
     public function up()
     {
         Schema::create('like_post', function (Blueprint $table) {
-            $table->bigIncrements('like_post_id');
+            $table->bigIncrements('id');
             $table->integer('post_id');
             $table->integer('user_id');
             $table->timestamps();

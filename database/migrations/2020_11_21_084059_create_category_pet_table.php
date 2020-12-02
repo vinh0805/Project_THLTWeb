@@ -14,7 +14,7 @@ class CreateCategoryPetTable extends Migration
     public function up()
     {
         Schema::create('category_pet', function (Blueprint $table) {
-            $table->bigIncrements('category_pet_id');
+            $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
         });
