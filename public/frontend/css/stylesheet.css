@@ -15,6 +15,41 @@ span#loginError {
 }
 
 /* Menu */
+
+/*!* The container <div> - needed to position the dropdown content *!*/
+.menu.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    width: 10%;
+    display: none;
+    position: fixed;
+    background-color: slateblue;
+    z-index: 9999;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.menu.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 ul.menu{
     text-align: center;
     height: 70px;
@@ -27,14 +62,16 @@ ul.menu{
 li.menu {
     text-align: center;
     height: 70px;
+    width: 10%;
     font-weight: bold;
     float: left;
+    position: relative;
 }
 li.menu.text {
     padding-top: 10px;
 }
 li.menu a {
-    display: inline-block;
+    display: block;
     color: white;
     text-align: center;
     padding: 15px 20px 15px 0;
@@ -62,7 +99,6 @@ li.menu a:hover {
 }
 
 #header {
-    position: -webkit-sticky;
     position: sticky;
     float: left;
     width: 100%;
@@ -99,9 +135,6 @@ button.btn.btn-primary#submitButton {
     width: 120px;
     margin: 30px 0 0 15px;
     position: relative;
-    /*left: 45%;*/
-    /*-ms-transform: translate(-50%, -50%);*/
-    /*transform: translate(-50%, -50%);*/
 }
 
 button.btn.btn-primary#goBackButton:hover {
@@ -112,9 +145,6 @@ button.btn.btn-primary#goBackButton {
     width: 120px;
     margin: 30px 15px 0 0;
     position: relative;
-    /*left: 40%;*/
-    /*-ms-transform: translate(-50%, -50%);*/
-    /*transform: translate(-50%, -50%);*/
 }
 button.btn.btn-primary#goBackButton a#goBack {
     color: white;
@@ -208,9 +238,6 @@ input.radioRole {
     margin: 0 0 0 100px;
 }
 
-/*#assignFormTopics[hidden], #assignFormTopics2[hidden] {*/
-/*    display: none;*/
-/*}*/
 
 /* Screen 10: showHistory Popup */
 td.showHistoryName{
