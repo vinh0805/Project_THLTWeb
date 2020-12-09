@@ -26,9 +26,36 @@
     {{--    Menu--}}
     <ul class="menu">
         <li class="menu logo"><a href="{{url('/home')}}" ><img src="{{url('frontend/images/pet_logo.PNG')}}" alt="Logo"></a></li>
-        <li class="menu text"><a href="{{url('/devices/me')}}">Dog</a></li>
-        <li class="menu text"><a href="{{url('/requests/me')}}">Cat</a></li>
-        <li class="menu text"><a href="{{url('/devices/lists')}}">Others</a></li>
+        <li class="menu dropdown">
+            <a href="{{url('/pets-category/dog')}}">Dog</a>
+            <div class="dropdown-content">
+                <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
+                <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
+                <a href="{{url('/pets-category/dog/give')}}">Give</a>
+                <a href="{{url('/pets-category/dog/relief')}}">Relief</a>
+                <a href="{{url('/pets-category/dog/meme')}}">meme</a>
+            </div>
+        </li>
+        <li class="menu dropdown">
+            <a href="{{url('/pets-category/cat')}}">Cat</a>
+            <div class="dropdown-content">
+                <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
+                <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
+                <a href="{{url('/pets-category/dog/give')}}">Give</a>
+                <a href="{{url('/pets-category/dog/relief')}}">Relief</a>
+                <a href="{{url('/pets-category/dog/meme')}}">meme</a>
+            </div>
+        </li>
+        <li class="menu dropdown">
+            <a href="{{url('/pets-category/others')}}">Others</a>
+            <div class="dropdown-content">
+                <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
+                <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
+                <a href="{{url('/pets-category/dog/give')}}">Give</a>
+                <a href="{{url('/pets-category/dog/relief')}}">Relief</a>
+                <a href="{{url('/pets-category/dog/meme')}}">meme</a>
+            </div>
+        </li>
         <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . Illuminate\Support\Facades\Session::get('sUser')->avatar)}}" alt="avatar" id="avatar"></li>
         <li class="menu text name">
             <a href="{{url('logout')}}">
