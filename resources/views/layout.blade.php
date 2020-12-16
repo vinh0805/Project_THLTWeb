@@ -72,7 +72,7 @@
                 <a href="{{url('/me')}}">Your information</a>
                 <a href="{{url('/me/notification')}}">Notifications</a>
                 <a href="{{url('/me/password')}}">Change password</a>
-                <a href="{{url('/log-out')}}">Log out</a>
+                <a href="{{url('/logout')}}">Log out</a>
             </div>
         </li>
     </ul>
