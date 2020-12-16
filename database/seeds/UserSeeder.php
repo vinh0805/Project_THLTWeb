@@ -13,11 +13,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $password = 'kiai@123';
+        $password = '123123';
         $user = new User;
         $user->name = "Admin";
-        $user->email = "admin@kiaisoft.com";
-        $user->password = $password;
+        $user->email = "admin@gmail.com";
+        $user->password = md5($password);
+        $user->account = "admin";
+        $user->role = "1";
         $user->save();
     }
 }
