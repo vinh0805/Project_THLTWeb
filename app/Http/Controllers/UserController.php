@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-//use App\Models\Users;
-//use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
-//use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -49,7 +46,7 @@ class UserController extends Controller
     {
         $data = $request->all();
         if (isset($data['gender'])) {
-            $user = new Users([
+            $user = new User([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => md5($data['password']),
@@ -57,7 +54,7 @@ class UserController extends Controller
                 'role' => 0
             ]);
         } else {
-            $user = new Users([
+            $user = new User([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => md5($data['password']),

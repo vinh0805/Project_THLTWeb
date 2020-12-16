@@ -2,22 +2,22 @@
 
 namespace App\Repositories;
 
-use App\Models\Users;
+use App\Models\User;
 
 class UserRepository extends BaseRepository
 {
     public function getModel()
     {
-        return Users::class;
+        return User::class;
     }
 
     public function getLastAddedUser()      // use when create new user - UserController
     {
-        return Users::orderBy('id', 'desc')->first();
+        return User::orderBy('id', 'desc')->first();
     }
 
     public function findUserByEmail($email)
     {
-        return Users::where('email', $email)->first();
+        return User::where('email', $email)->first();
     }
 }
