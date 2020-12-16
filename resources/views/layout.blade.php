@@ -43,7 +43,7 @@
                 <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
                 <a href="{{url('/pets-category/dog/give')}}">Give</a>
                 <a href="{{url('/pets-category/dog/relief')}}">Relief</a>
-                <a href="{{url('/pets-category/dog/meme')}}">meme</a>
+                <a href="{{url('/pets-category/dog/meme')}}">Meme</a>
             </div>
         </li>
         <li class="menu dropdown">
@@ -53,11 +53,11 @@
                 <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
                 <a href="{{url('/pets-category/dog/give')}}">Give</a>
                 <a href="{{url('/pets-category/dog/relief')}}">Relief</a>
-                <a href="{{url('/pets-category/dog/meme')}}">meme</a>
+                <a href="{{url('/pets-category/dog/meme')}}">Meme</a>
             </div>
         </li>
         <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . Illuminate\Support\Facades\Session::get('sUser')->avatar)}}" alt="avatar" id="avatar"></li>
-        <li class="menu text name">
+        <li class="menu dropdown name">
             <a href="{{url('logout')}}">
                 <?php
                 use Illuminate\Support\Facades\Session;
@@ -67,6 +67,13 @@
                 }
                 ?>
             </a>
+            <div class="dropdown-content">
+                <a href="{{url('/create-post')}}">New post</a>
+                <a href="{{url('/me')}}">Your information</a>
+                <a href="{{url('/me/notification')}}">Notifications</a>
+                <a href="{{url('/me/password')}}">Change password</a>
+                <a href="{{url('/log-out')}}">Log out</a>
+            </div>
         </li>
     </ul>
 </section>

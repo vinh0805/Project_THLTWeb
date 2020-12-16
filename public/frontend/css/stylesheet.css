@@ -299,3 +299,10 @@ label.completedStatus {
 textarea#reasonOfRequest {
     padding: 5px 10px 5px 10px;
 }
+
+/* Screen 4: home page */
+section#advertisement {
+    width: 100%;
+    height: 300px;
+    background-color: pink;
+}
