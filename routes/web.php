@@ -18,9 +18,7 @@ Route::post('/login-confirm', 'LoginController@loginConfirm');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/signup', 'LoginController@signup');
 
-Route::get('/home', function (){
-    return view('screen04-home-page');
-});
+Route::get('/home', 'PostController@showPostsHomePage');
 Route::post('/signup-submit', 'UserController@createNewUser');
 // User
 Route::get('/me', 'UserController@showProfile');
