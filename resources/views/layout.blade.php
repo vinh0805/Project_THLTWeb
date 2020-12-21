@@ -70,7 +70,7 @@
             <div class="dropdown-content">
                 <a href="{{url('/create-post')}}">New post</a>
                 <a href="{{url('/me')}}">Your information</a>
-                <a href="{{url('/me/notification')}}">Notifications</a>
+                <a href="{{url('/me/notifications')}}">Notifications</a>
                 <a href="{{url('/me/password')}}">Change password</a>
                 <a href="{{url('/logout')}}">Log out</a>
             </div>
