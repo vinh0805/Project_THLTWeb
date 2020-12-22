@@ -18,7 +18,6 @@ class UserSeeder extends Seeder
         $user->name = "Admin";
         $user->email = "admin@gmail.com";
         $user->password = md5($password);
-        $user->account = "admin";
         $user->role = "1";
         $user->save();
     }
