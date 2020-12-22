@@ -68,7 +68,7 @@
                 ?>
             </a>
             <div class="dropdown-content">
-                <a href="{{url('/create-post')}}">New post</a>
+                <a href="{{url('/post/create')}}">New post</a>
                 <a href="{{url('/me')}}">Your information</a>
                 <a href="{{url('/me/notifications')}}">Notifications</a>
                 <a href="{{url('/me/password')}}">Change password</a>
@@ -143,5 +143,9 @@
 </script>
 <script src="{{asset('backend/js/jquery-validation-1.19.2/src/localization/messages_vi.js')}}"></script>
 <script src="{{asset('backend/js/jquery-validation-1.19.2/src/additional/strongPassword.js')}}"></script>
+<script src="{{asset('backend/ckeditor/ckeditor.js')}}"></script>
+<script>
+    CKEDITOR.replace('postContent');
+</script>
 </body>
 </html>

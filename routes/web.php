@@ -27,6 +27,11 @@ Route::post('/update-profile/{userId}', 'UserController@updateProfile');
 Route::get('/me/password', 'UserController@changePassword');
 Route::post('/update-password/{userId}', 'UserController@updatePassword');
 
+// Post
+Route::get('/post/create', 'PostController@createPost');
+Route::post('/post/save', 'PostController@savePost');
+
+
 // Notification
 Route::get('/me/notifications', 'NotificationController@index');
 Route::get('/me/notifications/{notificationId}', 'NotificationController@show');
