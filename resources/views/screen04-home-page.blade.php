@@ -19,30 +19,15 @@
             <table>
                 @foreach($allCategoryPet as $categoryPet)
                     <tr><th><a href="{{url('pets-category/' . $categoryPet->name)}}">{{$categoryPet->name}}</a></th></tr>
-                    @if($categoryPet->name == 'dog')
-                        @foreach($allDogCategory as $dogCategory)
-                            <tr>
-                                <td><a href="{{url('pets-category/' . $categoryPet->name . '/' .$dogCategory->name)}}">
-                                        {{$dogCategory->name}}</a></td>
-                            </tr>
-                        @endforeach
-                    @elseif($categoryPet->name == 'cat')
-                        @foreach($allCatCategory as $catCategory)
-                            <tr>
-                                <td><a href="{{url('pets-category/' . $categoryPet->name . '/' . $catCategory->name)}}">
-                                        {{$catCategory->name}}</a></td>
-                            </tr>
-                        @endforeach
-                    @elseif($categoryPet->name == 'others')
-                        @foreach($allOthersCategory as $othersCategory)
-                            <tr>
-                                <td><a href="{{url('pets-category/' . $categoryPet->name .'/' . $othersCategory->name)}}">
-                                        {{$othersCategory->name}}</a></td>
-                            </tr>
-                        @endforeach
-                    @endif
+                    @foreach($allCategory as $category)
+                        <tr>
+                            <td><a href="{{url('pets-category/' . $categoryPet->name . '/' .$category->name)}}">
+                                    {{$category->name}}</a></td>
+                        </tr>
+                    @endforeach
                 @endforeach
             </table>
         </div>
     </section>
 @endsection
+\
