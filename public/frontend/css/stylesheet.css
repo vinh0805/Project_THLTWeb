@@ -306,3 +306,19 @@ section#advertisement {
     height: 300px;
     background-color: pink;
 }
+
+/* Screen 16: list notifications */
+.notification {
+    margin: 10px 100px;
+    padding: 0 10px 10px 10px;
+    width: 80%;
+    text-align: left;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-weight: bold;
+
+}
+
+.notification#seen {
+    font-weight: normal;
+}

@@ -27,7 +27,9 @@ Route::post('/update-profile/{userId}', 'UserController@updateProfile');
 Route::get('/me/password', 'UserController@changePassword');
 Route::post('/update-password/{userId}', 'UserController@updatePassword');
 
-
+// Notification
+Route::get('/me/notifications', 'NotificationController@index');
+Route::get('/me/notifications/{notificationId}', 'NotificationController@show');
 
 //Route::group(['middleware' => ['auth']], function () {
 //    Route::get('/home', function () {
