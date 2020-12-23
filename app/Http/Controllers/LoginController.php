@@ -43,9 +43,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        $this->authLogin();
-        Session::put('sUser', null);
-        Session::put('message', null);
+        Session::flush();
         return redirect('login');
     }
 
