@@ -16,8 +16,9 @@ class CreateNotificationsTable extends Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->integer('admin_id');
+            $table->integer('fuser_id');
             $table->integer('post_id');
+            $table->integer('comment_id')->nullable();
             $table->string('content');
             $table->tinyInteger('status')->default('0');
             $table->timestamps();
