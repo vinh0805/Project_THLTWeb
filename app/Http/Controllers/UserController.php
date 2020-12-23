@@ -63,8 +63,9 @@ class UserController extends Controller
         }
 
         $user->save();
-        Session::put('message', 'Đăng ký thành công!');
-        return redirect('login/');
+        Session::put('message', 'SIGN UP SUCCESSFULLY!');
+        Session::put('sUser', $user);
+        return redirect('/signup/success');
     }
 
     public function updateProfile(Request $request, $userId)
@@ -114,6 +115,10 @@ class UserController extends Controller
             }
         }
         return redirect('me/password')->with('message', 'Cập nhật mật khẩu không thành công!');
+    }
+
+    public function signupSuccess() {
+        return view('users.signupSuccess');
     }
 
 /*    public function showUserList()
