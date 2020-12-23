@@ -1,4 +1,5 @@
 @extends('layout')
+{{-- @extends('screen04-home-page') --}}
 @section('content')
     <h1>List Notifications</h1>     
     @if (count($notifications) > 0)
