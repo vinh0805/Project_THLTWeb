@@ -56,31 +56,36 @@
                 <a href="{{url('/pets-category/dog/meme')}}">Meme</a>
             </div>
         </li>
-{{--        <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . Illuminate\Support\Facades\Session::get('sUser')->avatar)}}" alt="avatar" id="avatar"></li>--}}
-        <li class="menu avatar">
-            <img src="<?php use Illuminate\Support\Facades\Session;
-                $user = Session::get('sUser');
-                if (isset($user))
-                    echo '{{url("frontend/images/avatars/" . Illuminate\Support\Facades\Session::get("sUser")->avatar)}}'?>"
-                 alt="avatar" id="avatar">
-        </li>
-        <li class="menu dropdown name">
-            <a href="{{url('logout')}}">
-                <?php
-                $user = Session::get('sUser');
-                if(isset($user)) {
-                    echo $user->name;
-                }
-                ?>
-            </a>
-            <div class="dropdown-content">
-                <a href="{{url('/post/create')}}">New post</a>
-                <a href="{{url('/me')}}">Your information</a>
-                <a href="{{url('/me/notifications')}}">Notifications</a>
-                <a href="{{url('/me/password')}}">Change password</a>
-                <a href="{{url('/logout')}}">Log out</a>
-            </div>
-        </li>
+
+        <?php
+            $user = Session::get('sUser');
+            if(isset($user)) {
+        ?>
+            <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
+            <li class="menu dropdown name">
+                <a href="{{url('logout')}}">
+                    <?= $user->name?>
+                </a>
+                <div class="dropdown-content">
+                    <a href="{{url('/post/create')}}">New post</a>
+                    <a href="{{url('/me')}}">Your information</a>
+                    <a href="{{url('/me/notifications')}}">Notifications</a>
+                    <a href="{{url('/me/password')}}">Change password</a>
+                    <a href="{{url('/logout')}}">Log out</a>
+                </div>
+            </li>
+        <?php
+            } else {
+        ?>
+            <li>
+                <a class="login-acc" href="{{url('login')}}">SIGN IN</a>
+            </li>
+            <li>
+                <a class="signup-acc" href="{{url('signup')}}">SIGN UP?</a>
+            </li>
+        <?php
+            }
+        ?>
     </ul>
 </section>
 

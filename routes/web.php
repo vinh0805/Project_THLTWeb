@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', 'Auth\LoginController@getLogin')->name('login');
-Route::post('/login', 'Auth\LoginController@postLogin');
+Route::get('/login', 'LoginController@login');
+// Route::post('/login', 'Auth\LoginController@postLogin');
 Route::post('/login-confirm', 'LoginController@loginConfirm');
-Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/logout', 'LoginController@logout');
 Route::get('/signup', 'LoginController@signup');
 
 Route::get('/home', 'PostController@showPostsHomePage');
