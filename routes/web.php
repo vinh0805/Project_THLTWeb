@@ -30,6 +30,7 @@ Route::post('/update-password/{userId}', 'UserController@updatePassword');
 // Post
 Route::get('/post/create', 'PostController@createPost');
 Route::post('/post/save', 'PostController@savePost');
+Route::get('/post/{postId}', 'PostController@showPost');
 
 
 // Notification

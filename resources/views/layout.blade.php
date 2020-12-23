@@ -56,6 +56,7 @@
                 <a href="{{url('/pets-category/dog/meme')}}">Meme</a>
             </div>
         </li>
+
         <?php
             $user = Session::get('sUser');
             if(isset($user)) {
