@@ -56,11 +56,17 @@
                 <a href="{{url('/pets-category/dog/meme')}}">Meme</a>
             </div>
         </li>
-        <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . Illuminate\Support\Facades\Session::get('sUser')->avatar)}}" alt="avatar" id="avatar"></li>
+{{--        <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . Illuminate\Support\Facades\Session::get('sUser')->avatar)}}" alt="avatar" id="avatar"></li>--}}
+        <li class="menu avatar">
+            <img src="<?php use Illuminate\Support\Facades\Session;
+                $user = Session::get('sUser');
+                if (isset($user))
+                    echo '{{url("frontend/images/avatars/" . Illuminate\Support\Facades\Session::get("sUser")->avatar)}}'?>"
+                 alt="avatar" id="avatar">
+        </li>
         <li class="menu dropdown name">
             <a href="{{url('logout')}}">
                 <?php
-                use Illuminate\Support\Facades\Session;
                 $user = Session::get('sUser');
                 if(isset($user)) {
                     echo $user->name;

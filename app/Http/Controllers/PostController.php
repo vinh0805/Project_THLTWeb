@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\CategoryPet;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Repositories\CategoryRepository;
@@ -59,8 +60,22 @@ class PostController extends Controller
             'status' => 0
         ]);
         $newPost->save();
-        echo '<script>alert("Create post successfully!")</script>';
         $currentPost = Post::orderBy('id', 'desc')->first();
         return redirect('post/' . $currentPost->id);
+    }
+
+    public function showPost($postId)
+    {
+        $post = Post::find($postId);
+        if(!isset($post)){
+            echo "Have bug!!!";
+        } else {
+            $allComments = DB::table('comments')->join('users', 'comments.user_id', '=', 'users.id')
+                ->select('comments.*', 'users.*')->where('post_id', '=', $post->id)->get();
+            // $allComments = Comment::where('post_id', '=', $post->id)->get();
+            return view('posts.screen13-show-post')
+                ->with('post', $post)->with('allComments', $allComments);
+        }
+        return 0;
     }
 }
