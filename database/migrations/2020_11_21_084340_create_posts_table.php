@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->integer('category_pet_id');
             $table->integer('category_id');
-            $table->string('content')->nullable();
+            $table->text('content')->nullable();
             $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });
