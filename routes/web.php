@@ -27,11 +27,14 @@ Route::post('/update-profile/{userId}', 'UserController@updateProfile');
 Route::get('/me/password', 'UserController@changePassword');
 Route::post('/update-password/{userId}', 'UserController@updatePassword');
 
+// Category
+Route::get('/pets-category/{categoryPetName}/{categoryName}', 'CategoryController@showPostOfCategoryPet');
+
+
 // Post
 Route::get('/post/create', 'PostController@createPost');
 Route::post('/post/save', 'PostController@savePost');
 Route::get('/post/{postId}', 'PostController@showPost');
-
 
 // Notification
 Route::get('/me/notifications', 'NotificationController@index');
