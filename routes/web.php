@@ -17,6 +17,7 @@ Route::get('/login', 'LoginController@login');
 Route::post('/login-confirm', 'LoginController@loginConfirm');
 Route::get('/logout', 'LoginController@logout');
 Route::get('/signup', 'LoginController@signup');
+Route::get('/signup/success', 'UserController@signupSuccess');
 
 Route::get('/home', 'PostController@showPostsHomePage');
 Route::post('/signup-submit', 'UserController@createNewUser');
