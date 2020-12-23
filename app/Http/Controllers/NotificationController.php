@@ -8,7 +8,7 @@ use App\Models\Notification;
 class NotificationController extends Controller
 {
     public function index() {
-        $notifications = Notification::orderBy('created_at', 'desc')->paginate(1);
+        $notifications = Notification::orderBy('created_at', 'desc')->paginate(10);
         return view('notifications.index')->with('notifications', $notifications);
     }
 
