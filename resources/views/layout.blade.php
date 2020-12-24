@@ -38,7 +38,7 @@
         <nav class = "nav-bar">
         <li class="menu dropdown">
             <a href="{{url('/pets-category/dog')}}">
-                <img class = "catego" src="{{asset('frontend/images/dog.png')}}" alt="Dog"> 
+                <img class = "catego" src="{{asset('frontend/images/dog.png')}}" alt="Dog">
             </a>
             <div class="dropdown-content">
                 <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
@@ -53,11 +53,11 @@
                 <img class = "catego" src="{{asset('frontend/images/cat.png')}}" alt="Cat">
             </a>
             <div class="dropdown-content">
-                <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
-                <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
-                <a href="{{url('/pets-category/dog/give')}}">Give</a>
-                <a href="{{url('/pets-category/dog/relief')}}">Relief</a>
-                <a href="{{url('/pets-category/dog/meme')}}">Meme</a>
+                <a href="{{url('/pets-category/cat/show-off')}}">Show off</a>
+                <a href="{{url('/pets-category/cat/experience')}}">Experience</a>
+                <a href="{{url('/pets-category/cat/give')}}">Give</a>
+                <a href="{{url('/pets-category/cat/relief')}}">Relief</a>
+                <a href="{{url('/pets-category/cat/meme')}}">Meme</a>
             </div>
         </li>
         <li class="menu dropdown">
@@ -65,11 +65,11 @@
                 <img class = "catego" src="{{asset('frontend/images/others.png')}}" alt="Others">
             </a>
             <div class="dropdown-content">
-                <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
-                <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
-                <a href="{{url('/pets-category/dog/give')}}">Give</a>
-                <a href="{{url('/pets-category/dog/relief')}}">Relief</a>
-                <a href="{{url('/pets-category/dog/meme')}}">Meme</a>
+                <a href="{{url('/pets-category/others/show-off')}}">Show off</a>
+                <a href="{{url('/pets-category/others/experience')}}">Experience</a>
+                <a href="{{url('/pets-category/others/give')}}">Give</a>
+                <a href="{{url('/pets-category/others/relief')}}">Relief</a>
+                <a href="{{url('/pets-category/others/meme')}}">Meme</a>
             </div>
         </li>
         </nav>
@@ -79,7 +79,7 @@
 				<a href="#"><img src="{{asset('frontend/images/Twitter.png')}}" alt="twitter"></a>
 				<a href="#"><img src="{{asset('frontend/images/Instagram.png')}}" alt="instagram"></a>
 			</div>
-            <div class="acc"> 
+            <div class="acc">
                 <?php
                     $user = Session::get('sUser');
                     if(isset($user)) {
@@ -87,7 +87,7 @@
                     <li class="menu avatar"><img src="{{url('frontend/images/avatars/ava00.jpg')}}" alt="avatar" id="avatar"></li>
                     <!--<li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li> -->
                     <li class="menu dropdown name">
-                        
+
                         <div class="dropdown-content">
                             <a href="{{url('logout')}}">
                                 <?= $user->name?>
