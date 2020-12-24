@@ -13,7 +13,7 @@
         @endforeach
     </section>
 
-    <section id="writeComment" @if($post->status == 0) hidden @endif>
+    <section id="writeComment" @if($post->status || 0 && !isset($user)) hidden @endif>
         <form action="{{url('post/' . $post->id . '/write-comment')}}" method="post">
             @csrf
             <label>
