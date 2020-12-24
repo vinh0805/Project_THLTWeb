@@ -45,6 +45,9 @@ Route::post('/post/{postId}/write-comment', 'CommentController@writeComment');
 Route::get('/me/notifications', 'NotificationController@index');
 Route::get('/me/notifications/{notificationId}', 'NotificationController@show');
 
+// Test function
+Route::get('/test', 'PostController@findHotPosts');
+
 //Route::group(['middleware' => ['auth']], function () {
 //    Route::get('/home', function () {
 //        return view('welcome');

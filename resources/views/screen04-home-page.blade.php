@@ -13,7 +13,13 @@
 
         <div id="hotPosts">
             <h3>Hot</h3>
-
+            @if(isset($hotPosts))
+                <table>
+                @foreach($hotPosts as $hotPost)
+                    <tr><td><a href="{{url('post/' . $hotPost->id)}}">{{$hotPost->title}}</a></td></tr>
+                @endforeach
+                </table>
+            @endif
         </div>
         <div id="Category">
             <table>
