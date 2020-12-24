@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="{{asset('frontend/css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('backend/js/jquery-validation-1.19.2/demo/css/screen.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/stylesheet.css')}}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="{{asset('frontend/css/plugin/bootstrap/css/bootstrap.min.css')}}">
 </head>
