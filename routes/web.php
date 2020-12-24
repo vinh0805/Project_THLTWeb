@@ -37,6 +37,10 @@ Route::get('/post/create', 'PostController@createPost');
 Route::post('/post/save', 'PostController@savePost');
 Route::get('/post/{postId}', 'PostController@showPost');
 
+// Comment
+Route::post('/post/{postId}/write-comment', 'CommentController@writeComment');
+
+
 // Notification
 Route::get('/me/notifications', 'NotificationController@index');
 Route::get('/me/notifications/{notificationId}', 'NotificationController@show');
