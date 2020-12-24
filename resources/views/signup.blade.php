@@ -18,8 +18,6 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="{{asset('frontend/fonts/font.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('frontend/css/stylesheet.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/signup-style.css')}}">
 
 </head>
 <body class="hold-transition">

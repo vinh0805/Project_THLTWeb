@@ -23,13 +23,20 @@
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="{{asset('frontend/css/plugin/bootstrap/css/bootstrap.min.css')}}">
 </head>
-<body class="hold-transition login-page">
-<section class="menu-top" id="header">
+<body class="hold-transition login-page" style = "background: #FFF6EA;">
+
+<section class="header" id="header">
     {{--    Menu--}}
-    <ul class="menu">
-        <li class="menu logo"><a href="{{url('/home')}}" ><img src="{{url('frontend/images/pet_logo.PNG')}}" alt="Logo"></a></li>
+        <div class = "logo-field">
+			<a href="{{url('home')}}">
+				<img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
+			</a>
+		</div>
+        <nav class = "nav-bar">
         <li class="menu dropdown">
-            <a href="{{url('/pets-category/dog')}}">Dog</a>
+            <a href="{{url('/pets-category/dog')}}">
+                <img class = "catego" src="{{asset('frontend/images/dog.png')}}" alt="Dog"> 
+            </a>
             <div class="dropdown-content">
                 <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
                 <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
@@ -39,7 +46,9 @@
             </div>
         </li>
         <li class="menu dropdown">
-            <a href="{{url('/pets-category/cat')}}">Cat</a>
+            <a href="{{url('/pets-category/cat')}}">
+                <img class = "catego" src="{{asset('frontend/images/cat.png')}}" alt="Cat">
+            </a>
             <div class="dropdown-content">
                 <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
                 <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
@@ -49,7 +58,9 @@
             </div>
         </li>
         <li class="menu dropdown">
-            <a href="{{url('/pets-category/others')}}">Others</a>
+            <a href="{{url('/pets-category/others')}}">
+                <img class = "catego" src="{{asset('frontend/images/others.png')}}" alt="Others">
+            </a>
             <div class="dropdown-content">
                 <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
                 <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
@@ -58,37 +69,46 @@
                 <a href="{{url('/pets-category/dog/meme')}}">Meme</a>
             </div>
         </li>
-
-        <?php
-            $user = Session::get('sUser');
-            if(isset($user)) {
-        ?>
-            <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
-            <li class="menu dropdown name">
-                <a href="{{url('logout')}}">
-                    <?= $user->name?>
-                </a>
-                <div class="dropdown-content">
-                    <a href="{{url('/post/create')}}">New post</a>
-                    <a href="{{url('/me')}}">Your information</a>
-                    <a href="{{url('/me/notifications')}}">Notifications</a>
-                    <a href="{{url('/me/password')}}">Change password</a>
-                    <a href="{{url('/logout')}}">Log out</a>
-                </div>
-            </li>
-        <?php
-            } else {
-        ?>
-            <li>
-                <a class="login-acc" href="{{url('login')}}">SIGN IN</a>
-            </li>
-            <li>
-                <a class="signup-acc" href="{{url('signup')}}">SIGN UP?</a>
-            </li>
-        <?php
-            }
-        ?>
-    </ul>
+        </nav>
+        <div class = "account">
+            <div class="social">
+				<a href="#"><img src="{{asset('frontend/images/Facebook.png')}}" alt="facebook"></a>
+				<a href="#"><img src="{{asset('frontend/images/Twitter.png')}}" alt="twitter"></a>
+				<a href="#"><img src="{{asset('frontend/images/Instagram.png')}}" alt="instagram"></a>
+			</div>
+            <div class="acc"> 
+                <?php
+                    $user = Session::get('sUser');
+                    if(isset($user)) {
+                ?>
+                    <li class="menu avatar"><img src="{{url('frontend/images/avatars/ava00.jpg')}}" alt="avatar" id="avatar"></li>
+                    <!--<li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li> -->
+                    <li class="menu dropdown name">
+                        
+                        <div class="dropdown-content">
+                            <a href="{{url('logout')}}">
+                                <?= $user->name?>
+                            </a>
+                            <a href="{{url('/post/create')}}">New post</a>
+                            <a href="{{url('/me')}}">Your information</a>
+                            <a href="{{url('/me/notifications')}}">
+                                Notifications
+                                <p class = "notify"> 1 </p>   <!--  Notification amount  -->
+                            </a>
+                            <a href="{{url('/me/password')}}">Change password</a>
+                            <a href="{{url('/logout')}}">Log out</a>
+                        </div>
+                    </li>
+                <?php
+                    } else {
+                ?>
+                    <a class="login-acc" href="{{url('login')}}">SIGN IN</a>
+					<a class="signup-acc" href="{{url('signup')}}">SIGN UP?</a>
+                <?php
+                    }
+                ?>
+            </div>
+        </div>
 </section>
 
 {{--Content--}}
