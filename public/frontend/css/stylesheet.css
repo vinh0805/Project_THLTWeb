@@ -13,23 +13,329 @@ span#loginError {
     font-weight: bold;
     margin-top: 5px;
 }
+.login-box {
+	width: 91%;
+	height: auto;
+	min-height: 400px;
+	background: #FFDEAE;
+	border: 10px solid white;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+.login-card {
+	width: 60%;
+	margin-top: 100px;
+	margin-left: 20%;
+}
+.login-card #loginError {
+	margin-left: 30%;
+}
+.input-field {
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+.input-field label {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	float: left;
+	margin-left: -100px;
+}
+
+.input-form {
+	height: 40px;
+	width: 100%;
+	border-radius: 50px;
+	border-width: 0px;
+}
+.submit-button {
+	width: 20%;
+	margin-top: 24px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.login-button {
+	height: 40px;
+	width: 100%;
+	border-radius: 50px;
+	border-width: 0px;
+	color: white;
+	background-color: #E28700;
+	box-shadow: px 2px 5px grey;
+}
+
+.help-box {
+	width: 15%;
+	height: 140px;
+	float: right;
+}
+
+.help-box div {
+	width: 100%;
+	height: 80%;
+	margin-top: 10%;
+	margin-left: auto;
+	margin-right: auto;
+	color: #DE8600;
+	text-align: center;
+}
+.help-box div img {
+	width: 30%;
+	margin-bottom: 10px;
+}
+
+/* Sign Up */
+
+.signup-box {
+	width: 91%;
+	height: auto;
+	min-height: 400px;
+	background: #FFDEAE;
+	border: 10px solid white;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+.card-body {
+	width: 60%;
+	margin-left: 20%;
+}
+
+.input-field {
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+.input-field div {
+	margin-top: 0px;
+	margin-bottom: 5px;
+	float: left;
+	margin-left: -150px;
+}
+.input-field div .br { 
+    display: block; 
+    margin-bottom: -1em; 
+} 
+.option {
+	color: rgba(0, 0, 0, 0.5);
+	clear: both;
+}
+
+.input-form {
+	width: 100%;
+	height: 40px;
+	border-radius: 50px;
+	border-width: 0px;
+}
+
+.submit-button {
+	width: 20%;
+	margin-top: 24px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 2px solid grey;
+  background-color: white;
+}
+
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 3px;
+	left: 3px;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: orange;
+}
+
+
+.sign-button {
+	height: 40px;
+	width: 100%;
+	border-radius: 50px;
+	border-width: 0px;
+	color: white;
+	background-color: #E28700;
+	box-shadow: px 2px 5px grey;
+}
+
+.help-box {
+	width: 15%;
+	height: 140px;
+	float: right;
+	margin-top: -11%;
+}
+.help-box img {
+	width: 20%;
+	margin-bottom: 10px;
+}
+.help-box div {
+	width: 50%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	color: #DE8600;
+	text-align: center;
+}
+.help-box div img {
+	width: 60%;
+	margin-bottom: 10px;
+}
+
 
 /* Menu */
+.page_wrapper {
+	max-width: 100%;
+	height: auto;
+	min-height: 750px;
+	background: #FFF6EA;
+	margin-left: auto;
+	margin-right: auto;
+}
 
+.header {
+	width: 100%;
+	height: 140px;
+	background: #FFEACD;
+}
+.logo-field {
+	width: 25%;
+	height: 140px;	
+	float: left;
+}
+.logo-field img {
+	width: 40%;
+	margin-left: 20%;
+	margin-top: 5%;
+}
+
+.nav-bar {
+	width: 45%;
+	height: 115px;
+	float: left;
+	margin-top: 50px;
+}
+.account {
+	width: 30%;
+	height: 115px;
+	float: left;
+}
+.social {
+	width: 100%;
+	height: 50%;
+}
+.social img {
+	float: right;
+	width: 10%;
+	margin-right: 5%;
+}
+.acc {
+	width: 100%;
+	height: 50%;
+}
+.signup-acc {
+	width: 40%;
+	height: auto;
+	padding: 10px;
+	color: white;
+	text-align: center;
+	background: #E28700;
+	float: right;
+	border-radius: 50px;
+	border-width: 0px;
+	margin-right: 5%;
+}
+.login-acc {
+	width: 35%;
+	height: auto;
+	padding: 10px;
+	color: black;
+	text-align: center;
+	float: left;
+	margin-left: 15%;
+}
+input:focus, textarea:focus, select:focus{
+        outline: none;
+    }
 /*!* The container <div> - needed to position the dropdown content *!*/
 .menu.dropdown {
     position: relative;
     display: inline-block;
     padding-top: 10px;
+    margin-left: 20%;
+}
+.menu.dropdown.name {
+    margin-left: 10px;
 }
 
+.catego {
+    width: 100%;
+    height: auto;
+    color: black;
+    font-size: 30px;
+    font-weight: 10;
+}
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     width: 10%;
     display: none;
     position: fixed;
-    background-color: slateblue;
+    background-color: #ffbc58;
     z-index: 9999;
+    border-radius: 5px;
 }
 
 /* Links inside the dropdown */
@@ -40,9 +346,18 @@ span#loginError {
     display: block;
 }
 
+.notify {
+    min-width: 20px;
+    float: right;
+    margin-top: -5px;
+    background-color: red;
+    border-radius: 50%;
+}
+
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: #FFA726;
+    border-radius: 5px;
 }
 
 /* Show the dropdown menu on hover */
@@ -85,17 +400,77 @@ li.menu img#avatar {
     width: 50px;
     height: 50px;
     margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid #FFA726;
+    float: left;
 }
 li.menu.avatar {
     position: absolute;
     right: 210px;
+    list-style-type: none;
 }
 li.menu.name {
     position: absolute;
-    left: 1150px;
+    left: 1160px;
 }
 li.menu a:hover {
-    background-color: #0080ff;
+    /* background-color: #0080ff; */
+}
+/* Home's Hot post  */
+#content {
+    width: 98%;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+#search {
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+}
+#search input {
+    height: auto;
+    min-height: 35px;
+    min-width: 100px;
+    border-radius: 50px;
+    border: 1px;
+}
+#searchInput {
+    width: 64%;
+}
+.login-page h3 {
+    font-size: 30px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+#Category {
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+#Category table {
+    width: 80%;
+}
+#Category tr {
+    height: 50px; 
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    border-bottom: 1px solid grey;
+    border-radius: 50px;
+}
+#Category td {
+    padding-left: 20px;
+    font-size: 18px;
+}
+#Category th {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: large;
+    padding-top: 30px;
+    padding-left: 30px;
+    background-color: #edf6fdb0;
+    border: 2px solid grey;
+}
+#Category a {
+    color: #2577b1;
 }
 
 #header {
