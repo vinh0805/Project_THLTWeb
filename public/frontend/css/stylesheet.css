@@ -319,7 +319,12 @@ input:focus, textarea:focus, select:focus{
     margin-left: 20%;
 }
 .menu.dropdown.name {
-    margin-left: 10px;
+    margin-left: 30px;
+}
+
+.menu.dropdown.name a h1 {
+    color: black;
+    font-size: 20px;
 }
 
 .catego {
@@ -733,4 +738,29 @@ section#advertisement {
 }
 .post-content {
     background-color: #E28700;
+}
+
+/* Screen08 pet category */
+.category-body {
+    width: 80%;
+    margin-top: 30px;
+}
+.category-body h1 {
+    margin-bottom: 10px;
+}
+.category-list {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    border:2px solid rgba(0, 0, 0, 0.5);
+    border-top:15px solid rgba(0, 0, 0, 0.5);
+    border-right:15px solid rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+.category-post {
+    height: 40px;
+}
+.category-post a {
+    color: black;
+    font-size: 16px;
 }

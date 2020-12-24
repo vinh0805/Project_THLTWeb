@@ -84,19 +84,22 @@
                     $user = Session::get('sUser');
                     if(isset($user)) {
                 ?>
-                    <li class="menu avatar"><img src="{{url('frontend/images/avatars/ava00.jpg')}}" alt="avatar" id="avatar"></li>
-                    <!--<li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li> -->
+                     <!--<li class="menu avatar"><img src="{{url('frontend/images/avatars/ava00.jpg')}}" alt="avatar" id="avatar"></li>  -->
+                    <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
                     <li class="menu dropdown name">
-
+                        <a href="{{url('logout')}}">
+                            <h1> <?= $user->name?> </h1> 
+                        </a>
                         <div class="dropdown-content">
-                            <a href="{{url('logout')}}">
-                                <?= $user->name?>
-                            </a>
+                            
                             <a href="{{url('/post/create')}}">New post</a>
                             <a href="{{url('/me')}}">Your information</a>
+                            <?php 
+                                $totalNotification = App\Models\Notification::where('status', 0)->count();
+                            ?>
                             <a href="{{url('/me/notifications')}}">
                                 Notifications
-                                <p class = "notify"> 1 </p>   <!--  Notification amount  -->
+                                <p class = "notify"> {{$totalNotification}} </p>   <!--  Notification amount  -->
                             </a>
                             <a href="{{url('/me/password')}}">Change password</a>
                             <a href="{{url('/logout')}}">Log out</a>
