@@ -49,7 +49,8 @@ span#loginError {
 	height: 40px;
 	width: 100%;
 	border-radius: 50px;
-	border-width: 0px;
+    border-width: 0px;
+    padding-left: 20px;
 }
 .submit-button {
 	width: 20%;
@@ -696,4 +697,41 @@ section#advertisement {
 
 .notification#seen {
     font-weight: normal;
+}
+
+/* Screen 18: Post create */
+
+.post-option {
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.post-option .option {
+    height: 50px;
+}
+.option label {
+    margin-top: 10px;
+    color: black;
+}
+.post-option .input-form {
+    width: 80%;
+    float: right;
+}
+.post-submit {
+    margin-top: -100px;
+    width: 50%;
+    float: right;
+}
+.post-button {
+    height: 40px;
+    width: 25%;
+    margin-left: 25%;
+	border-radius: 50px;
+	border-width: 0px;
+	color: white;
+	background-color: #E28700;
+	box-shadow: px 2px 5px grey;
+}
+.post-content {
+    background-color: #E28700;
 }
