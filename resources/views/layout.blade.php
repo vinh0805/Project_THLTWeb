@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="{{asset('frontend/css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('backend/js/jquery-validation-1.19.2/demo/css/screen.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/stylesheet.css')}}">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
+{{--    <link rel="stylesheet" href="{{asset('frontend/css/password-style.css')}}">--}}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
     {{-- Bootstrap --}}
@@ -37,7 +38,7 @@
 		</div>
         <nav class = "nav-bar">
         <li class="menu dropdown">
-            <a href="{{url('/pets-category/dog')}}">
+            <a href="{{url('#')}}">
                 <img class = "catego" src="{{asset('frontend/images/dog.png')}}" alt="Dog">
             </a>
             <div class="dropdown-content">
@@ -49,7 +50,7 @@
             </div>
         </li>
         <li class="menu dropdown">
-            <a href="{{url('/pets-category/cat')}}">
+            <a href="{{url('#')}}">
                 <img class = "catego" src="{{asset('frontend/images/cat.png')}}" alt="Cat">
             </a>
             <div class="dropdown-content">
@@ -61,7 +62,7 @@
             </div>
         </li>
         <li class="menu dropdown">
-            <a href="{{url('/pets-category/others')}}">
+            <a href="{{url('#')}}">
                 <img class = "catego" src="{{asset('frontend/images/others.png')}}" alt="Others">
             </a>
             <div class="dropdown-content">
@@ -84,7 +85,6 @@
                     $user = Session::get('sUser');
                     if(isset($user)) {
                 ?>
-                     <!--<li class="menu avatar"><img src="{{url('frontend/images/avatars/ava00.jpg')}}" alt="avatar" id="avatar"></li>  -->
                     <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
                     <li class="menu dropdown name">
                         <a href="{{url('logout')}}">
@@ -93,6 +93,9 @@
                         <div class="dropdown-content">
 
                             <a href="{{url('/post/create')}}">New post</a>
+                            @if($user->role == 1)
+                                <a href="{{url('requests/post/list')}}">Review post</a>
+                            @endif
                             <a href="{{url('/me')}}">Your information</a>
                             <?php
                                 $totalNotification = App\Models\Notification::where('status', 0)->count();
@@ -180,6 +183,9 @@
         })
     })
 </script>
+@if(isset($message))
+    <script>alert({{$message}})</script>
+@endif
 <script src="{{asset('backend/js/jquery-validation-1.19.2/src/localization/messages_vi.js')}}"></script>
 <script src="{{asset('backend/js/jquery-validation-1.19.2/src/additional/strongPassword.js')}}"></script>
 <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>

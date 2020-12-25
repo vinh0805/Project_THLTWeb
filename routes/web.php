@@ -31,11 +31,14 @@ Route::post('/update-password/{userId}', 'UserController@updatePassword');
 // Category
 Route::get('/pets-category/{categoryPetName}/{categoryName}', 'CategoryController@showPostOfCategoryPet');
 
-
 // Post
 Route::get('/post/create', 'PostController@createPost');
 Route::post('/post/save', 'PostController@savePost')->name('ckeditor.upload');
 Route::get('/post/{postId}', 'PostController@showPost');
+
+// Review post
+Route::get('requests/post/list', 'PostController@showRequestPostList');
+Route::post('review-post/{postId}', 'PostController@reviewPost');
 
 // Comment
 Route::post('/post/{postId}/write-comment', 'CommentController@writeComment');
