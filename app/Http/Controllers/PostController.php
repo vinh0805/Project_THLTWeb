@@ -23,6 +23,18 @@ class PostController extends Controller
         }
     }
 
+    public function isAdmin()
+    {
+        $this->authLogin();
+        $user = Session::get('sUser');
+        if (isset($user->role)) {
+            if ($user->role == 1)
+                return 1;
+        }
+        return 0;
+    }
+
+
     public function showPostsHomePage()
     {
         $allCategoryPet = CategoryPet::all();
@@ -117,5 +129,36 @@ class PostController extends Controller
                 ->with('post', $post)->with('allComments', $allComments);
         }
         return 0;
+    }
+
+    public function showRequestPostList()
+    {
+        if($this->isAdmin()){
+            $allRequestPosts = Post::where('status', '=', '0')->get();
+            return view('posts.screen19-request-post-list')->with('allRequestPosts' ,$allRequestPosts);
+        } else return redirect('home');
+    }
+
+    public function reviewPost(Request $request, $postId)
+    {
+        if($this->isAdmin()){
+            $post = Post::find($postId);
+            if (isset($post)) {
+                $acceptance = $request['submitButton'];
+                if ($acceptance){
+                    $post->status = 1;
+                    $post->save();
+                    Session::put('message', "This post is accepted!");
+                    return redirect('post/' . $postId);
+                } else {
+                    Post::destroy($postId);
+                    Session::put('message', "This post is deleted!");
+                    return redirect('requests/post/list');
+                }
+            } else {
+                Session::put('message', "Something wrong here!");
+                return redirect('home');
+            }
+        } else return redirect('home');
     }
 }

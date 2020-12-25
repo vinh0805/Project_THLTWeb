@@ -15,7 +15,7 @@ class CategoryController extends Controller
         $category = Category::where('name', $categoryName)->first();
         if(isset($categoryPet) && isset($category)){
             $allPosts = Post::where('category_pet_id', $categoryPet->id)
-                ->where('category_id', $category->id)->get();
+                ->where('category_id', $category->id)->where('status', 1)->get();
             return view('categories.screen08-pet-category')
                 ->with('allPosts', $allPosts)->with('categoryPet', $categoryPet)
                 ->with('category', $category);

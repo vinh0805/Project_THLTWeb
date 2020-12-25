@@ -1,5 +1,14 @@
 @extends('layout')
 @section('content')
+    <?php
+    use Illuminate\Support\Facades\Session;
+    $message = Session::get('message');
+    if(isset($message)) {
+        echo '<span id="loginError">' . $message . '</span>';
+        Session::put('message', null);
+    }
+    ?>
+
     <section id="showPost">
         <h1 id="showPostTitle">{{$post->title}}</h1>
         <div id="showPostContent">{!! $post->content !!}</div>
@@ -25,5 +34,11 @@
                 </form>
             </section>
         @endif
+    @elseif($post->status == 0)
+        <form action="{{url('review-post/' . $post->id)}}" method="post">
+            @csrf
+            <button type="submit" name="submitButton" value="1">Accept this post</button>
+            <button type="submit" name="submitButton" value="0">Delete this post</button>
+        </form>
     @endif
 @endsection
