@@ -34,7 +34,7 @@ Route::get('/pets-category/{categoryPetName}/{categoryName}', 'CategoryControlle
 
 // Post
 Route::get('/post/create', 'PostController@createPost');
-Route::post('/post/save', 'PostController@savePost');
+Route::post('/post/save', 'PostController@savePost')->name('ckeditor.upload');
 Route::get('/post/{postId}', 'PostController@showPost');
 
 // Comment

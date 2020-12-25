@@ -88,13 +88,13 @@
                     <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
                     <li class="menu dropdown name">
                         <a href="{{url('logout')}}">
-                            <h1> <?= $user->name?> </h1> 
+                            <h1> <?= $user->name?> </h1>
                         </a>
                         <div class="dropdown-content">
-                            
+
                             <a href="{{url('/post/create')}}">New post</a>
                             <a href="{{url('/me')}}">Your information</a>
-                            <?php 
+                            <?php
                                 $totalNotification = App\Models\Notification::where('status', 0)->count();
                             ?>
                             <a href="{{url('/me/notifications')}}">
@@ -182,9 +182,12 @@
 </script>
 <script src="{{asset('backend/js/jquery-validation-1.19.2/src/localization/messages_vi.js')}}"></script>
 <script src="{{asset('backend/js/jquery-validation-1.19.2/src/additional/strongPassword.js')}}"></script>
-<script src="{{asset('backend/ckeditor/ckeditor.js')}}"></script>
+<script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace('postContent');
+    CKEDITOR.replace('postContent', {
+        filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
 </script>
 </body>
 </html>
