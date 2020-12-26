@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="{{asset('frontend/css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('backend/js/jquery-validation-1.19.2/demo/css/screen.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/stylesheet.css')}}">
-{{--    <link rel="stylesheet" href="{{asset('frontend/css/password-style.css')}}">--}}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
@@ -83,7 +82,7 @@
 			</div>
             <div class="acc">
                 <?php
-                    $user = Session::get('sUser');
+                    $user = \Illuminate\Support\Facades\Session::get('sUser');
                     if(isset($user)) {
                 ?>
                     <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
@@ -134,6 +133,32 @@
 <script src="{{asset('frontend/js/jquery-1.12.4.js')}}"></script>
 <script src="{{asset('backend/js/jquery-validation-1.19.2/lib/jquery.mockjax-2.2.1.js')}}"></script>
 <script src="{{asset('frontend/js/jquery-ui.js')}}"></script>
+
+@if(isset($user))
+    <script>
+        $("#likePostButton").click(function (){
+            $.ajax({
+                type: "get",
+                url: $(this).data('post-id') + '/update-like/' + $(this).data('user-id'),
+                dataType: 'json',
+                success: function (response){
+                    console.log($("#likePostButton").data('liked'));
+                    if ($("#likePostButton").data("liked") == 0) {
+                        console.log('liked!');
+                        $("#likePostButton").attr("data-liked", "1");
+                        $("#likePostButton").css("color", "#006cfa");
+                    } else if ($("#likePostButton").data("liked") == 1) {
+                        console.log('unliked!');
+                        $("#likePostButton").attr("data-liked", "0");
+                        $("#likePostButton").css("color", "#1a1c1b");
+                    }
+                    $("#likePostNumber").html(response);
+                }
+            });
+        });
+    </script>
+@endif
+
 <script>
     $(function() {
         $( "#datepicker" ).datepicker({

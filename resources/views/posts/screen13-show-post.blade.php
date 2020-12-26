@@ -17,11 +17,13 @@
         <hr>
 
         @if($post->status == 1)
-            @if(isset($user))
-                <label id="likeCommentNumber">{{$likePostNumber}}</label>
-                <label id="likePostButton"><i class="far fa-thumbs-up fa-3x"></i></label>
-                <hr>
-            @endif
+            <label id="likePostNumber">{{$likePostNumber}}</label>
+            <i id="likePostButton" class="far fa-thumbs-up fa-3x"
+                @if(isset($postIsLiked) && $postIsLiked == 1) style="color: #006cfa" data-liked="1"
+                @else style="color: #1a1c1b" data-liked="0" @endif
+                @if(isset($user)) data-user-id="{{$user->id}}" data-post-id="{{$post->id}}" @endif>
+                </i>
+            <hr>
             <section id="show-comment">
                 <h2><b>Comment</b></h2>
                 @foreach($allComments as $comment)
@@ -35,7 +37,8 @@
                             <header class="right-top-comment">
                                 <div class="comment-created-at">{{$comment->created_at}}</div>
                                 <label class="like-comment-number">{{$likeArray[$i]}}</label>
-                                <label class="like-comment-button"><i class="far fa-thumbs-up fa-2x"></i></label>
+                                <i class="like-comment-button far fa-thumbs-up fa-2x"
+                                   @if(isset($commentIsLikedArray[$i]) && $commentIsLikedArray[$i] == 1) style="color: #006cfa" @endif></i>
                             </header>
                             <div class="comment-content">{{$comment->content}}</div>
                         </div>
@@ -56,8 +59,10 @@
             <div class = "request">
             <form action="{{url('review-post/' . $post->id)}}" method="post">
                 @csrf
-                <button class="accept" type="submit" onclick="return confirm('Do you want to accept?')" name="submitButton" value="1">Accept this post</button>
-                <button class = "decline" type="submit"  onclick="return confirm('Do you want to delete?')" name="submitButton" value="0">Delete this post</button>
+                <button class="accept" type="submit" onclick="return confirm('Do you want to accept?')"
+                        name="submitButton" value="1">Accept this post</button>
+                <button class = "decline" type="submit" onclick="return confirm('Do you want to delete?')"
+                        name="submitButton" value="0">Delete this post</button>
             </form>
             </div>
         @endif
