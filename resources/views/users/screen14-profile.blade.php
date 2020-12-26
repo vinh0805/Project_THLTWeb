@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <h1>Screen 02</h1>
+    <h1>Screen 14</h1>
     <form role="form" method="post" id="editProfileForm" action="{{url('update-profile/' . $user->id)}}"
           enctype="multipart/form-data">
         {{csrf_field()}}

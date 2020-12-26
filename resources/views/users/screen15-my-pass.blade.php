@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <h1>Screen 03</h1>
+    <h1>Screen 15</h1>
     <form role="form" method="post" id="changePasswordForm" action="{{url('update-password/' . $user->id)}}"
           enctype="multipart/form-data">
         {{csrf_field()}}
@@ -29,6 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Nhập lại mật khẩu</label>
+                <label class="star"> (*)</label>
                 <label for="confirm_new_password"></label>
                 <input type="password" class="form-control" id="confirm_new_password" data-validation="length"
                        data-validation-length="min6" data-validation-error-msg="Ít nhất 6 ký tự, ít nhất 1 ký tự hoa,
