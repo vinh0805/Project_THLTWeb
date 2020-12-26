@@ -118,10 +118,10 @@ span#loginError {
 	float: left;
 	margin-left: -150px;
 }
-.input-field div .br { 
-    display: block; 
-    margin-bottom: -1em; 
-} 
+.input-field div .br {
+    display: block;
+    margin-bottom: -1em;
+}
 .option {
 	color: rgba(0, 0, 0, 0.5);
 	clear: both;
@@ -177,7 +177,7 @@ span#loginError {
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  
+
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -249,16 +249,16 @@ span#loginError {
 
 .header {
 	width: 100%;
-	height: 140px;
-	background: #FFEACD;
+	height: 160px;
+	background: #FFFFFF;
 }
 .logo-field {
 	width: 25%;
-	height: 140px;	
+	height: 140px;
 	float: left;
 }
 .logo-field img {
-	width: 40%;
+	width: 38%;
 	margin-left: 20%;
 	margin-top: 5%;
 }
@@ -406,7 +406,7 @@ li.menu img#avatar {
     width: 50px;
     height: 50px;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 50%;
     border: 2px solid #FFA726;
     float: left;
 }
@@ -424,25 +424,44 @@ li.menu a:hover {
 }
 /* Home's Hot post  */
 #content {
+    padding: 20px 10% 0 10%;
     width: 98%;
     margin-top: 20px;
     margin-right: auto;
     margin-left: auto;
 }
 #search {
-    width: 30%;
+    width: 80%;
     margin-right: auto;
     margin-left: auto;
 }
-#search input {
-    height: auto;
-    min-height: 35px;
-    min-width: 100px;
+#searchInput {
+    font-size: 20px;
+    min-width: 79%;
+    height: 50px;
     border-radius: 50px;
     border: 1px;
 }
-#searchInput {
-    width: 64%;
+#searchButton {
+    font-weight: bold;
+    font-size: 20px;
+    min-width: 20%;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: #ffaa22;
+}
+#searchButton:hover {
+    background-color: #e28700;
+}
+#hotPosts .category-list .category-post {
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    border-bottom: 2px solid rgb(32, 32, 32);
+}
+#hotPosts .category-list .category-post a {
+    font-size: 20px;
 }
 .login-page h3 {
     font-size: 30px;
@@ -450,14 +469,18 @@ li.menu a:hover {
     margin-bottom: 20px;
 }
 #Category {
-    margin-left: 50px;
+    /*margin-left: 50px;*/
     margin-bottom: 50px;
 }
-#Category table {
-    width: 80%;
+#Category {
+    /*width: 80%;*/
+    border:2px solid rgba(0, 0, 0, 0.5);
+    border-top:15px solid rgba(0, 0, 0, 0.5);
+    border-right:15px solid rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
 }
 #Category tr {
-    height: 50px; 
+    height: 50px;
     border-left: 2px solid grey;
     border-right: 2px solid grey;
     border-bottom: 1px solid grey;
@@ -475,9 +498,17 @@ li.menu a:hover {
     background-color: #edf6fdb0;
     border: 2px solid grey;
 }
+
 #Category a {
     color: #2577b1;
 }
+
+.tables{ border-collapse:collapse; table-layout:fixed;}
+
+.post-column {
+    max-width: 100px !important;
+}
+
 
 #header {
     position: sticky;
@@ -654,6 +685,63 @@ p.showUserEmail{
 }
 
 /*Screen 13: show request info Popup*/
+.post-sw-body {
+    width: 80%;
+    margin-top: 30px;
+}
+#showComment h2 {
+    font-size: 16px;
+}
+#showComment .usercmt {
+    height: auto;
+    min-height: 70px;
+    width: 80%;
+    margin-bottom: 10px;
+    background-color: wheat;
+    padding: 10px;
+    border-radius: 10px;
+}
+.cmt-user-avat {
+    width: 50px;
+    height: auto;
+    min-height: 50px;
+    float: left;
+    border-radius: 5px;
+    border: 2px solid #FFA726;
+    margin-right: 20px;
+}
+.cmt-info {
+    width: 70%;
+    
+}
+#showComment .usercmt .cmt-content {
+    margin-left: 30px;
+}
+#writeComment {
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+#writeComment form {
+    width: 100%;
+}
+#writeComment label {
+    width: 100%;
+}
+#commentContent {
+    width: 70%;
+    border-radius: 10px;
+    padding: 10px;
+}
+#writeCommentButton {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    padding: 7px;
+    border-radius: 10px;
+    background-color: #E28700;
+    border: 0px;
+}
 div.show-request-info-row {
     width: 200px;
     display: inline-block;
@@ -681,6 +769,74 @@ textarea#reasonOfRequest {
     padding: 5px 10px 5px 10px;
 }
 
+.card-body-pass {
+    width: 80%;
+    height: auto;
+    min-height: 550px;
+    background: #FFDEAE;
+    border: 10px solid white;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+
+.form-group-pass {
+    padding-left: 10%;
+}
+
+.form-group-pass label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group-pass input {
+    display: inline-block; 
+    border-radius: 150px;
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.form-group-pass button{
+    width: 40%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background-color: #E26100;
+    box-shadow: px 2px 5px grey;
+    height: 40px;
+    border-radius: 50px;
+    border-width: 0px;
+    color: white;
+}
+
+.card-body-pass div#formHeader {
+    border-bottom: solid 3px #0c525d;
+}
+
+.form-group-pass button#changePassButton {
+    width: 60%;
+    background-color: #F20400;
+    margin-left: -5%;
+}
+
+div.form-group-pass #formHeader {
+    border-bottom: solid 3px #0c525d;
+    position: center;
+}
+
+.form-group-pass button#submitButton {
+    margin-left: -100%;
+    float:left;
+    margin-left: 20%;
+    color: yellow;
+}
+
 /* Screen 4: home page */
 section#advertisement {
     width: 100%;
@@ -704,7 +860,11 @@ section#advertisement {
 }
 
 /* Screen 18: Post create */
-
+.post-crt-body {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .post-option {
     width: 50%;
     margin-top: 20px;
@@ -739,7 +899,26 @@ section#advertisement {
 .post-content {
     background-color: #E28700;
 }
-
+.request {
+    margin-top: 50px;
+}
+.accept {
+    font-size: 18px;
+    color: white;
+    padding: 5px;
+    background-color: #E28700;
+    border: 0px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.decline {
+    font-size: 18px;
+    color: white;
+    padding: 5px;
+    background-color: red;
+    border: 0px;
+    border-radius: 10px;
+}
 /* Screen08 pet category */
 .category-body {
     width: 80%;
@@ -747,20 +926,50 @@ section#advertisement {
 }
 .category-body h1 {
     margin-bottom: 10px;
+    width: 500px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
 .category-list {
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 20px;
-    border:2px solid rgba(0, 0, 0, 0.5);
-    border-top:15px solid rgba(0, 0, 0, 0.5);
-    border-right:15px solid rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
+    margin: 30px 0 30px 0;
 }
 .category-post {
-    height: 40px;
+    height: 170px;
+    background-color: white;
+    margin-top: 10px;
 }
 .category-post a {
     color: black;
-    font-size: 16px;
+    font-size: 24px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.category-post .content {  
+    height: 100px;
+    overflow: hidden;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.content p {
+    color: #808080;
+}
+.request-post {
+    width: 60%;
+    height: 50px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+.request-post a {
+    font-size: 18px;
+    color: rgb(39, 39, 39);
+    font-weight: 700;
+    margin-left: 20px;
 }
