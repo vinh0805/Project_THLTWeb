@@ -33,7 +33,8 @@
     {{--    Menu--}}
         <div class = "logo-field">
 			<a href="{{url('home')}}">
-				<img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
+                <img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
+                <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
 			</a>
 		</div>
         <nav class = "nav-bar">
@@ -196,4 +197,7 @@
     });
 </script>
 </body>
+<footer style="height: 50px">
+
+</footer>
 </html>

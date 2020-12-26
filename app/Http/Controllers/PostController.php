@@ -39,11 +39,19 @@ class PostController extends Controller
     {
         $allCategoryPet = CategoryPet::all();
         $allCategory = Category::all();
-        // $hotPosts = Post::whereIn('id', $this->findHotPosts())->get();
         $hotPosts = Post::find($this->findHotPosts());
+        $countPost = [];
+        $i = 0;
+        foreach ($allCategoryPet as $categoryPet) {
+            foreach ( $allCategory as $category) {
+                $countPost[$i] = count(Post::where('category_pet_id', '=', $categoryPet->id)->where('category_id', '=', $category->id)
+                    ->where('status', '=', 1)->get());
+                $i++;
+            }
+        }
 
         return view('screen04-home-page')->with('allCategoryPet', $allCategoryPet)->with('allCategory', $allCategory)
-            ->with('hotPosts', $hotPosts);
+            ->with('hotPosts', $hotPosts)->with('countPost', $countPost);
     }
 
     public function findHotPosts()
@@ -124,7 +132,7 @@ class PostController extends Controller
             echo "Have bug!!!";
         } else {
             $allComments = DB::table('comments')->join('users', 'comments.user_id', '=', 'users.id')
-                ->select('comments.*', 'users.*')->where('post_id', '=', $post->id)->get();
+                ->select('comments.*', 'users.name', 'users.avatar')->where('post_id', '=', $post->id)->get();
             return view('posts.screen13-show-post')
                 ->with('post', $post)->with('allComments', $allComments);
         }

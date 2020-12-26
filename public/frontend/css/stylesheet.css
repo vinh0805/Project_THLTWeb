@@ -712,35 +712,41 @@ p.showUserEmail{
 }
 .cmt-info {
     width: 70%;
-    
+
 }
 #showComment .usercmt .cmt-content {
     margin-left: 30px;
 }
 #writeComment {
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 30px;
     margin-bottom: 50px;
 }
 #writeComment form {
     width: 100%;
 }
-#writeComment label {
-    width: 100%;
-}
 #commentContent {
-    width: 70%;
+    height: 60px;
+    display: inline-block;
+    float: left;
+    min-width: 87%;
     border-radius: 10px;
     padding: 10px;
+    margin-right: 3%;
 }
 #writeCommentButton {
+    height: 50px;
+    display: inline-block;
+    float: right;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: bold;
     color: white;
     padding: 7px;
     border-radius: 10px;
     background-color: #E28700;
-    border: 0px;
+    border: 0;
 }
 div.show-request-info-row {
     width: 200px;
@@ -951,7 +957,7 @@ section#advertisement {
     margin-left: 30px;
     margin-top: 10px;
 }
-.category-post .content {  
+.category-post .content {
     height: 100px;
     overflow: hidden;
     margin-left: 30px;
@@ -972,4 +978,60 @@ section#advertisement {
     color: rgb(39, 39, 39);
     font-weight: 700;
     margin-left: 20px;
+}
+
+/*Screen 13: show post*/
+#show-comment {
+    width: 100%;
+}
+.comment {
+    min-width: 100%;
+    margin: 10px;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+}
+.left-comment {
+    position: relative;
+    max-width: 14%;
+    padding: 20px;
+    display: inline-block;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.right-comment {
+    float: right;
+    margin: 10px 10px 0 0;
+    min-height: 100%;
+    position: relative;
+    width: 83%;
+    display: inline-block;
+}
+.right-top-comment {
+    position: static;
+    display: inline-block;
+    min-width: 100%;
+    border-bottom: 1px solid darkgrey;
+}
+.comment-created-at {
+    float: left;
+}
+.like-button {
+    float: right;
+    display: inline-block;
+}
+.fa.fa-thumbs-up {
+    width: 20px;
+}
+.comment-content {
+    font-size: 18px;
+    display: block;
+    position: relative;
+}
+.avatar {
+    width: 100px;
+    height: 100px;
+}
+.user-name {
+    display: block;
 }
