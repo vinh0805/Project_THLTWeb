@@ -39,11 +39,19 @@ class PostController extends Controller
     {
         $allCategoryPet = CategoryPet::all();
         $allCategory = Category::all();
-        // $hotPosts = Post::whereIn('id', $this->findHotPosts())->get();
         $hotPosts = Post::find($this->findHotPosts());
+        $countPost = [];
+        $i = 0;
+        foreach ($allCategoryPet as $categoryPet) {
+            foreach ( $allCategory as $category) {
+                $countPost[$i] = count(Post::where('category_pet_id', '=', $categoryPet->id)->where('category_id', '=', $category->id)
+                    ->where('status', '=', 1)->get());
+                $i++;
+            }
+        }
 
         return view('screen04-home-page')->with('allCategoryPet', $allCategoryPet)->with('allCategory', $allCategory)
-            ->with('hotPosts', $hotPosts);
+            ->with('hotPosts', $hotPosts)->with('countPost', $countPost);
     }
 
     public function findHotPosts()
