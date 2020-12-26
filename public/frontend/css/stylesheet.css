@@ -800,7 +800,7 @@ textarea#reasonOfRequest {
 }
 
 .form-group-pass input {
-    display: inline-block; 
+    display: inline-block;
     border-radius: 150px;
     width: 30%;
     margin-top: 10px;
@@ -987,7 +987,7 @@ section#advertisement {
 #likePostButton {
     float: right;
 }
-#likeCommentNumber {
+#likePostNumber {
     font-size: 20px;
     float: right;
     margin: 10px 10px 0 10px;

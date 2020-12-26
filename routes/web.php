@@ -43,6 +43,8 @@ Route::post('review-post/{postId}', 'PostController@reviewPost');
 // Comment
 Route::post('/post/{postId}/write-comment', 'CommentController@writeComment');
 
+// Like
+Route::get('/post/{postId}/update-like/{userId}', 'LikeController@updateLikeStatus');
 
 // Notification
 Route::get('/me/notifications', 'NotificationController@index');
