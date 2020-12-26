@@ -17,6 +17,7 @@
         <hr>
 
         @if($post->status == 1)
+
             <label id="likePostNumber">{{$likePostNumber}}</label>
             <i id="likePostButton" class="far fa-thumbs-up fa-3x"
                 @if(isset($postIsLiked) && $postIsLiked == 1) style="color: #006cfa" data-liked="1"
