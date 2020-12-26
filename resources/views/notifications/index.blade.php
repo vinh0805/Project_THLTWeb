@@ -27,7 +27,7 @@
         @endforeach
         {{$notifications->links()}}
     @else
-        <p>No notifications found</p>
+        <p class = "none">No notifications found</p>
     @endif
     </div>
 @endsection

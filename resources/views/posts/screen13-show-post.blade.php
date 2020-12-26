@@ -18,9 +18,10 @@
 
         @if($post->status == 1)
             @if(isset($user))
+                <div class = "like-body">
                 <label id="likeCommentNumber">{{$likePostNumber}}</label>
                 <label id="likePostButton"><i class="far fa-thumbs-up fa-3x"></i></label>
-                <hr>
+                </div>
             @endif
             <section id="show-comment">
                 <h2><b>Comment</b></h2>

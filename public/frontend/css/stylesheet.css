@@ -48,7 +48,7 @@ span#loginError {
 .input-form {
 	height: 40px;
 	width: 100%;
-	border-radius: 50px;
+	border-radius: 4px;
     border-width: 0px;
     padding-left: 20px;
 }
@@ -61,7 +61,7 @@ span#loginError {
 .login-button {
 	height: 40px;
 	width: 100%;
-	border-radius: 50px;
+	border-radius: 4px;
 	border-width: 0px;
 	color: white;
 	background-color: #E28700;
@@ -130,7 +130,7 @@ span#loginError {
 .input-form {
 	width: 100%;
 	height: 40px;
-	border-radius: 50px;
+	border-radius: 4px;
 	border-width: 0px;
 }
 
@@ -206,7 +206,7 @@ span#loginError {
 .sign-button {
 	height: 40px;
 	width: 100%;
-	border-radius: 50px;
+	border-radius: 4px;
 	border-width: 0px;
 	color: white;
 	background-color: #E28700;
@@ -295,7 +295,7 @@ span#loginError {
 	text-align: center;
 	background: #E28700;
 	float: right;
-	border-radius: 50px;
+	border-radius: 4px;
 	border-width: 0px;
 	margin-right: 5%;
 }
@@ -439,7 +439,7 @@ li.menu a:hover {
     font-size: 20px;
     min-width: 79%;
     height: 50px;
-    border-radius: 50px;
+    border-radius: 4px;
     border: 1px;
 }
 #searchButton {
@@ -447,7 +447,7 @@ li.menu a:hover {
     font-size: 20px;
     min-width: 20%;
     height: 50px;
-    border-radius: 50px;
+    border-radius: 4px;
     border: none;
     background-color: #ffaa22;
 }
@@ -477,14 +477,14 @@ li.menu a:hover {
     border:2px solid rgba(0, 0, 0, 0.5);
     border-top:15px solid rgba(0, 0, 0, 0.5);
     border-right:15px solid rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 #Category tr {
     height: 50px;
     border-left: 2px solid grey;
     border-right: 2px solid grey;
     border-bottom: 1px solid grey;
-    border-radius: 50px;
+    border-radius: 4px;
 }
 #Category td {
     padding-left: 20px;
@@ -565,11 +565,15 @@ button.btn.btn-primary#goBackButton a#goBack {
 form.has-validation-callback {
     padding: 20px;
     border: solid 1px gray;
-    border-radius: 5px;
+    border-radius: 4px;
     margin-bottom: 200px;
 }
 span#changePassSpan{
-    margin-left: 150px;
+    margin-right: -150px;
+}
+span#changePassSpan .sign-button {
+    float: right;
+    width: 50%;
 }
 span#changePassSpan2{
     margin-left: 20px;
@@ -699,14 +703,14 @@ p.showUserEmail{
     margin-bottom: 10px;
     background-color: wheat;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 .cmt-user-avat {
     width: 50px;
     height: auto;
     min-height: 50px;
     float: left;
-    border-radius: 5px;
+    border-radius: 4px;
     border: 2px solid #FFA726;
     margin-right: 20px;
 }
@@ -732,7 +736,7 @@ p.showUserEmail{
     display: inline-block;
     float: left;
     min-width: 87%;
-    border-radius: 10px;
+    border-radius: 4px;
     padding: 10px;
     margin-right: 3%;
 }
@@ -744,7 +748,7 @@ p.showUserEmail{
     font-weight: bold;
     color: white;
     padding: 7px;
-    border-radius: 10px;
+    border-radius: 4px;
     background-color: #E28700;
     border: 0;
 }
@@ -774,19 +778,13 @@ label.completedStatus {
 textarea#reasonOfRequest {
     padding: 5px 10px 5px 10px;
 }
-
-.card-body-pass {
-    width: 80%;
-    height: auto;
-    min-height: 550px;
-    background: #FFDEAE;
-    border: 10px solid white;
-    margin-top: 30px;
+.signup-box h2 {
+    width: fit-content;
+    font-size: 30px;
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
 }
-
 
 .form-group-pass {
     padding-left: 10%;
@@ -801,7 +799,7 @@ textarea#reasonOfRequest {
 
 .form-group-pass input {
     display: inline-block; 
-    border-radius: 150px;
+    border-radius: 4px;
     width: 30%;
     margin-top: 10px;
     margin-bottom: 5px;
@@ -816,7 +814,7 @@ textarea#reasonOfRequest {
     background-color: #E26100;
     box-shadow: px 2px 5px grey;
     height: 40px;
-    border-radius: 50px;
+    border-radius: 4px;
     border-width: 0px;
     color: white;
 }
@@ -850,17 +848,28 @@ section#advertisement {
     background-color: pink;
 }
 /* Screen 16: list notifications */
+.notifications {
+    padding-left: 15%;
+    padding-right: 15%;
+}
 .notification {
     margin: 10px 100px;
-    padding: 0 10px 10px 10px;
+    
     width: 80%;
     text-align: left;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 4px;
     font-weight: bold;
-
 }
-
+.notifications h1 {
+    font-size: 30px;
+    margin-top: 1.5em;
+    padding-bottom: 40px;
+}
+.notifications .none {
+    font-size: 18px;
+    color: red;
+}
 .notification#seen {
     font-weight: normal;
 }
@@ -870,6 +879,10 @@ section#advertisement {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+}
+.post-crt-body h1 {
+    font-size: 30px;
+    margin-top: 1.5em;
 }
 .post-option {
     width: 50%;
@@ -896,7 +909,7 @@ section#advertisement {
     height: 40px;
     width: 25%;
     margin-left: 25%;
-	border-radius: 50px;
+	border-radius: 4px;
 	border-width: 0px;
 	color: white;
 	background-color: #E28700;
@@ -914,7 +927,7 @@ section#advertisement {
     padding: 5px;
     background-color: #E28700;
     border: 0px;
-    border-radius: 10px;
+    border-radius: 4px;
     margin-right: 10px;
 }
 .decline {
@@ -923,7 +936,7 @@ section#advertisement {
     padding: 5px;
     background-color: red;
     border: 0px;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 /* Screen08 pet category */
 .category-body {
@@ -931,6 +944,7 @@ section#advertisement {
     margin-top: 30px;
 }
 .category-body h1 {
+    margin-top: 1em;
     margin-bottom: 10px;
     width: 500px;
     text-align: center;
@@ -948,8 +962,10 @@ section#advertisement {
 }
 .category-post {
     height: 170px;
+    overflow: hidden;
     background-color: white;
     margin-top: 10px;
+    padding-top: 20px;
 }
 .category-post a {
     color: black;
@@ -971,7 +987,7 @@ section#advertisement {
     height: 50px;
     padding: 10px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 .request-post a {
     font-size: 18px;
@@ -993,10 +1009,10 @@ section#advertisement {
     margin: 10px 10px 0 10px;
 }
 .comment {
-    min-width: 100%;
+    min-width: 50px;
     margin: 10px;
     border: 1px solid darkgrey;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 .left-comment {
     position: relative;
@@ -1004,7 +1020,7 @@ section#advertisement {
     padding: 20px;
     display: inline-block;
     border: 1px solid darkgrey;
-    border-radius: 10px;
+    border-radius: 4px;
     margin-right: 20px;
 }
 .right-comment {
@@ -1012,7 +1028,7 @@ section#advertisement {
     margin: 10px 10px 0 0;
     min-height: 100%;
     position: relative;
-    width: 83%;
+    width: 89%;
     display: inline-block;
 }
 .right-top-comment {
@@ -1043,8 +1059,8 @@ section#advertisement {
     position: relative;
 }
 .avatar {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
 }
 .user-name {
     display: block;
