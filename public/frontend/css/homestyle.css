@@ -14,7 +14,7 @@
 }
 .logo-field {
 	width: 25%;
-	height: 140px;	
+	height: 140px;
 	float: left;
 }
 .logo-field img {
@@ -69,5 +69,5 @@
 	margin-left: 15%;
 }
 input:focus, textarea:focus, select:focus{
-        outline: none;
-    }
+    outline: none;
+}
