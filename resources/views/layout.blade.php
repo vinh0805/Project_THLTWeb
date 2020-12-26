@@ -197,4 +197,7 @@
     });
 </script>
 </body>
+<footer style="height: 50px">
+
+</footer>
 </html>

@@ -712,35 +712,41 @@ p.showUserEmail{
 }
 .cmt-info {
     width: 70%;
-    
+
 }
 #showComment .usercmt .cmt-content {
     margin-left: 30px;
 }
 #writeComment {
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 30px;
     margin-bottom: 50px;
 }
 #writeComment form {
     width: 100%;
 }
-#writeComment label {
-    width: 100%;
-}
 #commentContent {
-    width: 70%;
+    height: 60px;
+    display: inline-block;
+    float: left;
+    min-width: 87%;
     border-radius: 10px;
     padding: 10px;
+    margin-right: 3%;
 }
 #writeCommentButton {
+    height: 50px;
+    display: inline-block;
+    float: right;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: bold;
     color: white;
     padding: 7px;
     border-radius: 10px;
     background-color: #E28700;
-    border: 0px;
+    border: 0;
 }
 div.show-request-info-row {
     width: 200px;
@@ -883,7 +889,7 @@ section#advertisement {
     margin-left: 30px;
     margin-top: 10px;
 }
-.category-post .content {  
+.category-post .content {
     height: 100px;
     overflow: hidden;
     margin-left: 30px;
@@ -908,7 +914,7 @@ section#advertisement {
 
 /*Screen 13: show post*/
 #show-comment {
-    min-width: 90%;
+    width: 100%;
 }
 .comment {
     min-width: 100%;
@@ -927,12 +933,10 @@ section#advertisement {
 }
 .right-comment {
     float: right;
-    margin: 5px 10px 0 0;
+    margin: 10px 10px 0 0;
     min-height: 100%;
     position: relative;
-    top: 0;
-    width: 85%;
-    max-width: 85%;
+    width: 83%;
     display: inline-block;
 }
 .right-top-comment {
@@ -948,7 +952,11 @@ section#advertisement {
     float: right;
     display: inline-block;
 }
+.fa.fa-thumbs-up {
+    width: 20px;
+}
 .comment-content {
+    font-size: 18px;
     display: block;
     position: relative;
 }
