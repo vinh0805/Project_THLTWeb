@@ -916,6 +916,14 @@ section#advertisement {
 #show-comment {
     width: 100%;
 }
+#likePostButton {
+    float: right;
+}
+#likeCommentNumber {
+    font-size: 20px;
+    float: right;
+    margin: 10px 10px 0 10px;
+}
 .comment {
     min-width: 100%;
     margin: 10px;
@@ -948,7 +956,13 @@ section#advertisement {
 .comment-created-at {
     float: left;
 }
-.like-button {
+.like-comment-number {
+    float: right;
+    display: inline-block;
+    margin-left: 10px;
+    min-width: 20px;
+}
+.like-comment-button {
     float: right;
     display: inline-block;
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\CategoryPet;
 use App\Models\Comment;
+use App\Models\LikeComment;
 use App\Models\LikePost;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -49,7 +50,6 @@ class PostController extends Controller
                 $i++;
             }
         }
-
         return view('screen04-home-page')->with('allCategoryPet', $allCategoryPet)->with('allCategory', $allCategory)
             ->with('hotPosts', $hotPosts)->with('countPost', $countPost);
     }
@@ -131,10 +131,17 @@ class PostController extends Controller
         if(!isset($post)){
             echo "Have bug!!!";
         } else {
+            $likePostNumber = count(LikePost::where('post_id', '=', $post->id)->get());
             $allComments = DB::table('comments')->join('users', 'comments.user_id', '=', 'users.id')
                 ->select('comments.*', 'users.name', 'users.avatar')->where('post_id', '=', $post->id)->get();
-            return view('posts.screen13-show-post')
-                ->with('post', $post)->with('allComments', $allComments);
+            $likeArray = [];
+            $i = 0;
+            foreach ($allComments as $comment) {
+                $likeArray[$i] = count(LikeComment::where('comment_id', '=', $comment->id)->get());
+                $i++;
+            }
+            return view('posts.screen13-show-post')->with('likeArray' ,$likeArray)
+                ->with('post', $post)->with('allComments', $allComments)->with('likePostNumber', $likePostNumber);
         }
         return 0;
     }
