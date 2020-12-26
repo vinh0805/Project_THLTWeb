@@ -135,13 +135,27 @@ class PostController extends Controller
             $allComments = DB::table('comments')->join('users', 'comments.user_id', '=', 'users.id')
                 ->select('comments.*', 'users.name', 'users.avatar')->where('post_id', '=', $post->id)->get();
             $likeArray = [];
+            $commentIsLikedArray = [];
             $i = 0;
             foreach ($allComments as $comment) {
                 $likeArray[$i] = count(LikeComment::where('comment_id', '=', $comment->id)->get());
+                if (isset($user)) {
+                    $likeComment = LikeComment::where('user_id', '=', $user->id)->where('comment_id', '=', $comment->id)->first();
+                    $commentIsLikedArray[$i] = isset($likeComment) ? 1 : 0;
+                }
                 $i++;
             }
-            return view('posts.screen13-show-post')->with('likeArray' ,$likeArray)
-                ->with('post', $post)->with('allComments', $allComments)->with('likePostNumber', $likePostNumber);
+            $user = Session::get('sUser');
+            if (isset($user)){
+                $likePost = LikePost::where('user_id', '=', $user->id)->where('post_id', '=', $post->id)->first();
+                $postIsLiked = isset($likePost) ? 1 : 0;
+                return view('posts.screen13-show-post')->with('likeArray' ,$likeArray)
+                    ->with('post', $post)->with('allComments', $allComments)->with('likePostNumber', $likePostNumber)
+                    ->with('postIsLiked', $postIsLiked)->with('commentIsLikedArray', $commentIsLikedArray);
+            } else {
+                return view('posts.screen13-show-post')->with('likeArray' ,$likeArray)
+                    ->with('post', $post)->with('allComments', $allComments)->with('likePostNumber', $likePostNumber);
+            }
         }
         return 0;
     }
