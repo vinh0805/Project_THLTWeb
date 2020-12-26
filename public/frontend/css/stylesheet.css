@@ -64,7 +64,7 @@ span#loginError {
 	border-radius: 4px;
 	border-width: 0px;
 	color: white;
-	background-color: #E28700;
+	background-color: #FF9800;
 	box-shadow: px 2px 5px grey;
 }
 
@@ -199,7 +199,7 @@ span#loginError {
 	width: 15px;
 	height: 15px;
 	border-radius: 50%;
-	background: orange;
+	background: #FF9800;
 }
 
 
@@ -209,7 +209,7 @@ span#loginError {
 	border-radius: 4px;
 	border-width: 0px;
 	color: white;
-	background-color: #E28700;
+	background-color: #FF9800;
 	box-shadow: px 2px 5px grey;
 }
 
@@ -293,7 +293,7 @@ span#loginError {
 	padding: 10px;
 	color: white;
 	text-align: center;
-	background: #E28700;
+	background: #FF9800;
 	float: right;
 	border-radius: 4px;
 	border-width: 0px;
@@ -362,7 +362,7 @@ input:focus, textarea:focus, select:focus{
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #FFA726;
+    background-color: #FF9800;
     border-radius: 5px;
 }
 
@@ -449,7 +449,8 @@ li.menu a:hover {
     height: 50px;
     border-radius: 4px;
     border: none;
-    background-color: #ffaa22;
+    background-color: #FF9800;
+    color: white;
 }
 #searchButton:hover {
     background-color: #e28700;
@@ -711,7 +712,7 @@ p.showUserEmail{
     min-height: 50px;
     float: left;
     border-radius: 4px;
-    border: 2px solid #FFA726;
+    border: 2px solid #FF9800;
     margin-right: 20px;
 }
 .cmt-info {
@@ -749,7 +750,7 @@ p.showUserEmail{
     color: white;
     padding: 7px;
     border-radius: 4px;
-    background-color: #E28700;
+    background-color: #FF9800;
     border: 0;
 }
 div.show-request-info-row {
@@ -811,7 +812,7 @@ textarea#reasonOfRequest {
     width: 40%;
     margin-top: 24px;
     margin-bottom: 24px;
-    background-color: #E26100;
+    background-color: #FF9800;
     box-shadow: px 2px 5px grey;
     height: 40px;
     border-radius: 4px;
@@ -912,11 +913,11 @@ section#advertisement {
 	border-radius: 4px;
 	border-width: 0px;
 	color: white;
-	background-color: #E28700;
+	background-color: #FF9800;
 	box-shadow: px 2px 5px grey;
 }
 .post-content {
-    background-color: #E28700;
+    background-color: #FF9800;
 }
 .request {
     margin-top: 50px;
@@ -925,7 +926,7 @@ section#advertisement {
     font-size: 18px;
     color: white;
     padding: 5px;
-    background-color: #E28700;
+    background-color:#FF9800;
     border: 0px;
     border-radius: 4px;
     margin-right: 10px;
