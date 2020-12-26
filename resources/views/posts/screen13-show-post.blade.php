@@ -29,7 +29,7 @@
                     <div class="right-comment">
                         <header class="right-top-comment">
                             <div class="comment-created-at">{{$comment->created_at}}</div>
-                            <label class="like-button"><i class="far fa-thumbs-up"></i></label>
+                            <label class="like-button"><i class="far fa-thumbs-up fa-2x"></i></label>
                         </header>
                         <div class="comment-content">{{$comment->content}}</div>
                     </div>
@@ -40,10 +40,8 @@
             <section id="writeComment">
                 <form action="{{url('post/' . $post->id . '/write-comment')}}" method="post">
                     @csrf
-                    <label>
-                        <textarea id="commentContent" name="commentContent" placeholder="Write comment here..."></textarea>
-                    </label>
-                    <button type="submit" id="writeCommentButton">Write comment</button>
+                    <textarea id="commentContent" name="commentContent" placeholder="Write comment here..."></textarea>
+                    <button type="submit" id="writeCommentButton">Comment</button>
                 </form>
             </section>
         @endif
