@@ -788,3 +788,56 @@ section#advertisement {
     font-size: 16px;
 }
 
+/*Screen 13: show post*/
+#show-comment {
+    min-width: 90%;
+}
+.comment {
+    min-width: 100%;
+    margin: 10px;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+}
+.left-comment {
+    position: relative;
+    max-width: 14%;
+    padding: 20px;
+    display: inline-block;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.right-comment {
+    float: right;
+    margin: 5px 10px 0 0;
+    min-height: 100%;
+    position: relative;
+    top: 0;
+    width: 85%;
+    max-width: 85%;
+    display: inline-block;
+}
+.right-top-comment {
+    position: static;
+    display: inline-block;
+    min-width: 100%;
+    border-bottom: 1px solid darkgrey;
+}
+.comment-created-at {
+    float: left;
+}
+.like-button {
+    float: right;
+    display: inline-block;
+}
+.comment-content {
+    display: block;
+    position: relative;
+}
+.avatar {
+    width: 100px;
+    height: 100px;
+}
+.user-name {
+    display: block;
+}

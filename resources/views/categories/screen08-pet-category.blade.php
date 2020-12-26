@@ -1,5 +1,15 @@
 @extends('layout')
 @section('content')
+    <?php
+    use Illuminate\Support\Facades\Session;
+    $message = Session::get('message');
+    if(isset($message)) {
+        echo '<span id="loginError">' . $message . '</span>';
+        Session::put('message', null);
+    }
+    $user = \Illuminate\Support\Facades\Session::get('sUser')
+    ?>
+
     <section class = "category-body">
         <div class = "category-list">
             <h1>{{$categoryPet->name}} {{$category->name}}</h1>
