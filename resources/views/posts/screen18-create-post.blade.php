@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+<div class = "post-crt-body">
     <h1 class = "PostCreateTitle">Create a new post</h1>
     <form action="{{url('post/save')}}" method="post">
         @csrf
@@ -33,4 +34,5 @@
             <textarea id="postContent" name="postContent" class = "post-content"></textarea>
         </div>
     </form>
+</div>
 @endsection
