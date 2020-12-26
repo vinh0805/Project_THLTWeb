@@ -9,7 +9,7 @@
     }
     $user = \Illuminate\Support\Facades\Session::get('sUser')
     ?>
-
+    <div class = "post-sw-body">
     <section id="showPost">
         <h1 id="showPostTitle">{{$post->title}}</h1>
         <div id="showPostContent">{!! $post->content !!}</div>
@@ -48,10 +48,13 @@
             </section>
         @endif
     @elseif($post->status == 0)
+        <div class = "request">
         <form action="{{url('review-post/' . $post->id)}}" method="post">
             @csrf
-            <button type="submit" name="submitButton" value="1">Accept this post</button>
-            <button type="submit" name="submitButton" value="0">Delete this post</button>
+            <button class = "accept" type="submit" name="submitButton" value="1">Accept this post</button>
+            <button class = "decline" type="submit" name="submitButton" value="0">Delete this post</button>
         </form>
+        </div>
     @endif
+    </div>
 @endsection
