@@ -775,6 +775,74 @@ textarea#reasonOfRequest {
     padding: 5px 10px 5px 10px;
 }
 
+.card-body-pass {
+    width: 80%;
+    height: auto;
+    min-height: 550px;
+    background: #FFDEAE;
+    border: 10px solid white;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+
+.form-group-pass {
+    padding-left: 10%;
+}
+
+.form-group-pass label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group-pass input {
+    display: inline-block; 
+    border-radius: 150px;
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.form-group-pass button{
+    width: 40%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background-color: #E26100;
+    box-shadow: px 2px 5px grey;
+    height: 40px;
+    border-radius: 50px;
+    border-width: 0px;
+    color: white;
+}
+
+.card-body-pass div#formHeader {
+    border-bottom: solid 3px #0c525d;
+}
+
+.form-group-pass button#changePassButton {
+    width: 60%;
+    background-color: #F20400;
+    margin-left: -5%;
+}
+
+div.form-group-pass #formHeader {
+    border-bottom: solid 3px #0c525d;
+    position: center;
+}
+
+.form-group-pass button#submitButton {
+    margin-left: -100%;
+    float:left;
+    margin-left: 20%;
+    color: yellow;
+}
+
 /* Screen 4: home page */
 section#advertisement {
     width: 100%;
