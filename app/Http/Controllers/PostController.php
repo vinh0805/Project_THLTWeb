@@ -132,7 +132,7 @@ class PostController extends Controller
             echo "Have bug!!!";
         } else {
             $allComments = DB::table('comments')->join('users', 'comments.user_id', '=', 'users.id')
-                ->select('comments.*', 'users.*')->where('post_id', '=', $post->id)->get();
+                ->select('comments.*', 'users.name', 'users.avatar')->where('post_id', '=', $post->id)->get();
             return view('posts.screen13-show-post')
                 ->with('post', $post)->with('allComments', $allComments);
         }
