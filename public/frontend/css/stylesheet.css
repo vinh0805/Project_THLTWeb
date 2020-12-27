@@ -810,7 +810,7 @@ textarea#reasonOfRequest {
 
 /*Screen 14: edit profile*/
 .info-box{
-    width: 100%;
+    width: 80%;
 }
 
 .info-box img {
@@ -827,8 +827,8 @@ textarea#reasonOfRequest {
 }
 
 div#info-avatar-box{
-    width: 30%;
-    margin-left: 10%;
+    width: 39%;
+    margin-left: 0;
     margin-right: initial;
     float:left;
     height:800px;
@@ -840,7 +840,7 @@ div#profile-box {
     width: 60%;
     float: right;
     margin-left:initial;
-    margin-right: 10%; 
+    margin-right: 0; 
     position: relative;
     min-height: 800px;
     border-radius: 4px;
