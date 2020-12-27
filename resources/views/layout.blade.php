@@ -139,10 +139,9 @@
         $("#likePostButton").click(function (){
             $.ajax({
                 type: "get",
-                url: $(this).data('post-id') + '/update-like/' + $(this).data('user-id'),
+                url: $(this).data('post-id') + '/update-like',
                 dataType: 'json',
                 success: function (response){
-                    // console.log($("#likePostButton").data('liked'));
                     if ($("#likePostButton").attr("liked") == '0') {
                         console.log('liked!');
                         $("#likePostButton").attr('liked', "1");
@@ -152,10 +151,31 @@
                         $("#likePostButton").attr('liked', "0");
                         $("#likePostButton").css("color", "#1a1c1b");
                     }
-                    $("#likePostNumber").html(response);
+                    $("#likePostButton").html("  " + response);
                 }
             });
         });
+
+        $(".like-comment-button").click(function (){
+            $.ajax({
+                type: "get",
+                url: $(this).attr('id') + '/update-like-comment',
+                dataType: 'json',
+                success: function (response){
+                    console.log(response);
+                    if ($("#" + response.commentId).attr("liked") == '0') {
+                        console.log('liked!');
+                        $("#" + response.commentId).attr('liked', "1");
+                        $("#" + response.commentId).css("color", "#006cfa");
+                    } else if ($("#" + response.commentId).attr("liked") == '1') {
+                        console.log('unliked!');
+                        $("#" + response.commentId).attr('liked', "0");
+                        $("#" + response.commentId).css("color", "#1a1c1b");
+                    }
+                    $("#" + response.commentId).html("  " + response.likeCommentNumber);
+                }
+            });
+        })
     </script>
 @endif
 

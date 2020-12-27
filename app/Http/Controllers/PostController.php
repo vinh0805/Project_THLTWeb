@@ -127,6 +127,7 @@ class PostController extends Controller
 
     public function showPost($postId)
     {
+        $user = Session::get('sUser');
         $post = Post::find($postId);
         if(!isset($post)){
             echo "Have bug!!!";
