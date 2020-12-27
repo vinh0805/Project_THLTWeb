@@ -824,6 +824,7 @@ textarea#reasonOfRequest {
        margin-top: 100px;
        margin-left: auto;
        margin-right: auto;
+       border: 8px solid #EDAA00;
 }
 
 div#info-avatar-box{
