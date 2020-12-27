@@ -7,7 +7,7 @@
         echo '<span id="loginError">' . $message . '</span>';
         Session::put('message', null);
     }
-    $user = \Illuminate\Support\Facades\Session::get('sUser')
+    $user = \Illuminate\Support\Facades\Session::get('sUser');
     ?>
     <div class="post-sw-body">
         <section id="showPost">
@@ -17,18 +17,15 @@
         <hr>
 
         @if($post->status == 1)
-
-            <label id="likePostNumber">{{$likePostNumber}}</label>
             <i id="likePostButton" class="far fa-thumbs-up fa-3x"
                 @if(isset($postIsLiked) && $postIsLiked == 1) style="color: #006cfa" liked="1"
                 @else style="color: #1a1c1b" liked="0" @endif
-                @if(isset($user)) data-user-id="{{$user->id}}" data-post-id="{{$post->id}}" @endif>
-                </i>
+                data-post-id="{{$post->id}}">  {{$likePostNumber}}</i>
             <hr>
             <section id="show-comment">
                 <h2><b>Comment</b></h2>
+                <?php $i = 0; ?>
                 @foreach($allComments as $comment)
-                    <?php $i = 0; ?>
                     <div class="comment">
                         <div class="left-comment">
                             <img class="avatar" src="{{url('frontend/images/avatars/' . $comment->avatar)}}" alt="avatar">
@@ -37,9 +34,14 @@
                         <div class="right-comment">
                             <header class="right-top-comment">
                                 <div class="comment-created-at">{{$comment->created_at}}</div>
-                                <label class="like-comment-number">{{$likeArray[$i]}}</label>
                                 <i class="like-comment-button far fa-thumbs-up fa-2x"
-                                   @if(isset($commentIsLikedArray[$i]) && $commentIsLikedArray[$i] == 1) style="color: #006cfa" @endif></i>
+                                   @if(isset($commentIsLikedArray[$i]) && $commentIsLikedArray[$i] == 1)
+                                        style="color: #006cfa" liked="1"
+                                   @elseif(isset($commentIsLikedArray[$i]) && $commentIsLikedArray[$i] == 0)
+                                        style="color: #1a1c1b" liked="0"
+                                   @endif
+                                   id="{{$comment->id}}"
+                                    >  {{$likeArray[$i]}}</i>
                             </header>
                             <div class="comment-content">{{$comment->content}}</div>
                         </div>

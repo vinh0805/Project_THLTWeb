@@ -1041,12 +1041,6 @@ section#advertisement {
 .comment-created-at {
     float: left;
 }
-.like-comment-number {
-    float: right;
-    display: inline-block;
-    margin-left: 10px;
-    min-width: 20px;
-}
 .like-comment-button {
     float: right;
     display: inline-block;
