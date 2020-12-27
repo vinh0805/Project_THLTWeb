@@ -161,6 +161,29 @@ class PostController extends Controller
         return 0;
     }
 
+    public function search(Request $request){
+        if($request->ajax()) {
+            if ($request['title'] == '' || $request['title'] == null) {
+                $output = '';
+            } else {
+                $posts = Post::where('title', 'LIKE', '%'.$request['title'].'%')
+                    ->where('status', '=', '1')->get();
+                $output = '';
+
+                if (count($posts) > 0) {
+                    $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
+                    foreach ($posts as $post){
+                        $output .= '<li class="list-group-item"><a href="post/' . $post->id . '">'.$post->title.'</a></li>';
+                    }
+                    $output .= '</ul>';
+                } else {
+                    $output .= '<li class="list-group-item">'.'No results'.'</li>';
+                }
+            }
+            return $output;
+        }
+    }
+
     public function showRequestPostList()
     {
         if($this->isAdmin()){

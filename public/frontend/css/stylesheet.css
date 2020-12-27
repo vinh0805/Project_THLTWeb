@@ -436,6 +436,7 @@ li.menu a:hover {
     margin-left: auto;
 }
 #searchInput {
+    padding-left: 20px;
     font-size: 20px;
     min-width: 79%;
     height: 50px;
@@ -454,6 +455,13 @@ li.menu a:hover {
 }
 #searchButton:hover {
     background-color: #e28700;
+}
+.list-group-item {
+    margin: auto;
+    width: 99%;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px;
 }
 #hotPosts .category-list .category-post {
     width: 80%;
