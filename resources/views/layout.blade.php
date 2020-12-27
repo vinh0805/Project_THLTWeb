@@ -179,6 +179,35 @@
     </script>
 @endif
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#searchInput').on('keyup',function() {
+            let query = $(this).val();
+            $.ajax({
+                url: 'search',
+                type: 'get',
+                data: {'title': query},
+                success:function (data) {
+                    $('#searchedPosts').html(data);
+                }
+            })
+            // end of ajax call
+        });
+        $('#searchButton').click(function (){
+            let query = $("#searchInput").val();
+            $.ajax({
+                url: 'search',
+                type: 'get',
+                data: {'title': query},
+                success:function (data) {
+                    $('#searchedPosts').html(data);
+                }
+            })
+            // end of ajax call
+        });
+    });
+</script>
+
 <script>
     $(function() {
         $( "#datepicker" ).datepicker({

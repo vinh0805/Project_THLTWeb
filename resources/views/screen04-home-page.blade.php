@@ -9,6 +9,7 @@
             <label for="searchInput"></label>
             <input type="text" id="searchInput" placeholder="     Search post..." name="searchInput">
             <input type="button" value="Search" id="searchButton">
+            <div id="searchedPosts"></div>
         </div>
 
         <div id="hotPosts">
