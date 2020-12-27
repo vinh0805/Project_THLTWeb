@@ -134,6 +134,10 @@
 <script src="{{asset('backend/js/jquery-validation-1.19.2/lib/jquery.mockjax-2.2.1.js')}}"></script>
 <script src="{{asset('frontend/js/jquery-ui.js')}}"></script>
 
+<script>
+    $('.carousel').carousel();
+</script>
+
 @if(isset($user))
     <script>
         $("#likePostButton").click(function (){
