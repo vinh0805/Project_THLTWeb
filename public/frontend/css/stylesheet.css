@@ -853,8 +853,14 @@ div.form-group-pass #formHeader {
 /* Screen 4: home page */
 section#advertisement {
     width: 100%;
-    height: 300px;
+    max-height: 550px;
     background-color: pink;
+}
+section#advertisement img {
+    max-height: 500px;
+}
+.advertisement-link a{
+    color: white;
 }
 /* Screen 16: list notifications */
 .notifications {
