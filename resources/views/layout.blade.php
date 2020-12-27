@@ -142,14 +142,14 @@
                 url: $(this).data('post-id') + '/update-like/' + $(this).data('user-id'),
                 dataType: 'json',
                 success: function (response){
-                    console.log($("#likePostButton").data('liked'));
-                    if ($("#likePostButton").data("liked") == 0) {
+                    // console.log($("#likePostButton").data('liked'));
+                    if ($("#likePostButton").attr("liked") == '0') {
                         console.log('liked!');
-                        $("#likePostButton").attr("data-liked", "1");
+                        $("#likePostButton").attr('liked', "1");
                         $("#likePostButton").css("color", "#006cfa");
-                    } else if ($("#likePostButton").data("liked") == 1) {
+                    } else if ($("#likePostButton").attr("liked") == '1') {
                         console.log('unliked!');
-                        $("#likePostButton").attr("data-liked", "0");
+                        $("#likePostButton").attr('liked', "0");
                         $("#likePostButton").css("color", "#1a1c1b");
                     }
                     $("#likePostNumber").html(response);

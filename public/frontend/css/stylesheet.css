@@ -799,7 +799,7 @@ textarea#reasonOfRequest {
 }
 
 .form-group-pass input {
-    display: inline-block; 
+    display: inline-block;
     border-radius: 4px;
     width: 30%;
     margin-top: 10px;
@@ -855,7 +855,7 @@ section#advertisement {
 }
 .notification {
     margin: 10px 100px;
-    
+
     width: 80%;
     text-align: left;
     border: 1px solid black;
@@ -1029,7 +1029,7 @@ section#advertisement {
     margin: 10px 10px 0 0;
     min-height: 100%;
     position: relative;
-    width: 89%;
+    width: 85%;
     display: inline-block;
 }
 .right-top-comment {
