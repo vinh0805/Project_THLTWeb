@@ -5,15 +5,10 @@
           enctype="multipart/form-data">
         {{csrf_field()}}
             <h2>Change password</h2> <br>
-            <div class="input-field" id="formHeader">
-                
-                <span id="changePassSpan">
-                <button id="changePassButton" class = "sign-button">
-                    <a href="{{url('me/')}}">
-                        My information
-                    </a>
-                </button>
-            </span>
+            <div id="changePassButton" class = "info-button">
+                <a href="{{url('me/')}}">
+                    My information
+                </a>
             </div>
             <div class="input-field">
                 <div>
