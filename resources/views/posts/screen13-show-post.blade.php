@@ -20,8 +20,8 @@
 
             <label id="likePostNumber">{{$likePostNumber}}</label>
             <i id="likePostButton" class="far fa-thumbs-up fa-3x"
-                @if(isset($postIsLiked) && $postIsLiked == 1) style="color: #006cfa" data-liked="1"
-                @else style="color: #1a1c1b" data-liked="0" @endif
+                @if(isset($postIsLiked) && $postIsLiked == 1) style="color: #006cfa" liked="1"
+                @else style="color: #1a1c1b" liked="0" @endif
                 @if(isset($user)) data-user-id="{{$user->id}}" data-post-id="{{$post->id}}" @endif>
                 </i>
             <hr>
