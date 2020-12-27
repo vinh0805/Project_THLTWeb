@@ -795,60 +795,67 @@ textarea#reasonOfRequest {
     margin-right: auto;
 }
 
-.form-group-pass {
-    padding-left: 10%;
-}
-
-.form-group-pass label{
-    margin-top: 10px;
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.form-group-pass input {
-    display: inline-block;
+.info-button {
+    float: right;
+    margin-right: 30%;
+    margin-bottom: 20px;
+    padding: 12px;
     border-radius: 4px;
-    width: 30%;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    width: 90%;
-}
-
-.form-group-pass button{
-    width: 40%;
-    margin-top: 24px;
-    margin-bottom: 24px;
     background-color: #FF9800;
-    box-shadow: px 2px 5px grey;
-    height: 40px;
-    border-radius: 4px;
-    border-width: 0px;
+}
+.info-button a {
     color: white;
+    font-weight: 700;
 }
 
-.card-body-pass div#formHeader {
-    border-bottom: solid 3px #0c525d;
+/*Screen 14: edit profile*/
+.info-box{
+    width: 100%;
 }
 
-.form-group-pass button#changePassButton {
-    width: 60%;
-    background-color: #F20400;
-    margin-left: -5%;
+.info-box img {
+       width: 250px;
+       height: 250px;
+       background-size: cover;
+       background-position: top center;
+       border-radius: 50%;
+       overflow: hidden;
+       display: block;
+       margin-top: 100px;
+       margin-left: auto;
+       margin-right: auto;
 }
 
-div.form-group-pass #formHeader {
-    border-bottom: solid 3px #0c525d;
-    position: center;
-}
-
-.form-group-pass button#submitButton {
-    margin-left: -100%;
+div#info-avatar-box{
+    width: 30%;
+    margin-left: 10%;
+    margin-right: initial;
     float:left;
-    margin-left: 20%;
-    color: yellow;
+    height:800px;
+    position: relative;
+    border-radius: 4px;
 }
+
+div#profile-box {
+    width: 60%;
+    float: right;
+    margin-left:initial;
+    margin-right: 10%; 
+    position: relative;
+    min-height: 800px;
+    border-radius: 4px;
+}
+
+div#info-sex {
+    margin-top: 10px;
+    margin-left: 50%;
+}
+
+div#info-add-avatar {
+    margin-left: 80%;
+}
+
+/* Custom profile - end*/
 
 /* Screen 4: home page */
 section#advertisement {
