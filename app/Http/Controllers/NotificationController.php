@@ -28,6 +28,8 @@ class NotificationController extends Controller
 
     public function show($id) {
         $notification = Notification::find($id);
+        $notification->status = 1;
+        $notification->save();
         $post = Post::find($notification->post_id);
         
         if(!isset($post)){
