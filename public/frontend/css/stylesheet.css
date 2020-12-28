@@ -872,6 +872,14 @@ section#advertisement img {
 .advertisement-link a{
     color: white;
 }
+
+.newest-post {
+    min-width: 250px;
+}
+.newest-post p.post-created-at {
+    font-size: 12px;
+    font-style: italic;
+}
 /* Screen 16: list notifications */
 .notifications {
     padding-left: 15%;

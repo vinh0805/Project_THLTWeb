@@ -42,16 +42,29 @@ class PostController extends Controller
         $allCategory = Category::all();
         $hotPosts = Post::find($this->findHotPosts());
         $countPost = [];
+        $countLike = [];
+        $newestPostList = [];
         $i = 0;
         foreach ($allCategoryPet as $categoryPet) {
-            foreach ( $allCategory as $category) {
-                $countPost[$i] = count(Post::where('category_pet_id', '=', $categoryPet->id)->where('category_id', '=', $category->id)
+            foreach ($allCategory as $category) {
+                $countPost[$i] = count(Post::where('category_pet_id', '=', $categoryPet->id)
+                    ->where('category_id', '=', $category->id)->where('status', '=', 1)->get());
+                $countLike[$i] = count(DB::table('posts')
+                    ->join('like_post', 'posts.id', '=', 'like_post.post_id')
+                    ->where('category_pet_id', '=', $categoryPet->id)
+                    ->where('category_id', '=', $category->id)
                     ->where('status', '=', 1)->get());
+                $newestPostList[$i] = Post::where('category_pet_id', '=', $categoryPet->id)
+                    ->where('category_id', '=', $category->id)->where('status', '=', 1)
+                    ->orderBy('created_at', 'desc')->first();
                 $i++;
             }
         }
-        return view('screen04-home-page')->with('allCategoryPet', $allCategoryPet)->with('allCategory', $allCategory)
-            ->with('hotPosts', $hotPosts)->with('countPost', $countPost);
+
+        return view('screen04-home-page')->with('allCategoryPet', $allCategoryPet)
+            ->with('allCategory', $allCategory)->with('hotPosts', $hotPosts)
+            ->with('countPost', $countPost)->with('countLike', $countLike)
+            ->with('newestPostList', $newestPostList);
     }
 
     public function findHotPosts()
