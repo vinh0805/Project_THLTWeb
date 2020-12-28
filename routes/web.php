@@ -25,6 +25,7 @@ Route::post('/signup-submit', 'UserController@createNewUser');
 // User
 Route::get('/me', 'UserController@showProfile');
 Route::post('/update-profile/{userId}', 'UserController@updateProfile');
+Route::get('/user/{userId}/info', 'UserController@showUserInfo');
 
 Route::get('/me/password', 'UserController@changePassword');
 Route::post('/update-password/{userId}', 'UserController@updatePassword');
