@@ -232,7 +232,7 @@ class PostController extends Controller
                     $post->save();
                     $newNotification = new Notification([
                         'user_id' => $post->user_id,
-                        'fuserid' => Session::get('sUser')->id,
+                        'fuser_id' => Session::get('sUser')->id,
                         'post_id' => $post->id,
                         'content' => 'Admin approved your post',
                     ]);
