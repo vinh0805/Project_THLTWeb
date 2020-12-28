@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Repositories\CategoryRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Mockery\Matcher\Not;
 
 class PostController extends Controller
 {
@@ -226,6 +227,13 @@ class PostController extends Controller
                 if ($acceptance){
                     $post->status = 1;
                     $post->save();
+                    $newNotification = new Notification([
+                        'user_id' => $post->user_id,
+                        'fuserid' => Session::get('sUser')->id,
+                        'post_id' => $post->id,
+                        'content' => 'Admin approved your post',
+                    ]);
+                    $newNotification->save();
                     Session::put('message', "This post is accepted!");
                     return redirect('post/' . $postId);
                 } else {
