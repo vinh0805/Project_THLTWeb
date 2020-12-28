@@ -58,7 +58,7 @@ class UserController extends Controller
     public function createNewUser(Request $request)
     {
         $data = $request->all();
-        $checkEmail = User::where('email', '=', $data['email']);
+        $checkEmail = User::where('email', '=', $data['email'])->first();
         if (!isset($checkEmail)) {
             if (isset($data['gender'])) {
                 $user = new User([
