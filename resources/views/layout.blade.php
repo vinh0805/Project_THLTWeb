@@ -89,8 +89,8 @@
                 ?>
                     <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
                     <li class="menu dropdown name">
-                        <a href="{{url('logout')}}">
-                            <h1> <?= $user->name?> </h1>
+                        <a href="{{url('user/' . $user->id . '/info')}}">
+                            <h1> {{$user->name}} </h1>
                         </a>
                         <div class="dropdown-content">
 
