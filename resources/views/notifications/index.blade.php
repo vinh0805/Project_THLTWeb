@@ -25,7 +25,7 @@
             </a>
         </div>
         @endforeach
-        {{$notifications->links()}}
+        {{-- {{$notifications->links()}} --}}
     @else
         <p class = "none">No notifications found</p>
     @endif

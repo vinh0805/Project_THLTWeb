@@ -21,13 +21,15 @@ class NotificationController extends Controller
             ->join('posts', 'notifications.post_id', '=', 'posts.id')
             ->where('notifications.user_id', $user->id)
             ->orderBy('notifications.created_at', 'desc')
-            ->paginate(5);
+            ->get();
         return view('notifications.index')->with('notifications', $notifications);
         return $notifications;
     }
 
     public function show($id) {
         $notification = Notification::find($id);
+        $notification->status = 1;
+        $notification->save();
         $post = Post::find($notification->post_id);
         
         if(!isset($post)){

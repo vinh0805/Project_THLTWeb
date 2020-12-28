@@ -8,10 +8,13 @@ use App\Models\Comment;
 use App\Models\LikeComment;
 use App\Models\LikePost;
 use App\Models\Post;
+use App\Models\Notification;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Repositories\CategoryRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Mockery\Matcher\Not;
 
 class PostController extends Controller
 {
@@ -134,7 +137,17 @@ class PostController extends Controller
             'status' => 0
         ]);
         $newPost->save();
+        $admin = User::where('role', 1)->first();
+        $content = Session::get('sUser')->name . ' \'s Post need approve';
         $currentPost = Post::orderBy('id', 'desc')->first();
+        // return Session::get('sUser')->id;
+        $newNotification = new Notification([
+            'post_id'  => $currentPost->id,
+            'user_id' => $admin->id,
+            'fuser_id' => Session::get('sUser')->id,
+            'content' => $content,
+        ]);
+        $newNotification->save();
         return redirect('post/' . $currentPost->id);
     }
 
@@ -217,6 +230,13 @@ class PostController extends Controller
                 if ($acceptance){
                     $post->status = 1;
                     $post->save();
+                    $newNotification = new Notification([
+                        'user_id' => $post->user_id,
+                        'fuserid' => Session::get('sUser')->id,
+                        'post_id' => $post->id,
+                        'content' => 'Admin approved your post',
+                    ]);
+                    $newNotification->save();
                     Session::put('message', "This post is accepted!");
                     return redirect('post/' . $postId);
                 } else {
