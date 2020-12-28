@@ -9,6 +9,17 @@
     }
     $user = \Illuminate\Support\Facades\Session::get('sUser');
     ?>
+
+    <hr>
+    {{--    Show posted user--}}
+    <div>
+        <h4>Posted by:</h4>
+        {{--        avatar--}}
+        <img class="avatar" src="{{url('frontend/images/avatars/' . $post->avatar)}}" alt="avatar">
+        <div><a href="{{url('user/' . $user->id . '/info')}}">{{$user->name}}</a></div>
+    </div>
+    <hr>
+
     <div class="post-sw-body">
         <section id="showPost">
             <h1 id="showPostTitle"><b>{{$post->title}}</b></h1>
@@ -29,7 +40,7 @@
                     <div class="comment">
                         <div class="left-comment">
                             <img class="avatar" src="{{url('frontend/images/avatars/' . $comment->avatar)}}" alt="avatar">
-                            <b class="user-name">{{$comment->name}}</b>
+                            <b class="user-name"><a href="{{url('user/' . $comment->user_id . '/info')}}">{{$comment->name}}</a></b>
                         </div>
                         <div class="right-comment">
                             <header class="right-top-comment">
