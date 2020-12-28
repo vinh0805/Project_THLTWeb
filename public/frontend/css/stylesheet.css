@@ -13,7 +13,8 @@ span#loginError {
 	height: auto;
 	min-height: 400px;
 	background: #FFDEAE;
-	border: 10px solid white;
+    box-shadow: 0px 4px 4px 0px #0000002b;
+    border-radius: 4px;
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
@@ -90,7 +91,8 @@ span#loginError {
 	height: auto;
 	min-height: 400px;
 	background: #FFDEAE;
-	border: 10px solid white;
+    box-shadow: 0px 4px 4px 0px #0000002b;
+    border-radius: 4px;
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
@@ -205,7 +207,8 @@ span#loginError {
 	border-width: 0px;
 	color: white;
 	background-color: #FF9800;
-	box-shadow: px 2px 5px grey;
+    box-shadow: px 2px 5px grey;
+    font-weight: 700;
 }
 
 .help-box {
@@ -280,6 +283,7 @@ span#loginError {
 	margin-right: 5%;
 }
 .acc {
+    margin-top: 15px;
 	width: 100%;
 	height: 50%;
 }
@@ -333,6 +337,7 @@ input:focus, textarea:focus, select:focus{
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
+    margin-top: -15px;  
     width: 150px;
     display: none;
     position: relative;
@@ -404,7 +409,7 @@ li.menu img#avatar {
     height: 50px;
     margin-top: 10px;
     border-radius: 50%;
-    border: 2px solid #FFA726;
+    background: #98C3FF;
     float: left;
 }
 li.menu.avatar {
@@ -463,8 +468,6 @@ li.menu a:hover {
 #hotPosts .category-list .category-post {
     width: 80%;
     height: 50px;
-    border-radius: 10px;
-    border-bottom: 2px solid rgb(32, 32, 32);
 }
 #hotPosts .category-list .category-post a {
     font-size: 20px;
@@ -546,6 +549,11 @@ li.menu a:hover {
 
 #endButtonsDiv {
     text-align: center;
+}
+#endButtonsDiv .info-button {
+    border: 0px;
+    font-weight: 700;
+    color: white;
 }
 
  /*Screen 3->9 */
@@ -807,9 +815,15 @@ textarea#reasonOfRequest {
 
 /*Screen 14: edit profile*/
 .info-box{
+    margin-top: 40px;
     width: 80%;
+    background: #FFDEAE;
+    box-shadow: 0px 4px 4px 0px #0000002b;
+    border-radius: 4px;
 }
-
+.info-box .signup-box {
+    box-shadow: 0px 0px 0px 0px;
+}
 .info-box img {
        width: 250px;
        height: 250px;
@@ -821,7 +835,8 @@ textarea#reasonOfRequest {
        margin-top: 100px;
        margin-left: auto;
        margin-right: auto;
-       border: 8px solid #EDAA00;
+       border: 1px solid #EDAA00;
+        background: #98C3FF;
 }
 
 div#info-avatar-box{
@@ -849,8 +864,8 @@ div#info-sex {
     margin-left: 50%;
 }
 
-div#info-add-avatar {
-    margin-left: 80%;
+div#info-add-avatar .form-control {
+    height: 45px;
 }
 
 /* Custom profile - end*/
@@ -994,6 +1009,8 @@ section#advertisement img {
     background-color: white;
     margin-top: 10px;
     padding-top: 20px;
+    box-shadow: 0px 4px 4px 0px #0000002b;
+    border-radius: 4px;
 }
 .category-post a {
     color: black;
@@ -1016,6 +1033,7 @@ section#advertisement img {
     padding: 10px;
     background-color: white;
     border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px #0000002b;
 }
 .request-post a {
     font-size: 18px;
@@ -1044,7 +1062,7 @@ section#advertisement img {
 }
 .left-comment {
     position: relative;
-    max-width: 14%;
+    width: 15%;
     padding: 20px;
     display: inline-block;
     border: 1px solid darkgrey;
@@ -1056,7 +1074,7 @@ section#advertisement img {
     margin: 10px 10px 0 0;
     min-height: 100%;
     position: relative;
-    width: 85%;
+    width: 80%;
     display: inline-block;
 }
 .right-top-comment {
@@ -1108,4 +1126,45 @@ footer {
 /* Login */
 button#loginButton {
     opacity: 0.9;
+}
+
+/* Screen 20: User info addition */
+
+#user-cardbody {
+    width: 100%;
+}
+
+#user-cardbody .signup-box {
+    background-color: #FF9800;
+}
+
+#user-avatar-box img {
+    margin-top: 50px;
+    border: 8px solid #FFFFFF;
+}
+
+#user-profile-box {
+    color: #B81C00;
+    font-size: 16px;
+}
+
+#user-profile-box h3{
+    color: #000000;
+}
+
+.white-box {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 50px;
+    background-color: #FFFFFF;
+    text-align: center;
+    min-height: 300px;
+    border-radius: 4px;
+}
+
+.white-box h3 {
+    margin-left:auto;
+    margin-right: auto;
 }

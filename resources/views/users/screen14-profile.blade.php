@@ -63,11 +63,8 @@
             </div>
             <div class="input-field" id="info-add-avatar">
                 <label for="exampleInputFile">Avatar</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" id="exampleInputFile" name="avatar">
-                    </div>
-                </div>
+                <label for="exampleInputFile"></label>    
+                <input type="file" class="form-control" id="exampleInputFile" name="avatar">
             </div>
             <br>
             <div class="input-field">
@@ -81,7 +78,7 @@
                 ?>
             </div>
             <div class="input-field" id="endButtonsDiv">
-                <button type="submit" id="submitButton" class="btn btn-primary">Change</button>
+                <button type="submit" id="submitButton" class="info-button">Update profile</button>
             </div>
         </div>
         <!-- /.card-body -->

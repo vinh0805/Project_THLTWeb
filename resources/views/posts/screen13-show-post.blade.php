@@ -16,7 +16,7 @@
         <h4>Posted by:</h4>
         {{--        avatar--}}
         <img class="avatar" src="{{url('frontend/images/avatars/' . $post->avatar)}}" alt="avatar">
-        <div><a href="{{url('user/' . $user->id . '/info')}}">{{$user->name}}</a></div>
+        <div><a href="{{url('user/' . $user->id . '/info')}}">{{$post->name}}</a></div>
     </div>
     <hr>
 
