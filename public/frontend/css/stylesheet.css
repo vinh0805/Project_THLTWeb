@@ -1109,3 +1109,44 @@ footer {
 button#loginButton {
     opacity: 0.9;
 }
+
+/* Screen 20: User info addition */
+
+#user-cardbody {
+    width: 100%;
+}
+
+#user-cardbody .signup-box {
+    background-color: #FF9800;
+}
+
+#user-avatar-box img {
+    margin-top: 50px;
+    border: 8px solid #FFFFFF;
+}
+
+#user-profile-box {
+    color: #B81C00;
+    font-size: 16px;
+}
+
+#user-profile-box h3{
+    color: #000000;
+}
+
+.white-box {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 50px;
+    background-color: #FFFFFF;
+    text-align: center;
+    min-height: 300px;
+    border-radius: 4px;
+}
+
+.white-box h3 {
+    margin-left:auto;
+    margin-right: auto;
+}
