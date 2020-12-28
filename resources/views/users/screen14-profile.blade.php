@@ -1,57 +1,55 @@
 @extends('layout')
 @section('content')
-    <h1>Screen 14</h1>
+<div class="info-box">
+<div class="signup-box" id=info-avatar-box>
+    <img src="{{url('frontend/images/avatars/' . $user->avatar)}}" id="avatar">
+</div>
+<div class="signup-box" id=profile-box> <!-- Đồng bộ với class style của phần signup --> 
     <form role="form" method="post" id="editProfileForm" action="{{url('update-profile/' . $user->id)}}"
           enctype="multipart/form-data">
         {{csrf_field()}}
-        <div class="card-body-pass">
-            <div class="form-group-pass" id="formHeader">
-                <label><h2>Thông tin của tôi</h2></label>
-                <span id="changePassSpan">
-                    <button class="btn btn-primary" id="changePassButton">
-                        <a href="{{url('me/password/')}}">
-                            Thay đổi mật khẩu
-                        </a>
-                    </button>
-                </span>
+        <h2>My information</h2> <br>
+        <div id="changePassButton" class = "info-button">
+                <a href="{{url('me/password/')}}">
+                    Change password
+                </a>
             </div>
-            <div class="form-group-pass">
-                <label for="exampleInputEmail1">Tên</label>
-                <label class="star"> (*)</label>
+
+            <div class="input-field">
+                <label for="exampleInputEmail1">Name</label>
+                <label class="option">required</label>
                 <label for="inputName"></label>
                 <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$user->name}}"
                        maxlength="32" data-msg-required="Bạn phải nhập trường này!" required name="name">
             </div>
-            <div class="form-group-pass">
-                <label for="exampleInputEmail1">Địa chỉ email</label>
+            <div class="input-field">
+                <label for="exampleInputEmail1">Email address</label>
                 <label for="inputEmail1"></label>
                 <input type="email" class="form-control" id="inputEmail1" placeholder="Enter email" value="{{$user->email}}" name="email">
             </div>
-            <div class="form-group-pass">
-                <label for="exampleInputPassword1">Giới tính</label>
-            </div>
-            <div class="profile-radio">
-                <span>
-                <label for="male"></label>
-                <input type="radio" class="radioGender" name="gender" id="male" value="1"
-                       @if($user->gender == 1)
-                           checked
-                       @endif
-                >
-                <label class="radioLabel">Nam</label>
-                </span>
-                <span>
-                <label for="female"></label>
-                <input type="radio" class="radioGender" name="gender" id="female" value="2"
-                       @if($user->gender == 2)
-                           checked
-                       @endif
-                >
-                <label class="radioLabel">Nữ</label>
-                </span>
-            </div>
-            <div class="form-group-pass">
-                <label for="inputBirthday">Ngày sinh</label>
+             <!-- Checkbox for sex -->
+                <div class="input-field" id="info-sex">
+                    <label class="container">Male
+                        <input type="radio" name="gender" id="male" value="1"
+                            @if($user->gender == 1)
+                                checked
+                            @endif
+                        >
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Female
+                        <input type="radio"  name="gender" id="female" value="2"
+                            @if($user->gender == 2)
+                                checked
+                            @endif
+                        >
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+            <br><br> <!-- End checkbox for sex -->
+            <div class="input-field">
+                <label for="inputBirthday">Date of birth</label>
                 <?php
                 $date = (isset($_POST["datepicker"])) ? $_POST["datepicker"] : $user->birthday;
                 ?>
@@ -59,11 +57,11 @@
                 <input class="form-control" readonly="readonly" id="datepicker" name="datepicker" placeholder="Birthday"
                        value="<?php echo $date; ?>">
             </div>
-            <div class="form-group-pass">
-                <label for="exampleInputEmail1">Địa chỉ</label>
+            <div class="input-field">
+                <label for="exampleInputEmail1">Address</label>
                 <label for="inputAddress"></label><input type="text" class="form-control" id="inputAddress" placeholder="Enter address" value="{{$user->address}}" name="address">
             </div>
-            <div class="form-group-pass">
+            <div class="input-field" id="info-add-avatar">
                 <label for="exampleInputFile">Avatar</label>
                 <div class="input-group">
                     <div class="custom-file">
@@ -71,7 +69,8 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group-pass">
+            <br>
+            <div class="input-field">
                 <?php
                 use Illuminate\Support\Facades\Session;
                 $message = Session::get('message');
@@ -81,10 +80,12 @@
                 }
                 ?>
             </div>
-            <div class="form-group-pass" id="endButtonsDiv">
-                <button type="submit" id="submitButton" class="btn btn-primary">Thay đổi</button>
+            <div class="input-field" id="endButtonsDiv">
+                <button type="submit" id="submitButton" class="btn btn-primary">Change</button>
             </div>
         </div>
         <!-- /.card-body -->
     </form>
+</div>
+</div>
 @endsection

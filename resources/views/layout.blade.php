@@ -32,8 +32,10 @@
     {{--    Menu--}}
         <div class = "logo-field">
 			<a href="{{url('home')}}">
-                <img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
-                <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
+                <div>
+                    <img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
+                    <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
+                </div>
 			</a>
 		</div>
         <nav class = "nav-bar">
@@ -87,8 +89,8 @@
                 ?>
                     <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
                     <li class="menu dropdown name">
-                        <a href="{{url('logout')}}">
-                            <h1> <?= $user->name?> </h1>
+                        <a href="{{url('user/' . $user->id . '/info')}}">
+                            <h1> {{$user->name}} </h1>
                         </a>
                         <div class="dropdown-content">
 

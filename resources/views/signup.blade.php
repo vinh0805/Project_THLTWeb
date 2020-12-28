@@ -25,8 +25,10 @@
 		<div class="header">
 			<div class = "logo-field">
 				<a href="{{url('home')}}">
+					<div>
 					<img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
 					<img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
+					</div>
 				</a>
 			</div>
 			<nav class = "nav-bar">
@@ -37,7 +39,7 @@
 					<a href="#"><img src="{{asset('frontend/images/Twitter.png')}}" alt="twitter"></a>
 					<a href="#"><img src="{{asset('frontend/images/Instagram.png')}}" alt="instagram"></a>
 				</div>
-				<div class="acc"> 
+				<div class="acc">
 					<a class="login-acc" href="{{url('login')}}">SIGN IN</a>
 					<!--
 					<a class="signup-acc" href="{{url('signup')}}">SIGN UP?</a>
@@ -55,7 +57,11 @@
 					use Illuminate\Support\Facades\Session;
 					$message = Session::get('message');
 					if($message) {
-						echo '<div id="updateSuccessfullyMessage"><span>' . $message . '</span></div>';
+					    if ($message == 'THIS EMAIL IS USED BY ANOTHER USER!'){
+                            echo '<div id="updateSuccessfullyMessage" style="color: red"><span>' . $message . '</span></div>';
+                        } else {
+                            echo '<div id="updateSuccessfullyMessage"><span>' . $message . '</span></div>';
+                        }
 						Session::put('message', null);
 					}
 					?>
@@ -67,7 +73,7 @@
 						<label class="option">required</label>
 						<label for="inputName"></label>
 					</div>
-					<input type="text" class="input-form" id="inputName" 
+					<input type="text" class="input-form" id="inputName"
 						   maxlength="32" data-msg-required="Bạn phải nhập trường này!" required name="name">
 				</div>
 				<div class="input-field">
@@ -99,7 +105,7 @@
 					<input type="password" class="input-form" id="confirm_password" data-validation="length"
 						   data-validation-length="min6" data-validation-error-msg="Ít nhất 6 ký tự!" name="confirm_password">
 				</div>
-				
+
 				<div class="input-field">
 					<label class="container">Male
 						<input type="radio" name="gender" id="male" value="1">
@@ -114,10 +120,10 @@
 					<input type="submit" id="submitButton" class="sign-button" value = "SIGN UP">
 				</div>
 			</div>
-			
+
 			<!-- /.card-body -->
 		</form>
-		
+
 		<div class="help-box">
 			<a href="#">
 				<div>
@@ -156,7 +162,7 @@
 		<script src="{{asset('frontend/css/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 		<!-- AdminLTE App -->
 		<script src="{{asset('frontend/css/dist/js/adminlte.min.js')}}"></script>
-		
+
 	</div>
 </body>
 </html>
