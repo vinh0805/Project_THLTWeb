@@ -2,11 +2,6 @@ body {
 
 }
 
-/* Login */
-button#loginButton {
-    opacity: 0.9;
-}
-
 span#loginError {
     color: red;
     text-align: center;
@@ -1091,4 +1086,26 @@ section#advertisement img {
 }
 .user-name {
     display: block;
+}
+
+footer {
+    border-top: 2px solid darkgrey;
+    margin-top: 50px;
+    width: 100%;
+}
+/* Layout */
+.footer-left {
+    font-size: 10px;
+    margin-left: 4%;
+    display: block;
+    float: left;
+}
+.footer-right {
+    margin-right: 4%;
+    display: block;
+    float: right;
+}
+/* Login */
+button#loginButton {
+    opacity: 0.9;
 }
