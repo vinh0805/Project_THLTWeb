@@ -23,17 +23,18 @@ class CommentController extends Controller
         $newComment->save();
         $comment = Comment::orderBy('id', 'desc')->first();
         $cmtList = Comment::where([
-            ['postId', $comment->postId],
+            ['postId', $comment->post_id],
             ['user_id', '!=',$comment->user_id],
         ]);
-        $post = Post::where('id', $comment->postId)->first();
-        $name = User::select('name')->where('id', $post->user_id)->first();
+        $post = Post::where('id', $comment->post_id)->first();
+        $userPost = User::where('id', $post->user_id)->first();
+        $status = false;
         foreach ($cmtList as $cmt) {
             if ($cmt->user_id == $post->user_id){
                 $status = true; //if status = false, User who create post doesn't comment -> here is not notification for this user 
                 $content = $user->name . ' created comment in your post';
             } else {
-                $content = $user->name . ' created comment in ' . $name . ' \'s post';
+                $content = $user->name . ' created comment in ' . $userPost->name . ' \'s post';
             }
                 $newNotification = new Notification([
                     'user_id' => $cmt->user_id,
