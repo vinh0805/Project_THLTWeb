@@ -35,9 +35,9 @@
 			</nav>
 			<div class = "account">
 				<div class="social">
-					<a href="#"><img src="{{asset('frontend/images/Facebook.png')}}" alt="facebook"></a>
-					<a href="#"><img src="{{asset('frontend/images/Twitter.png')}}" alt="twitter"></a>
-					<a href="#"><img src="{{asset('frontend/images/Instagram.png')}}" alt="instagram"></a>
+					<a href="#"><img src="{{asset('frontend/images/Facebook.svg')}}" alt="facebook"></a>
+					<a href="#"><img src="{{asset('frontend/images/Twitter.svg')}}" alt="twitter"></a>
+					<a href="#"><img src="{{asset('frontend/images/Instagram.svg')}}" alt="instagram"></a>
 				</div>
 				<div class="acc">
 					<a class="login-acc" href="{{url('login')}}">SIGN IN</a>
