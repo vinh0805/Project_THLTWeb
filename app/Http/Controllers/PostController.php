@@ -154,7 +154,10 @@ class PostController extends Controller
     public function showPost($postId)
     {
         $user = Session::get('sUser');
-        $post = Post::find($postId);
+        $post = DB::table('posts')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->select('posts.*', 'users.name', 'users.avatar')
+            ->where('posts.id', '=', $postId)->first();
         if(!isset($post)){
             echo "Have bug!!!";
         } else {
