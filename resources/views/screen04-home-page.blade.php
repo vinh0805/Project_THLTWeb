@@ -69,15 +69,26 @@
                 <?php $i = 0 ?>
                 @foreach($allCategoryPet as $categoryPet)
                     <tr>
-                        <th class="col-4"><a href="#">{{$categoryPet->name}}</a></th>
-                        <th class="col-1">Posts</th>
+                        <th class="col-sm-4"><a href="#">{{$categoryPet->name}}</a></th>
+                        <th class="col-sm-4 newest-post">Newest Post</th>
+                        <th class="col-sm-1">Posts</th>
+                        <th class="col-sm-1">Likes</th>
                     </tr>
                     @foreach($allCategory as $category)
                         <tr>
-                            <td class="col-4"><a href="{{url('pets-category/' . $categoryPet->name . '/' .$category->name)}}">
+                            <td class="col-sm-4"><a href="{{url('pets-category/' . $categoryPet->name . '/' .$category->name)}}">
                                     {{$category->name}}
                                 </a></td>
-                            <td class="col-1"><label>{{$countPost[$i]}}</label></td>
+                            <td class="col-sm-4 newest-post">
+                                @if(isset($newestPostList[$i]))
+                                    <a href="{{url('post/' . $newestPostList[$i]->id)}}">
+                                        <p>{{$newestPostList[$i]->title}}</p>
+                                        <p class="post-created-at">{{$newestPostList[$i]->created_at}}</p>
+                                    </a>
+                                @endif
+                            </td>
+                            <td class="col-sm-1"><label>{{$countPost[$i]}}</label></td>
+                            <td class="col-sm-1"><label>{{$countLike[$i]}}</label></td>
                             <?php $i++ ?>
                         </tr>
                     @endforeach
