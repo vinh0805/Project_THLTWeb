@@ -40,9 +40,11 @@
 		</div>
         <nav class = "nav-bar">
         <li class="menu dropdown">
-            <a href="{{url('#')}}">
-                <img class = "catego" src="{{asset('frontend/images/dog.png')}}" alt="Dog">
-            </a>
+            <div class = "dropdown-img">
+                <a href="{{url('#')}}">
+                    <img class = "catego" src="{{asset('frontend/images/dog.png')}}" alt="Dog">
+                </a>
+            </div>
             <div class="dropdown-content">
                 <a href="{{url('/pets-category/dog/show-off')}}">Show off</a>
                 <a href="{{url('/pets-category/dog/experience')}}">Experience</a>
@@ -52,9 +54,11 @@
             </div>
         </li>
         <li class="menu dropdown">
-            <a href="{{url('#')}}">
-                <img class = "catego" src="{{asset('frontend/images/cat.png')}}" alt="Cat">
-            </a>
+            <div class = "dropdown-img">
+                <a href="{{url('#')}}">
+                    <img class = "catego" src="{{asset('frontend/images/cat.png')}}" alt="Cat">
+                </a>
+            </div>
             <div class="dropdown-content">
                 <a href="{{url('/pets-category/cat/show-off')}}">Show off</a>
                 <a href="{{url('/pets-category/cat/experience')}}">Experience</a>
@@ -64,9 +68,11 @@
             </div>
         </li>
         <li class="menu dropdown">
-            <a href="{{url('#')}}">
-                <img class = "catego" src="{{asset('frontend/images/others.png')}}" alt="Others">
-            </a>
+            <div class = "dropdown-img">
+                <a href="{{url('#')}}">
+                    <img class = "catego" src="{{asset('frontend/images/others.png')}}" alt="Others">
+                </a>
+            </div>
             <div class="dropdown-content">
                 <a href="{{url('/pets-category/others/show-off')}}">Show off</a>
                 <a href="{{url('/pets-category/others/experience')}}">Experience</a>

@@ -321,6 +321,9 @@ input:focus, textarea:focus, select:focus{
 .menu.dropdown.name {
     margin-left: 30px;
 }
+.menu.dropdown.name .dropdown-content {
+    margin-top: -10%;
+}
 
 .menu.dropdown.name a h1 {
     color: black;
@@ -328,8 +331,8 @@ input:focus, textarea:focus, select:focus{
 }
 
 .catego {
-    margin-left: 40px;
-    width: 120%;
+    margin-left: 20px;
+    width: 40%;
     height: auto;
     color: black;
     font-size: 30px;
@@ -337,13 +340,16 @@ input:focus, textarea:focus, select:focus{
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    margin-top: -15px;  
+    margin-top: -10%;  
     width: 150px;
     display: none;
     position: relative;
     background-color: #ffbc58;
     z-index: 9999;
     border-radius: 5px;
+}
+.dropdown-img {
+    width: 150px;
 }
 
 /* Links inside the dropdown */
