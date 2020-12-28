@@ -69,7 +69,7 @@
                     </form>
                 </section>
             @endif
-        @elseif($post->status == 0)
+        @elseif($post->status == 0 && $user->role == 1)
             <div class = "request">
             <form action="{{url('review-post/' . $post->id)}}" method="post">
                 @csrf
