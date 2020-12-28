@@ -1137,29 +1137,47 @@ button#loginButton {
 /* Screen 20: User info addition */
 
 #user-cardbody {
-    width: 100%;
+    width: 95%;
 }
 
 #user-cardbody .signup-box {
     background-color: #FF9800;
 }
 
+#user-avatar-box {
+    width: 60%;
+}
+
 #user-avatar-box img {
     margin-top: 50px;
     border: 8px solid #FFFFFF;
+    width: 200px;
+    height: 200px;
 }
 
 #user-profile-box {
     color: #B81C00;
-    font-size: 16px;
+    font-size: 19px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-#user-profile-box h3{
+#user-profile-box h2{
     color: #000000;
+    margin-top: 50px;
+    margin-left: 70px;
+}
+
+#user-profile-box .input-field {
+    margin-left:77px;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 80%;
 }
 
 .white-box {
-    width: 60%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
@@ -1168,9 +1186,42 @@ button#loginButton {
     text-align: center;
     min-height: 300px;
     border-radius: 4px;
+    font-size: 22px;
 }
 
 .white-box h3 {
     margin-left:auto;
     margin-right: auto;
+    margin-bottom: 50px;
+}
+
+#user-status {
+    width: 60%;
+    min-height: 400px;
+}
+
+/* Notice style */
+.noti-time{
+    font-size: 18px;
+}
+
+#noti-from{
+    font-weight: normal;
+    font-size: 20px;
+}
+
+#noti-name{
+    font-weight: normal;
+    font-size: 20px;
+    color: #FF9800;
+}
+
+#noti-title{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#noti-content{
+    font-weight: normal;
+    font-size: 16px;
 }
