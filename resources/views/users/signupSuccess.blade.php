@@ -22,9 +22,9 @@
     <link rel="stylesheet" href="{{asset('frontend/css/login-style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/signupSuccess.css')}}">
 	<style>
-		
+
 	</style>
-	
+
 </head>
 <body class="hold-transition ">
 <div class="page_wrapper">
@@ -57,7 +57,7 @@
             <p>Wait web page redirects after <p id="countdown">5<p> seconds.</p>
             <p>Or <a href="{{url('home')}}">click here</a></p>
         </div>
-			
+
 	</div>
 	<!-- /.box -->
 </div>
@@ -71,9 +71,9 @@
 <script>
     var count=4;
     setTimeout(function(){
-       window.location.href = '/home';
+       window.location.href = '{{url('/')}}'
     }, 5000);
-    setInterval(function(){ 
+    setInterval(function(){
         document.getElementById("countdown").innerHTML=count--;
     }, 1000);
  </script>
