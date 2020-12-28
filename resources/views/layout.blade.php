@@ -32,8 +32,10 @@
     {{--    Menu--}}
         <div class = "logo-field">
 			<a href="{{url('home')}}">
-                <img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
-                <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
+                <div>
+                    <img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
+                    <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
+                </div>
 			</a>
 		</div>
         <nav class = "nav-bar">

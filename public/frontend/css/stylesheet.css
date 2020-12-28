@@ -337,9 +337,9 @@ input:focus, textarea:focus, select:focus{
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    width: 10%;
+    width: 120px;
     display: none;
-    position: fixed;
+    position: relative;
     background-color: #ffbc58;
     z-index: 9999;
     border-radius: 5px;
