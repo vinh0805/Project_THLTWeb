@@ -23,7 +23,6 @@ class NotificationController extends Controller
             ->orderBy('notifications.created_at', 'desc')
             ->get();
         return view('notifications.index')->with('notifications', $notifications);
-        return $notifications;
     }
 
     public function show($id) {
@@ -31,17 +30,12 @@ class NotificationController extends Controller
         $notification->status = 1;
         $notification->save();
         $post = Post::find($notification->post_id);
-        
+
         if(!isset($post)){
-            echo "Have bug!!!";
+            Session::put('message', "Can't find post!");
+            return redirect('/');
         } else {
-            $allComments = DB::table('comments')->join('users', 'comments.user_id', '=', 'users.id')
-                ->select('comments.*', 'users.*')->where('post_id', '=', $post->id)->get();
-            // $allComments = Comment::where('post_id', '=', $post->id)->get();
-            return view('posts.screen13-show-post')
-                ->with('post', $post)
-                ->with('allComments', $allComments);
+            return redirect('post/' . $post->id);
         }
-        return 0;
     }
 }
