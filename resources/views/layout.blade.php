@@ -98,7 +98,10 @@
                             @endif
                             <a href="{{url('/me')}}">Your information</a>
                             <?php
-                                $totalNotification = App\Models\Notification::where('status', 0)->count();
+                                $totalNotification = App\Models\Notification::where([
+                                    ['status', 0],
+                                    ['user_id', $user->id],
+                                ])->count();
                             ?>
                             <a href="{{url('/me/notifications')}}">
                                 Notifications

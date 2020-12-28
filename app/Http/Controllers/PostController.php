@@ -8,6 +8,8 @@ use App\Models\Comment;
 use App\Models\LikeComment;
 use App\Models\LikePost;
 use App\Models\Post;
+use App\Models\Notification;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Repositories\CategoryRepository;
 use Illuminate\Support\Facades\DB;
@@ -121,7 +123,17 @@ class PostController extends Controller
             'status' => 0
         ]);
         $newPost->save();
+        $admin = User::where('role', 1)->first();
+        $content = Session::get('sUser')->name . ' \'s Post need approve';
         $currentPost = Post::orderBy('id', 'desc')->first();
+        // return Session::get('sUser')->id;
+        $newNotification = new Notification([
+            'post_id'  => $currentPost->id,
+            'user_id' => $admin->id,
+            'fuser_id' => Session::get('sUser')->id,
+            'content' => $content,
+        ]);
+        $newNotification->save();
         return redirect('post/' . $currentPost->id);
     }
 

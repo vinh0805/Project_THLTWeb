@@ -21,7 +21,7 @@ class NotificationController extends Controller
             ->join('posts', 'notifications.post_id', '=', 'posts.id')
             ->where('notifications.user_id', $user->id)
             ->orderBy('notifications.created_at', 'desc')
-            ->paginate(5);
+            ->get();
         return view('notifications.index')->with('notifications', $notifications);
         return $notifications;
     }
