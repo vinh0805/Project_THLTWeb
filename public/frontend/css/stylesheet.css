@@ -248,6 +248,7 @@ span#loginError {
 }
 
 .header {
+    z-index: 999;
 	width: 100%;
 	height: 160px;
 	background: #FFFFFF;
@@ -841,7 +842,7 @@ div#profile-box {
     width: 60%;
     float: right;
     margin-left:initial;
-    margin-right: 0; 
+    margin-right: 0;
     position: relative;
     min-height: 800px;
     border-radius: 4px;
