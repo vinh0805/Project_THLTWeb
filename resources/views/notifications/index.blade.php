@@ -11,15 +11,16 @@
                 <div>
                     <div class="comment-text">
                         <span class="username">
-                            <span class="text-muted float-right">{{$notification->created_at}}</span>
-                            <span class="user float-left">
+                            <span class="text-muted float-right" id="noti-time">{{$notification->created_at}}</span>
+                            <span class="user float-left" id="noti-from">
                                 <img class="img-circle img-sm" src="{{url('frontend/images/Logo.png')}}" alt="User Image">
-                                From: {{$notification->name}}
+                                From:
                             </span>
+                            <span class="user float-left" id=noti-name>{{$notification->name}}</span>
                             <br>
-                            <span class="reply">Re: {{$notification->title}}</span>
+                            <span class="reply" id="noti-title">Re: {{$notification->title}}</span>
                         </span><!-- /.username -->
-                        <p>{{$notification->content}}</p>
+                        <p id=noti-content>{{$notification->content}}</p>
                     </div>
                 </div>
             </a>
