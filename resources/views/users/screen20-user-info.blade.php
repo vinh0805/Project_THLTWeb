@@ -1,27 +1,34 @@
 @extends('layout')
 @section('content')
-    <div>
+    <div class="info-box" id=user-cardbody>
 {{--        avatar--}}
-        <div>
+        <div class="signup-box" id=user-avatar-box>
             <img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar">
         </div>
 
 {{--        info--}}
-        <div>
-            <div>{{$user->name}} @if($user->role == 1)(admin)@endif</div>
+        <div class="signup-box" id=user-profile-box>
+            <!-- User name -->
+            <h3>{{$user->name}} @if($user->role == 1)(admin)@endif</h3>
+             <!-- User gender -->
             @if($user->gender == 1)
-                <div>Male</div>
+                <div class="input-field">Sex: Male</div>
             @else
-                <div>Female</div>
+                <div class="input-field">Sex: Female</div>
             @endif
-            <div>{{$user->address}}</div>
-            <div>{{$user->email}}</div>
+            <!-- address -->
+            <div class="input-field">Address: {{$user->address}}</div>
+            <!-- email -->
+            <div class="input-field">Email: {{$user->email}}</div>
         </div>
 
 {{--        number post & comment--}}
-        <div>
-            <div>{{$postNumber}} Posts</div>
-            <div>{{$commentNumber}} Comments</div>
+        <div class="signup-box">
+            <div class="white-box">
+            <h3>User status</h3>
+            <div class="input-field">{{$postNumber}} Posts</div>
+            <div class="input-field">{{$commentNumber}} Comments</div>
+            </div>
         </div>
     </div>
 @endsection
