@@ -1199,3 +1199,29 @@ button#loginButton {
     width: 60%;
     min-height: 400px;
 }
+
+/* Notice style */
+.noti-time{
+    font-size: 18px;
+}
+
+#noti-from{
+    font-weight: normal;
+    font-size: 20px;
+}
+
+#noti-name{
+    font-weight: normal;
+    font-size: 20px;
+    color: #FF9800;
+}
+
+#noti-title{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#noti-content{
+    font-weight: normal;
+    font-size: 16px;
+}
