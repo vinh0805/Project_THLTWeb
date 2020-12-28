@@ -66,14 +66,16 @@ class UserController extends Controller
                     'email' => $data['email'],
                     'password' => md5($data['password']),
                     'gender' => $data['gender'],
-                    'role' => 0
+                    'role' => 0,
+                    'avatar' => 'defaultAvatar.png'
                 ]);
             } else {
                 $user = new User([
                     'name' => $data['name'],
                     'email' => $data['email'],
                     'password' => md5($data['password']),
-                    'role' => 0
+                    'role' => 0,
+                    'avatar' => 'defaultAvatar.png'
                 ]);
             }
 
