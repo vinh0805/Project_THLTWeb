@@ -915,7 +915,7 @@ section#advertisement img {
     box-shadow: 0px 4px 4px 0px #0000002b;
     border-radius: 4px;
     padding: 10px;
-    max-width: 80%;
+    max-width: 100%;
     margin-bottom: 15px;
 }
 .request_user {
@@ -1065,6 +1065,25 @@ section#advertisement img {
 }
 
 /*Screen 13: show post*/
+.author {
+    margin-left: 10px;
+    margin-top: 40px;
+    margin-bottom: -10px;
+    clear: both;
+}
+.author .avatar {
+    float: left;
+    border-radius: 4px;
+}
+.author .text-muted {
+    margin-left: 15px;
+}
+.author a {
+    margin-left: 15px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 700;
+}
 #show-comment {
     width: 100%;
 }
