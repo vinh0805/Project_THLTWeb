@@ -1346,3 +1346,7 @@ button#loginButton {
     font-weight: normal;
     font-size: 16px;
 }
+
+.comment-text img{
+    border-radius: 50%;
+}
