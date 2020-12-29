@@ -23,7 +23,7 @@
         </div>
         <br>
         <section id="showPost">
-            <h1 id="showPostTitle"><b>{{$post->title}}</b></h1>
+            <div id="showPostTitle"><b>{{$post->title}}</b></div>
             <div id="showPostContent">{!! $post->content !!}</div>
         </section>
         <hr>
