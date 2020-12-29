@@ -150,7 +150,7 @@ class PostController extends Controller
         ]);
         $newPost->save();
         $admin = User::where('role', 1)->first();
-        $content = Session::get('sUser')->name . ' \'s Post need approve';
+        $content = Session::get('sUser')->name . '\'s Post need approve';
         $currentPost = Post::orderBy('id', 'desc')->first();
         // return Session::get('sUser')->id;
         $newNotification = new Notification([
