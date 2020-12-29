@@ -451,6 +451,10 @@ li.menu a:hover {
     border-radius: 4px;
     border: 1px;
 }
+#searchedPosts {
+    width: 80%;
+}
+
 #searchButton {
     font-weight: bold;
     font-size: 20px;
