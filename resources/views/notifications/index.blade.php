@@ -6,7 +6,7 @@
         <h1>List Notifications</h1>
     @if (count($notifications) > 0)
         @foreach ($notifications as $notification)
-        <div class="new_notification" id="<?= $notification->status == 0 ? '': 'seen' ?>">
+        <div class="new_notification <?= $notification->status == 0 ? '': ' seen' ?>">
             <a href="{{url('/me/notifications/' . $notification->id)}}">
                 <div>
                     <div class="comment-text">

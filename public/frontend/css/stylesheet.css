@@ -952,7 +952,7 @@ section#advertisement img {
     border-radius: 4px;
     padding: 10px;
     max-width: 100%;
-    margin-bottom: 15px;  
+    margin-bottom: 15px;
 }
 .new_notification .comment-text {
     max-width: 100%;
@@ -978,8 +978,9 @@ section#advertisement img {
     font-size: 18px;
     color: red;
 }
-.notification#seen {
+.new_notification.seen {
     font-weight: normal;
+    background-color: lightgrey;
 }
 
 /* Screen 18: Post create */
