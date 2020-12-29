@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+    <?php $i = $i2 = 0 ?>
     <section id="advertisement">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -57,8 +58,14 @@
                     @foreach($hotPosts as $hotPost)
                         <div class = "category-post">
                             <a href="{{url('post/' . $hotPost->id)}}">{{$hotPost->title}}</a>
+                            <hr>
+                            <div class="content-foot">
+                                <div>{{$hotPostLikeArray[$i2]}}  <i class="fas fa-paw"></i></div>
+                                <div>{{$hotPostCommentArray[$i2]}}  <i class="fas fa-comment-dots"></i></div>
+                                <div class="content-foot-user">Posted by <a href="{{url('user/' . $hotPost->user_id . '/info')}}">{{$hotPost->name}}</a> at {{$hotPost->created_at}}</div>
+                            </div>
                         </div>
-                        <hr>
+                        <?php $i2++; ?>
                     @endforeach
                 @endif
             </div>
@@ -66,7 +73,6 @@
 
         <div id="Category">
             <table class="table">
-                <?php $i = 0 ?>
                 @foreach($allCategoryPet as $categoryPet)
                     <tr>
                         <th class="col-sm-4"><a href="#">{{$categoryPet->name}}</a></th>

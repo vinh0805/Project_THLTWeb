@@ -6,20 +6,23 @@
         <h1>List Notifications</h1>
     @if (count($notifications) > 0)
         @foreach ($notifications as $notification)
-        <div class="notification" id="<?= $notification->status == 0 ? '': 'seen' ?>">
+        <div class="new_notification" id="<?= $notification->status == 0 ? '': 'seen' ?>">
             <a href="{{url('/me/notifications/' . $notification->id)}}">
                 <div>
                     <div class="comment-text">
                         <span class="username">
-                            <span class="text-muted float-right">{{$notification->created_at}}</span>
-                            <span class="user float-left">
-                                <img class="img-circle img-sm" src="{{url('frontend/images/Logo.png')}}" alt="User Image">
-                                From: {{$notification->name}}
+                            <div class = "request_user">
+                            <span class="text-muted float-right" id="noti-time">{{$notification->created_at}}</span>
+                            <span class="user float-left" id="noti-from">
+                            From:
+                                <img class="request_user_avt" src="{{url('frontend/images/Logo.png')}}" alt="User Image">
                             </span>
-                            <br>
-                            <span class="reply">Re: {{$notification->title}}</span>
+                            <span class="user float-left" id=noti-name>{{$notification->name}}</span>
+                            <br><hr>
+                            </div>
+                            <span class="reply" id="noti-title">Re: {{$notification->title}}</span>
                         </span><!-- /.username -->
-                        <p>{{$notification->content}}</p>
+                        <p id=noti-content>{{$notification->content}}</p>
                     </div>
                 </div>
             </a>

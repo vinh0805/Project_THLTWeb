@@ -321,6 +321,9 @@ input:focus, textarea:focus, select:focus{
 .menu.dropdown.name {
     margin-left: 30px;
 }
+.menu.dropdown.name .dropdown-content {
+    margin-top: -10%;
+}
 
 .menu.dropdown.name a h1 {
     color: black;
@@ -328,8 +331,8 @@ input:focus, textarea:focus, select:focus{
 }
 
 .catego {
-    margin-left: 40px;
-    width: 120%;
+    margin-left: 20px;
+    width: 40%;
     height: auto;
     color: black;
     font-size: 30px;
@@ -337,13 +340,16 @@ input:focus, textarea:focus, select:focus{
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    margin-top: -15px;  
+    margin-top: -10%;
     width: 150px;
     display: none;
     position: relative;
     background-color: #ffbc58;
     z-index: 9999;
     border-radius: 5px;
+}
+.dropdown-img {
+    width: 150px;
 }
 
 /* Links inside the dropdown */
@@ -445,6 +451,10 @@ li.menu a:hover {
     border-radius: 4px;
     border: 1px;
 }
+#searchedPosts {
+    width: 80%;
+}
+
 #searchButton {
     font-weight: bold;
     font-size: 20px;
@@ -466,11 +476,14 @@ li.menu a:hover {
     border: 1px;
 }
 #hotPosts .category-list .category-post {
-    width: 80%;
-    height: 50px;
+    width: 100%;
+    height: 110px;
 }
 #hotPosts .category-list .category-post a {
     font-size: 20px;
+}
+#hotPosts .category-list .category-post .content-foot-user a {
+    font-size: 12px;
 }
 .login-page h3 {
     font-size: 30px;
@@ -904,6 +917,22 @@ section#advertisement img {
     border-radius: 4px;
     font-weight: bold;
 }
+.new_notification {
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px #0000002b;
+    border-radius: 4px;
+    padding: 10px;
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+.request_user {
+    margin-bottom: 10px;
+}
+.request_user_avt {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
 .notifications h1 {
     font-size: 30px;
     margin-top: 1.5em;
@@ -1004,8 +1033,8 @@ section#advertisement img {
     margin: 30px 0 30px 0;
 }
 .category-post {
-    height: 170px;
-    overflow: hidden;
+    height: 220px;
+    /*overflow: hidden;*/
     background-color: white;
     margin-top: 10px;
     padding-top: 20px;
@@ -1027,6 +1056,29 @@ section#advertisement img {
 .content p {
     color: #808080;
 }
+.content-foot {
+    position: relative;
+    min-width: 100%;
+}
+.content-foot div {
+    margin-left: 25px;
+    display: block;
+    float: left;
+}
+.content-foot-user {
+    float: left;
+    margin-left: 65% !important;
+    font-size: 12px;
+}
+.content-foot-user a {
+    margin: 0;
+    color: #0b2c89;
+    font-weight: bold;
+    font-size: 12px;
+}
+.content-foot i {
+    color: #FF9800;
+}
 .request-post {
     width: 60%;
     height: 50px;
@@ -1043,6 +1095,25 @@ section#advertisement img {
 }
 
 /*Screen 13: show post*/
+.author {
+    margin-left: 10px;
+    margin-top: 40px;
+    margin-bottom: -10px;
+    clear: both;
+}
+.author .avatar {
+    float: left;
+    border-radius: 4px;
+}
+.author .text-muted {
+    margin-left: 15px;
+}
+.author a {
+    margin-left: 15px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 700;
+}
 #show-comment {
     width: 100%;
 }
@@ -1131,29 +1202,47 @@ button#loginButton {
 /* Screen 20: User info addition */
 
 #user-cardbody {
-    width: 100%;
+    width: 95%;
 }
 
 #user-cardbody .signup-box {
     background-color: #FF9800;
 }
 
+#user-avatar-box {
+    width: 60%;
+}
+
 #user-avatar-box img {
     margin-top: 50px;
     border: 8px solid #FFFFFF;
+    width: 200px;
+    height: 200px;
 }
 
 #user-profile-box {
     color: #B81C00;
-    font-size: 16px;
+    font-size: 19px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-#user-profile-box h3{
+#user-profile-box h2{
     color: #000000;
+    margin-top: 50px;
+    margin-left: 70px;
+}
+
+#user-profile-box .input-field {
+    margin-left:77px;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 80%;
 }
 
 .white-box {
-    width: 60%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
@@ -1162,9 +1251,42 @@ button#loginButton {
     text-align: center;
     min-height: 300px;
     border-radius: 4px;
+    font-size: 22px;
 }
 
 .white-box h3 {
     margin-left:auto;
     margin-right: auto;
+    margin-bottom: 50px;
+}
+
+#user-status {
+    width: 60%;
+    min-height: 400px;
+}
+
+/* Notice style */
+.noti-time{
+    font-size: 18px;
+}
+
+#noti-from{
+    font-weight: normal;
+    font-size: 20px;
+}
+
+#noti-name{
+    font-weight: normal;
+    font-size: 20px;
+    color: #FF9800;
+}
+
+#noti-title{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#noti-content{
+    font-weight: normal;
+    font-size: 16px;
 }

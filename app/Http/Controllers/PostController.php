@@ -38,12 +38,16 @@ class PostController extends Controller
         return 0;
     }
 
-
     public function showPostsHomePage()
     {
         $allCategoryPet = CategoryPet::all();
         $allCategory = Category::all();
-        $hotPosts = Post::find($this->findHotPosts());
+        $hotPosts = DB::table('posts')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->select('posts.*', 'users.name', 'users.avatar')
+            ->whereIn('posts.id', $this->findHotPosts())->get();
+        $hotPostLikeArray = [];
+        $hotPostCommentArray = [];
         $countPost = [];
         $countLike = [];
         $newestPostList = [];
@@ -63,11 +67,19 @@ class PostController extends Controller
                 $i++;
             }
         }
+        $i2 = 0;
+        foreach ($hotPosts as $post) {
+            $hotPostLikeArray[$i2] = count(LikePost::where('post_id', '=', $post->id)->get());
+            $hotPostCommentArray[$i2] = count(Comment::where('post_id', '=', $post->id)->get());
+            $i2++;
+        }
 
         return view('screen04-home-page')->with('allCategoryPet', $allCategoryPet)
             ->with('allCategory', $allCategory)->with('hotPosts', $hotPosts)
             ->with('countPost', $countPost)->with('countLike', $countLike)
-            ->with('newestPostList', $newestPostList);
+            ->with('newestPostList', $newestPostList)
+            ->with('hotPostLikeArray', $hotPostLikeArray)
+            ->with('hotPostCommentArray', $hotPostCommentArray);
     }
 
     public function findHotPosts()
@@ -232,7 +244,7 @@ class PostController extends Controller
                     $post->save();
                     $newNotification = new Notification([
                         'user_id' => $post->user_id,
-                        'fuserid' => Session::get('sUser')->id,
+                        'fuser_id' => Session::get('sUser')->id,
                         'post_id' => $post->id,
                         'content' => 'Admin approved your post',
                     ]);
