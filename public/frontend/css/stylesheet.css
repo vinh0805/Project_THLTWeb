@@ -1142,6 +1142,11 @@ section#advertisement img {
     color: #000000;
     font-weight: 700;
 }
+#showPostContent p img {
+    width: auto;
+    max-width: 533px;
+    max-height: 300px;
+}
 #show-comment {
     width: 100%;
 }
