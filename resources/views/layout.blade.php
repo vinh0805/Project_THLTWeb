@@ -243,12 +243,12 @@
             rules: {
                 password: "required",
                 new_password: {
-                    required: true,
-                    strongPassword: true
+                    required: true
+                    // strongPassword: true
                 },
                 confirm_new_password: {
                     required: true,
-                    strongPassword: true,
+                    // strongPassword: true
                     equalTo: "#new_password"
                 }
             }
@@ -277,7 +277,7 @@
     <script>alert({{$message}})</script>
 @endif
 <script src="{{asset('backend/js/jquery-validation-1.19.2/src/localization/messages_vi.js')}}"></script>
-<script src="{{asset('backend/js/jquery-validation-1.19.2/src/additional/strongPassword.js')}}"></script>
+{{--<script src="{{asset('backend/js/jquery-validation-1.19.2/src/additional/strongPassword.js')}}"></script>--}}
 <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('postContent', {

@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<div class="signup-box">  <!-- Dùng luôn class style của phần signup --> 
+<div class="signup-box">  <!-- Dùng luôn class style của phần signup -->
     <form role="form" method="post" id="changePasswordForm" action="{{url('update-password/' . $user->id)}}"
           enctype="multipart/form-data">
         {{csrf_field()}}
@@ -17,7 +17,9 @@
 					<label class="option">required</label>
 					<label for="inputName"></label>
 				</div>
-                <input type="password" class="input-form" id="password" name="password">
+                <input type="password" class="input-form" id="password" data-validation="length"
+                       maxlength="32" data-msg-maxlength="Max 32 characters!"
+                       minlength="6" data-msg-minlength="At least 6 characters!" name="password">
             </div>
             <div class="input-field">
                 <div>
@@ -27,7 +29,8 @@
 					<label for="inputName"></label>
 				</div>
                 <input type="password" class="input-form" id="new_password" data-validation="length"
-                       minlength="6" data-msg-minlength="Ít nhất 6 ký tự!" name="new_password">
+                       maxlength="32" data-msg-maxlength="Max 32 characters!"
+                       minlength="6" data-msg-minlength="At least 6 characters!" name="new_password">
             </div>
             <div class="input-field">
                 <div>
@@ -37,8 +40,8 @@
 					<label for="inputName"></label>
 				</div>
                 <input type="password" class="input-form" id="confirm_new_password" data-validation="length"
-                       data-validation-length="min6" data-validation-error-msg="Ít nhất 6 ký tự, ít nhất 1 ký tự hoa,
-                       1 ký tự đặc biệt!" name="confirm_new_password">
+                       maxlength="32" data-msg-maxlength="Max 32 characters!"
+                       minlength="6" data-msg-minlength="At least 6 characters!" name="confirm_new_password">
             </div>
 
             <div class="input-field">
