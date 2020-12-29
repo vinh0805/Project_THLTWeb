@@ -33,8 +33,11 @@ class CommentController extends Controller
         $userPost = User::where('id', $post->user_id)->first();
         $status = false;
         foreach ($cmtList as $cmt) {
-            if ($cmt->user_id == $post->user_id){
-                $status = true; //if status = false, User who create post doesn't comment -> here is not notification for this user
+            if ($post->user_id == $comment->user_id) {
+
+            }
+            if ($cmt->user_id == $post->user_id && $comment->user_id != $post->user_id){
+                $status = true; //if status = false, User who create post doesn't comment -> this is not notification for this user
                 $content = $user->name . ' created comment in your post';
             } else {
                 $content = $user->name . ' created comment in ' . $userPost->name . ' \'s post';
@@ -48,7 +51,7 @@ class CommentController extends Controller
                 ]);
                 $newNotification->save();
         }
-        if ($status == false) {
+        if ($status == false && $comment->user_id != $post->user_id) {
             $newNotification = new Notification([
                 'user_id' => $post->user_id,
                 'fuser_id' => $user->id,
