@@ -505,9 +505,11 @@ li.menu a:hover {
 #hotPosts .category-list .category-post {
     width: 100%;
     height: 110px;
+    overflow: hidden;
 }
 #hotPosts .category-list .category-post a {
     font-size: 20px;
+    margin-right: 30px;
 }
 #hotPosts .category-list .category-post .content-foot-user a {
     font-size: 12px;
@@ -1106,6 +1108,7 @@ section#advertisement img {
     float: left;
     margin-left: 65% !important;
     font-size: 12px;
+    margin-top: -3px;
 }
 .content-foot-user a {
     margin: 0;
@@ -1237,18 +1240,75 @@ footer {
     border-top: 2px solid darkgrey;
     margin-top: 50px;
     width: 100%;
+    background-color: white;
+    padding-bottom: 20px;
 }
 /* Layout */
 .footer-left {
+    width: 50%;
     font-size: 10px;
-    margin-left: 4%;
+    padding-left: 4%;
     display: block;
     float: left;
+    border-right: 1px solid #0000002b;
+}
+.footer-left header {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.footer-left h {
+    display: block;
+    height: 20px;
+    clear: both;
+    margin-bottom: 10px;
+}
+.footer-left .ruler_name {
+    margin-top: 25px;
+    margin-left: 20px;
+    color: #FF9800;
+    font-weight: 400;
+}
+.left-left {
+    width: 40%;
+    float: left;
+    border-right: 20%;
+}
+.footer-left .left-left img {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+.left-right {
+    width: 40%;
+    float: right;
+}
+.footer-left .left-right img {
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 50%;
 }
 .footer-right {
-    margin-right: 4%;
+    width: 50%;
+    padding-right: 4%;
+    padding-left: 4%;
     display: block;
     float: right;
+}
+.footer-right h {
+    display: block;
+    height: 20px;
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #FF9800;
+    font-weight: 700;
+}
+.footer-right a {
+    color: #808080;
 }
 /* Login */
 button#loginButton {

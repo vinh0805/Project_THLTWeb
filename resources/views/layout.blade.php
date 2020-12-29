@@ -288,6 +288,20 @@
 </body>
 <footer>
     <div class="footer-left">
+        <header>
+            <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
+        </header>
+        <div class = "left-left">
+            <h>“A Forum created for pet lover and people who interested about pet”</h>
+            <img src="{{asset('frontend/images/vinh.svg')}}" alt="logo" class = "ruler">
+            <p class = "ruler_name">- Vinh.M ( Founder of PETforum )</p>
+        </div>
+        <div class = "left-right">
+            <h>“Life without Ricardo is meaning less”</h>
+            <img src="{{asset('frontend/images/vinh2.jpg')}}" alt="logo" class = "ruler">
+            <p class = "ruler_name">- Still Vinh but actually Ngôn Phi</p>
+        </div>
+        <!--
         <label>Forum created by Team 5</label>
         <div><a href="https://www.facebook.com/emquen.ten.5/"><b>Ngo Thu Huyen</b></a></div>
         <div><a href="https://www.facebook.com/chung.levan.334839/">Le Van Chung</a></div>
@@ -296,12 +310,25 @@
         <div><a href="https://www.facebook.com/trannhatthong99/">Tran Nhat Thong</a></div>
         <div><a href="https://www.facebook.com/vinhemt/">Mau Tien Vinh</a></div>
         <div><a></a></div>
+        -->
     </div>
     <div class="footer-right">
-        <div><a href="#">Contact us</a></div>
-        <div><a href="#">Terms and rules</a></div>
-        <div><a href="#">Privacy policy</a></div>
-        <div><a href="#">Help</a></div>
+    <div class = "left-left">
+            <h>About us</h>
+            <div><a href=#>About PETforum</a></div>
+            <div><a href=#>Contact us</a></div>
+            <div><a href=#>Features</a></div>
+            <div><a href=#>Careers</a></div>
+        </div>
+        <div class = "left-right">
+            <h>Get in touch</h>
+            <div><a href="https://www.facebook.com/emquen.ten.5/"><b>Ngo Thu Huyen</b></a></div>
+            <div><a href="https://www.facebook.com/chung.levan.334839/">Le Van Chung</a></div>
+            <div><a href="https://www.facebook.com/balduusavage/">Nguyen Bao Duc</a></div>
+            <div><a href="https://www.facebook.com/phongdk29101999/">Do Kim Phong</a></div>
+            <div><a href="https://www.facebook.com/trannhatthong99/">Tran Nhat Thong</a></div>
+            <div><a href="https://www.facebook.com/vinhemt/">Mau Tien Vinh</a></div>
+        </div>
     </div>
 </footer>
 </html>
