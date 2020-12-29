@@ -472,11 +472,14 @@ li.menu a:hover {
     border: 1px;
 }
 #hotPosts .category-list .category-post {
-    width: 80%;
-    height: 50px;
+    width: 100%;
+    height: 110px;
 }
 #hotPosts .category-list .category-post a {
     font-size: 20px;
+}
+#hotPosts .category-list .category-post .content-foot-user a {
+    font-size: 12px;
 }
 .login-page h3 {
     font-size: 30px;
