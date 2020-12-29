@@ -7,7 +7,7 @@
         <div class = "post-option">
             <div class = "option">
                 <label for="postTitle">Title</label>
-                <input id="postTitle" class="input-form" name="postTitle" placeholder="..." required>
+                <input id="postTitle" maxlength="255" class="input-form" name="postTitle" placeholder="..." required>
             </div>
             <div class = "option">
                 <label for="postCategoryPet">Pet</label>

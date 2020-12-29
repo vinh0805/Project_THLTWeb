@@ -1159,8 +1159,8 @@ section#advertisement img {
 }
 #showPostContent p img {
     width: auto;
-    max-width: 533px;
-    max-height: 300px;
+    max-width: 800px;
+    max-height: 800px;
 }
 #showPost {
     word-wrap: break-word;

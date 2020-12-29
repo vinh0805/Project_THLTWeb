@@ -20,7 +20,7 @@
             <label class="option">required</label>
             <label for="inputName"></label>
             <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$user->name}}"
-                   maxlength="32" data-msg-required="Bạn phải nhập trường này!" required name="name">
+                   maxlength="16" data-msg-required="Bạn phải nhập trường này!" required name="name">
         </div>
         <div class="input-field">
             <label for="exampleInputEmail1">Email address</label>
@@ -38,7 +38,7 @@
                 <span class="checkmark"></span>
             </label>
             <label class="container">Female
-                <input type="radio"  name="gender" id="female" value="2"
+                <input type="radio" name="gender" id="female" value="2"
                     @if($user->gender == 2)
                         checked
                     @endif
@@ -59,7 +59,9 @@
         </div>
         <div class="input-field">
             <label for="exampleInputEmail1">Address</label>
-            <label for="inputAddress"></label><input type="text" maxlength="255" class="form-control" id="inputAddress" placeholder="Enter address" value="{{$user->address}}" name="address">
+            <label for="inputAddress"></label>
+            <input type="text" maxlength="255" class="form-control" id="inputAddress"
+                   placeholder="Enter address" value="{{$user->address}}" name="address">
         </div>
         <div class="input-field" id="info-add-avatar">
             <label for="exampleInputFile">Avatar</label>
