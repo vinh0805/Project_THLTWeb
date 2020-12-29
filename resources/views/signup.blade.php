@@ -74,7 +74,7 @@
 						<label for="inputName"></label>
 					</div>
 					<input type="text" class="input-form" id="inputName"
-						   maxlength="32" data-msg-required="Bạn phải nhập trường này!" required name="name">
+						   maxlength="16" required name="name">
 				</div>
 				<div class="input-field">
 					<div>
@@ -93,7 +93,7 @@
 						<label for="password"></label>
 					</div>
 					<input type="password" class="input-form" id="password" data-validation="length"
-						   minlength="6" data-msg-minlength="Ít nhất 6 ký tự!" name="password">
+						   minlength="6" name="password">
 				</div>
 				<div class="input-field">
 					<div>
@@ -103,7 +103,7 @@
 						<label for="confirm_password"></label>
 					</div>
 					<input type="password" class="input-form" id="confirm_password" data-validation="length"
-						   data-validation-length="min6" data-validation-error-msg="Ít nhất 6 ký tự!" name="confirm_password">
+						   data-validation-length="min6" name="confirm_password">
 				</div>
 
 				<div class="input-field">
@@ -112,7 +112,7 @@
 						<span class="checkmark"></span>
 					</label>
 					<label class="container">Female
-						<input type="radio"  name="gender" id="female" value="2">
+						<input type="radio" name="gender" id="female" value="2">
 						<span class="checkmark"></span>
 					</label>
 				</div>
