@@ -64,7 +64,7 @@
             <div class="input-field" id="info-add-avatar">
                 <label for="exampleInputFile">Avatar</label>
                 <label for="exampleInputFile"></label>    
-                <input type="file" class="form-control" id="exampleInputFile" name="avatar">
+                <input type="file" class="form-control" id="exampleInputFile" name="avatar" accept="image/x-png,image/gif,image/jpeg">
             </div>
             <br>
             <div class="input-field">
