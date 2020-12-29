@@ -1,6 +1,14 @@
 @extends('layout')
 @section('content')
-    <?php $i = $i2 = 0 ?>
+    <?php
+    use Illuminate\Support\Facades\Session;
+    $message = Session::get('message');
+    if(isset($message)) {
+        echo '<span id="loginError">' . $message . '</span>';
+        Session::put('message', null);
+    }
+    $i = $i2 = 0;
+    ?>
     <section id="advertisement">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
