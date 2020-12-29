@@ -1180,10 +1180,12 @@ section#advertisement img {
     margin: 10px;
     border: 1px solid darkgrey;
     border-radius: 4px;
-    height: auto;
+    height: fit-content;
 }
 .left-comment {
+    word-wrap: break-word;
     position: relative;
+    float: left;
     width: 15%;
     padding: 20px;
     display: inline-block;
@@ -1192,14 +1194,11 @@ section#advertisement img {
     margin-right: 20px;
 }
 .right-comment {
-    float: right;
-    margin: 10px 10px 0 0;
-    min-height: 150%;
     position: relative;
+    margin: 10px 10px 0 0; 
+    height: fit-content;
     width: 80%;
     display: inline-block;
-    height: fit-content;
-    background-color: green;
 }
 .right-top-comment {
     position: static;
@@ -1223,7 +1222,7 @@ section#advertisement img {
     display: block;
     position: relative;
     height: fit-content;
-    min-height: 100px;
+    min-height: 70px;
 }
 .avatar {
     width: 50px;
