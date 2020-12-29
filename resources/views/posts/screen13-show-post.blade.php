@@ -10,7 +10,7 @@
     $user = \Illuminate\Support\Facades\Session::get('sUser');
     ?>
     {{--    Show posted user--}}
-    
+
 
     <div class="post-sw-body">
         <div class = "author">
