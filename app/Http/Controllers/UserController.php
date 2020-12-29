@@ -60,24 +60,17 @@ class UserController extends Controller
         $data = $request->all();
         $checkEmail = User::where('email', '=', $data['email'])->first();
         if (!isset($checkEmail)) {
-            if (isset($data['gender'])) {
-                $user = new User([
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'password' => md5($data['password']),
-                    'gender' => $data['gender'],
-                    'role' => 0,
-                    'avatar' => 'defaultAvatar.png'
-                ]);
-            } else {
-                $user = new User([
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'password' => md5($data['password']),
-                    'role' => 0,
-                    'avatar' => 'defaultAvatar.png'
-                ]);
+            if (!isset($data['gender'])) {
+                $data['gender'] = 1;
             }
+            $user = new User([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => md5($data['password']),
+                'gender' => $data['gender'],
+                'role' => 0,
+                'avatar' => 'defaultAvatar.png'
+            ]);
 
             $user->save();
             Session::put('message', 'SIGN UP SUCCESSFULLY!');
@@ -112,7 +105,8 @@ class UserController extends Controller
 
         $user->save();
         Session::put('sUser', $user);
-        return redirect('me')->with('user', $user)->with('message', 'Cập nhật thông tin thành công!');
+        return redirect('me')->with('user', $user)
+            ->with('message', 'UPDATE INFORMATION SUCCESSFULLY!');
     }
 
     public function changePassword()
@@ -131,11 +125,13 @@ class UserController extends Controller
                     $user->password = md5($request['new_password']);
                     $user->save();
                     Session::put('sUser', $user);
-                    return redirect('me/password')->with('user', $user)->with('message', 'Cập nhật mật khẩu thành công!');
+                    return redirect('me/password')->with('user', $user)
+                        ->with('message', 'UPDATE PASSWORD SUCCESSFULLY!');
                 }
             }
         }
-        return redirect('me/password')->with('message', 'Cập nhật mật khẩu không thành công!');
+        return redirect('me/password')
+            ->with('message', 'CANNOT UPDATE PASSWORD!');
     }
 
     public function signupSuccess() {
