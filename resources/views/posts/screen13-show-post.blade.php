@@ -9,18 +9,19 @@
     }
     $user = \Illuminate\Support\Facades\Session::get('sUser');
     ?>
-
-    <hr>
     {{--    Show posted user--}}
-    <div>
-        <h4>Posted by:</h4>
-        {{--        avatar--}}
-        <img class="avatar" src="{{url('frontend/images/avatars/' . $post->avatar)}}" alt="avatar">
-        <div><a href="{{url('user/' . $user->id . '/info')}}">{{$post->name}}</a></div>
-    </div>
-    <hr>
+    
 
     <div class="post-sw-body">
+        <div class = "author">
+            {{--        avatar--}}
+            <img class="avatar" src="{{url('frontend/images/avatars/' . $post->avatar)}}" alt="avatar">
+            <div class = "post_info">
+                <a href="{{url('user/' . $user->id . '/info')}}">{{$post->name}}</a> <br>
+                <span class="text-muted" id="noti-time">{{$post->created_at}}</span>
+            </div>
+        </div>
+        <br>
         <section id="showPost">
             <h1 id="showPostTitle"><b>{{$post->title}}</b></h1>
             <div id="showPostContent">{!! $post->content !!}</div>
