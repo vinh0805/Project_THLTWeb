@@ -454,6 +454,10 @@ li.menu a:hover {
     /* background-color: #0080ff; */
 }
 /* Home's Hot post  */
+.newest-post {
+    overflow: hidden;
+    max-width: 254px;
+}
 #content {
     padding: 20px 10% 0 10%;
     width: 98%;
@@ -950,6 +954,10 @@ section#advertisement img {
     max-width: 100%;
     margin-bottom: 15px;  
 }
+.new_notification .comment-text {
+    max-width: 100%;
+    overflow: hidden;
+}
 .new_notification a {
     color: #000000;
 }
@@ -1100,7 +1108,7 @@ section#advertisement img {
 }
 .content-foot-user a {
     margin: 0;
-    color: #0b2c89;
+    color: #FF9800;
     font-weight: bold;
     font-size: 12px;
 }
@@ -1142,10 +1150,19 @@ section#advertisement img {
     color: #000000;
     font-weight: 700;
 }
+#showPostContent {
+    width: 100%;
+}
 #showPostContent p img {
     width: auto;
     max-width: 533px;
     max-height: 300px;
+}
+#showPost {
+    word-wrap: break-word; 
+}
+#showPostTitle {
+    font-size: 20px;
 }
 #show-comment {
     width: 100%;
@@ -1163,6 +1180,7 @@ section#advertisement img {
     margin: 10px;
     border: 1px solid darkgrey;
     border-radius: 4px;
+    height: auto;
 }
 .left-comment {
     position: relative;
@@ -1176,10 +1194,12 @@ section#advertisement img {
 .right-comment {
     float: right;
     margin: 10px 10px 0 0;
-    min-height: 100%;
+    min-height: 150%;
     position: relative;
     width: 80%;
     display: inline-block;
+    height: fit-content;
+    background-color: green;
 }
 .right-top-comment {
     position: static;
@@ -1198,9 +1218,12 @@ section#advertisement img {
     width: 20px;
 }
 .comment-content {
+    word-wrap: break-word;
     font-size: 18px;
     display: block;
     position: relative;
+    height: fit-content;
+    min-height: 100px;
 }
 .avatar {
     width: 50px;
