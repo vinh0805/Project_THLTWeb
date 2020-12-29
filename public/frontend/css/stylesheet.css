@@ -151,6 +151,29 @@ span#loginError {
   user-select: none;
   float: left;
 }
+.box {
+	width: 91%;
+	height: auto;
+	min-height: 400px;
+    background: #FFDEAE;
+    box-shadow: 0px 4px 4px 0px #0000002b;
+	border-radius: 4px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+.box-message {
+    width: 80%;
+    height: auto;
+	margin-top: 100px;
+    margin-left: 10%;
+    text-align: center;
+}
+h2 {
+    color: red;
+    font-weight: bold;
+}
 
 /* Hide the browser's default radio button */
 .container input {
@@ -905,8 +928,10 @@ section#advertisement img {
 }
 /* Screen 16: list notifications */
 .notifications {
+    width: 100%;
     padding-left: 15%;
     padding-right: 15%;
+    height: fit-content;
 }
 .notification {
     margin: 10px 100px;
@@ -923,7 +948,10 @@ section#advertisement img {
     border-radius: 4px;
     padding: 10px;
     max-width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 15px;  
+}
+.new_notification a {
+    color: #000000;
 }
 .request_user {
     margin-bottom: 10px;
