@@ -18,9 +18,6 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="{{asset('frontend/fonts/font.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('frontend/css/stylesheet.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/login-style.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/signupSuccess.css')}}">
 	<style>
 
 	</style>
@@ -38,9 +35,9 @@
 		</nav>
 		<div class = "account">
 			<div class="social">
-				<a href="#"><img src="{{asset('frontend/images/Facebook.png')}}" alt="facebook"></a>
-				<a href="#"><img src="{{asset('frontend/images/Twitter.png')}}" alt="twitter"></a>
-				<a href="#"><img src="{{asset('frontend/images/Instagram.png')}}" alt="instagram"></a>
+                <a href="#"><img src="{{asset('frontend/images/Facebook.svg')}}" alt="facebook"></a>
+				<a href="#"><img src="{{asset('frontend/images/Twitter.svg')}}" alt="twitter"></a>
+				<a href="#"><img src="{{asset('frontend/images/Instagram.svg')}}" alt="instagram"></a>
 			</div>
 		</div>
 	</div>
