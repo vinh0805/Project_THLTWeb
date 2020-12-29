@@ -9,7 +9,6 @@ use App\Models\Post;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Mockery\Matcher\Not;
 
 class LikeController extends Controller
 {

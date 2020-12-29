@@ -10,8 +10,6 @@
     $user = \Illuminate\Support\Facades\Session::get('sUser');
     ?>
     {{--    Show posted user--}}
-
-
     <div class="post-sw-body">
         <div class = "author">
             {{--        avatar--}}
@@ -60,6 +58,7 @@
                     </div>
                     <?php $i++ ?>
                 @endforeach
+                {{ $allComments->links() }}
             </section>
             @if(isset($user))
                 <section id="writeComment">

@@ -1163,7 +1163,7 @@ section#advertisement img {
     max-height: 300px;
 }
 #showPost {
-    word-wrap: break-word; 
+    word-wrap: break-word;
 }
 #showPostTitle {
     font-size: 20px;
@@ -1199,7 +1199,7 @@ section#advertisement img {
 }
 .right-comment {
     position: relative;
-    margin: 10px 10px 0 0; 
+    margin: 10px 10px 0 0;
     height: fit-content;
     width: 80%;
     display: inline-block;

@@ -107,8 +107,6 @@ class PostController extends Controller
             array_push($hotPostIdList, $bestHotPost->id);
         }
         return $hotPostIdList;
-
-        // return view('test-view')->with('hotPostList', $hotPostIdList);
     }
 
     public function createPost()
@@ -152,7 +150,6 @@ class PostController extends Controller
         $admin = User::where('role', 1)->first();
         $content = Session::get('sUser')->name . '\'s Post need approve';
         $currentPost = Post::orderBy('id', 'desc')->first();
-        // return Session::get('sUser')->id;
         $newNotification = new Notification([
             'post_id'  => $currentPost->id,
             'user_id' => $admin->id,
@@ -174,8 +171,11 @@ class PostController extends Controller
             echo "Have bug!!!";
         } else {
             $likePostNumber = count(LikePost::where('post_id', '=', $post->id)->get());
-            $allComments = DB::table('comments')->join('users', 'comments.user_id', '=', 'users.id')
-                ->select('comments.*', 'users.name', 'users.avatar')->where('post_id', '=', $post->id)->get();
+            $allComments = DB::table('comments')
+                ->join('users', 'comments.user_id', '=', 'users.id')
+                ->select('comments.*', 'users.name', 'users.avatar')
+                ->where('post_id', '=', $post->id)
+                ->paginate(10);
             $likeArray = [];
             $commentIsLikedArray = [];
             $i = 0;
