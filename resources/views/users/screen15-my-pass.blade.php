@@ -48,7 +48,7 @@
                 <?php
                 use Illuminate\Support\Facades\Session;
                 $message = Session::get('message');
-                if($message == 'Cập nhật mật khẩu thành công!') {
+                if($message == 'UPDATE PASSWORD SUCCESSFULLY!') {
                     echo '<div id="updateSuccessfullyMessage"><span>' . $message . '</span></div>';
                 } else {
                     echo '<div id="updateFailMessage"><span>' . $message . '</span></div>';
