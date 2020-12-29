@@ -8,7 +8,7 @@
 {{--        info--}}
         <div class="signup-box" id=user-profile-box>
             <!-- User name -->
-            <h2>{{$user->name}} @if($user->role == 1)(admin)@endif</h2>
+            <h2>{{$user->name}} @if($user->role == 1)<i class="far fa-check-circle"></i>@endif</h2>
              <!-- User gender -->
             @if($user->gender == 1)
                 <div class="input-field">Gender: Male</div>
