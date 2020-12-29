@@ -14,12 +14,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
-        $password = '123123';
-        $user = new User;
-        $user->name = "Admin";
-        $user->email = "admin@gmail.com";
-        $user->password = md5($password);
-        $user->role = "1";
+        $user = new User([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => md5('123123'),
+            'role' => 1,
+            'avatar' => 'defaultAvatar.png'
+        ]);
         $user->save();
     }
 }
