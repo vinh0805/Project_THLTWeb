@@ -15,7 +15,7 @@
                             <span class="text-muted float-right" id="noti-time">{{$notification->created_at}}</span>
                             <span class="user float-left" id="noti-from">
                             From:
-                                <img class="request_user_avt" src="{{url('frontend/images/Logo.png')}}" alt="User Image">
+                                <img class="request_user_avt" src="{{url('frontend/images/avatars/' . $notification->avatar)}}" alt="User Image">
                             </span>
                             <span class="user float-left" id=noti-name>{{$notification->name}}</span>
                             <br><hr>
@@ -28,7 +28,7 @@
             </a>
         </div>
         @endforeach
-        {{-- {{$notifications->links()}} --}}
+        {{$notifications->links()}}
     @else
         <p class = "none">No notifications found</p>
     @endif

@@ -16,12 +16,12 @@ class NotificationController extends Controller
     public function index() {
         $user = Session::get('sUser');
         $notifications = DB::table('notifications')
-            ->select('notifications.*', 'users.name', 'posts.title')
+            ->select('notifications.*', 'users.name', 'users.avatar','posts.title')
             ->join('users', 'notifications.fuser_id', '=', 'users.id')
             ->join('posts', 'notifications.post_id', '=', 'posts.id')
             ->where('notifications.user_id', $user->id)
             ->orderBy('notifications.created_at', 'desc')
-            ->get();
+            ->paginate(5);
         return view('notifications.index')->with('notifications', $notifications);
     }
 
