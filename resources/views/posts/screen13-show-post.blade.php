@@ -64,7 +64,7 @@
                 <section id="writeComment">
                     <form action="{{url('post/' . $post->id . '/write-comment')}}" method="post">
                         @csrf
-                        <textarea id="commentContent" name="commentContent" placeholder="Write comment here..."></textarea>
+                        <textarea minlength="3" id="commentContent" name="commentContent" placeholder="Write comment here..."></textarea>
                         <button type="submit" id="writeCommentButton">Comment</button>
                     </form>
                 </section>
