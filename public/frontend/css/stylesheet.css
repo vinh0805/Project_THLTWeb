@@ -1263,6 +1263,7 @@ button#loginButton {
 
 #user-cardbody .signup-box {
     background-color: #FF9800;
+    height: 500px;
 }
 
 #user-avatar-box {
@@ -1270,14 +1271,14 @@ button#loginButton {
 }
 
 #user-avatar-box img {
-    margin-top: 50px;
+    margin-top: 100px;
     border: 8px solid #FFFFFF;
     width: 200px;
     height: 200px;
 }
 
 #user-profile-box {
-    color: #B81C00;
+    color: #000000;
     font-size: 19px;
     margin-left: 5px;
     margin-right: 5px;
@@ -1285,7 +1286,7 @@ button#loginButton {
 
 #user-profile-box h2{
     color: #000000;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-left: 70px;
 }
 
@@ -1301,24 +1302,37 @@ button#loginButton {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: auto;
-    margin-top: 50px;
+    margin-top: 100px;
     background-color: #FFFFFF;
     text-align: center;
-    min-height: 300px;
+    width: 250px;
+    height: 300px;
     border-radius: 4px;
     font-size: 22px;
-}
-
-.white-box h3 {
-    margin-left:auto;
-    margin-right: auto;
-    margin-bottom: 50px;
+    position: relative;
 }
 
 #user-status {
     width: 60%;
     min-height: 400px;
+}
+
+#user-status .input-field{
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-top:0px;
+    width: 100%;
+
+}
+
+.input-field#status-tittle{
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+    margin-top:0px;
+    font-weight: bold;
+    width: 100%;
 }
 
 /* Notice style */
