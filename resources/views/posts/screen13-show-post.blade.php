@@ -17,7 +17,7 @@
             {{--        avatar--}}
             <img class="avatar" src="{{url('frontend/images/avatars/' . $post->avatar)}}" alt="avatar">
             <div class = "post_info">
-                <a href="{{url('user/' . $user->id . '/info')}}">{{$post->name}}</a> <br>
+                <a href="{{url('user/' . $post->user_id . '/info')}}">{{$post->name}}</a> <br>
                 <span class="text-muted" id="noti-time">{{$post->created_at}}</span>
             </div>
         </div>
