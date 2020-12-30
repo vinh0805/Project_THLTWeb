@@ -445,12 +445,12 @@ li.menu img#avatar {
 }
 li.menu.avatar {
     position: absolute;
-    left: 1150px;
+    left: 77%;
     list-style-type: none;
 }
 li.menu.name {
     position: absolute;
-    left: 1180px;
+    left: 79%;
     max-width: 250px;
     width: fit-content;
 }
