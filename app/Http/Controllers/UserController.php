@@ -60,22 +60,26 @@ class UserController extends Controller
         $data = $request->all();
         $checkEmail = User::where('email', '=', $data['email'])->first();
         if (!isset($checkEmail)) {
-            if (!isset($data['gender'])) {
-                $data['gender'] = 1;
-            }
-            $user = new User([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => md5($data['password']),
-                'gender' => $data['gender'],
-                'role' => 0,
-                'avatar' => 'defaultAvatar.png'
-            ]);
+            if($data['password'] == $data['confirm_password']) {
+                if (!isset($data['gender'])) {
+                    $data['gender'] = 1;
+                }
+                $user = new User([
+                    'name' => $data['name'],
+                    'email' => $data['email'],
+                    'password' => md5($data['password']),
+                    'gender' => $data['gender'],
+                    'role' => 0,
+                    'avatar' => 'defaultAvatar.png'
+                ]);
 
-            $user->save();
-            Session::put('message', 'SIGN UP SUCCESSFULLY!');
-            Session::put('sUser', $user);
-            return redirect('/signup/success');
+                $user->save();
+                Session::put('message', 'SIGN UP SUCCESSFULLY!');
+                Session::put('sUser', $user);
+                return redirect('/signup/success');
+            } else {
+                return redirect('signup')->with('message', 'WRONG CONFIRM PASSWORD!');
+            }
         } else {
             Session::put('message', 'THIS EMAIL IS USED BY ANOTHER USER!');
             return redirect('/signup');
@@ -122,11 +126,16 @@ class UserController extends Controller
         if (isset($user)) {
             if (isset($user->password)) {
                 if ($user->password == md5($request['password'])) {
-                    $user->password = md5($request['new_password']);
-                    $user->save();
-                    Session::put('sUser', $user);
-                    return redirect('me/password')->with('user', $user)
-                        ->with('message', 'UPDATE PASSWORD SUCCESSFULLY!');
+                    if ($request['new_password'] == $request['confirm_new_password']) {
+                        $user->password = md5($request['new_password']);
+                        $user->save();
+                        Session::put('sUser', $user);
+                        return redirect('me/password')->with('user', $user)
+                            ->with('message', 'UPDATE PASSWORD SUCCESSFULLY!');
+                    } else {
+                        return redirect('me/password')->with('user', $user)
+                            ->with('message', 'WRONG CONFIRM PASSWORD!');
+                    }
                 }
             }
         }

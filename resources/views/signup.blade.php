@@ -151,7 +151,7 @@
 							required: true,
 							strongPassword: true,
 							equalTo: "#password"
-						}
+						},
 					}
 				})
 			})
