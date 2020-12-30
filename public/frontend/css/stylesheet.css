@@ -346,6 +346,8 @@ input:focus, textarea:focus, select:focus{
 }
 .menu.dropdown.name .dropdown-content {
     margin-top: -10%;
+    width: fit-content;
+    min-width: 150px;
 }
 
 .menu.dropdown.name a h1 {
@@ -443,12 +445,14 @@ li.menu img#avatar {
 }
 li.menu.avatar {
     position: absolute;
-    right: 210px;
+    left: 1150px;
     list-style-type: none;
 }
 li.menu.name {
     position: absolute;
-    right: 170px;
+    left: 1180px;
+    max-width: 250px;
+    width: fit-content;
 }
 li.menu a:hover {
     /* background-color: #0080ff; */
@@ -1156,6 +1160,7 @@ section#advertisement img {
 }
 #showPostContent {
     width: 100%;
+    font-size: 16px;
 }
 #showPostContent p img {
     width: auto;
@@ -1166,7 +1171,8 @@ section#advertisement img {
     word-wrap: break-word;
 }
 #showPostTitle {
-    font-size: 20px;
+    font-size: 40px;
+    font-weight: 400;
 }
 #show-comment {
     width: 100%;
