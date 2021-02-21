@@ -160,7 +160,7 @@
                     if ($("#likePostButton").attr("liked") == '0') {
                         console.log('liked!');
                         $("#likePostButton").attr('liked', "1");
-                        $("#likePostButton").css("color", "#006cfa");
+                        $("#likePostButton").css("color", "#FF9800");
                     } else if ($("#likePostButton").attr("liked") == '1') {
                         console.log('unliked!');
                         $("#likePostButton").attr('liked', "0");
@@ -181,7 +181,7 @@
                     if ($("#" + response.commentId).attr("liked") == '0') {
                         console.log('liked!');
                         $("#" + response.commentId).attr('liked', "1");
-                        $("#" + response.commentId).css("color", "#006cfa");
+                        $("#" + response.commentId).css("color", "#FF9800");
                     } else if ($("#" + response.commentId).attr("liked") == '1') {
                         console.log('unliked!');
                         $("#" + response.commentId).attr('liked', "0");
@@ -202,20 +202,43 @@
                 url: 'search',
                 type: 'get',
                 data: {'title': query},
-                success:function (data) {
+                success: function(data) {
                     $('#searchedPosts').html(data);
                 }
             })
             // end of ajax call
         });
-        $('#searchButton').click(function (){
+        $('#searchButton').click(function() {
             let query = $("#searchInput").val();
             $.ajax({
                 url: 'search',
                 type: 'get',
                 data: {'title': query},
-                success:function (data) {
+                success: function(data) {
                     $('#searchedPosts').html(data);
+                }
+            })
+            // end of ajax call
+        });
+
+        let url = 'pets-category/';
+        let category_name = $('#searchInputCategory').data('category2');
+        let category_pet_name = $('#searchInputCategory').data('category-pet2');
+        let url2 = url + category_pet_name + '/' + category_name;
+        console.log(url2);
+        $('#searchInputCategory').on('keyup', function() {
+            let val = $(this).val();
+            let category = $(this).data('category');
+            let categoryPet = $(this).data('category-pet');
+            console.log(category);
+            console.log(categoryPet);
+            $.ajax({
+                url: category_name + '/search-by-category',
+                type: 'get',
+                data: {'title': val, 'category': category, 'categoryPet': categoryPet},
+                success: function(data) {
+                    console.log(data);
+                    $('#searchedCategoryPosts').html(data);
                 }
             })
             // end of ajax call
@@ -278,7 +301,7 @@
 @endif
 {{--<script src="{{asset('backend/js/jquery-validation-1.19.2/src/localization/messages_vi.js')}}"></script>--}}
 {{--<script src="{{asset('backend/js/jquery-validation-1.19.2/src/additional/strongPassword.js')}}"></script>--}}
-<script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.15.1/full/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('postContent', {
         filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",

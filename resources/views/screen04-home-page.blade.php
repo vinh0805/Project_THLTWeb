@@ -70,7 +70,7 @@
                             <div class="content-foot">
                                 <div>{{$hotPostLikeArray[$i2]}}  <i class="fas fa-paw"></i></div>
                                 <div>{{$hotPostCommentArray[$i2]}}  <i class="fas fa-comment-dots"></i></div>
-                                <div class="content-foot-user">Posted by <a href="{{url('user/' . $hotPost->user_id . '/info')}}">{{$hotPost->name}}</a> at {{$hotPost->created_at}}</div>
+                                <div class="content-foot-user">Posted by <a class="user-name-mini" href="{{url('user/' . $hotPost->user_id . '/info')}}">{{$hotPost->name}}</a> at {{$hotPost->created_at}}</div>
                             </div>
                         </div>
                         <?php $i2++; ?>
@@ -80,34 +80,44 @@
         </div>
 
         <div id="Category">
-            <table class="table">
-                @foreach($allCategoryPet as $categoryPet)
+            <h2><b>Category</b></h2>
+            <hr>
+            @foreach($allCategoryPet as $categoryPet)
+                <table class="table">
                     <tr>
                         <th class="col-sm-4"><a href="#">{{$categoryPet->name}}</a></th>
-                        <th class="col-sm-4 newest-post">Newest Post</th>
-                        <th class="col-sm-1">Posts</th>
-                        <th class="col-sm-1">Likes</th>
+                        <th class="col-sm-4"></th>
+                        <th class="col-sm-1"></th>
+                        <th class="col-sm-1"></th>
                     </tr>
                     @foreach($allCategory as $category)
                         <tr>
-                            <td class="col-sm-4"><a href="{{url('pets-category/' . $categoryPet->name . '/' .$category->name)}}">
+                            <td class="col-sm-4 category-name">
+                                <a href="{{url('pets-category/' . $categoryPet->name . '/' .$category->name)}}">
                                     {{$category->name}}
-                                </a></td>
+                                </a>
+                            </td>
                             <td class="col-sm-4 newest-post">
                                 @if(isset($newestPostList[$i]))
                                     <a href="{{url('post/' . $newestPostList[$i]->id)}}">
-                                        <p>{{$newestPostList[$i]->title}}</p>
+                                        <div>{{$newestPostList[$i]->title}}</div>
                                         <p class="post-created-at">{{$newestPostList[$i]->created_at}}</p>
                                     </a>
                                 @endif
                             </td>
-                            <td class="col-sm-1"><label>{{$countPost[$i]}}</label></td>
-                            <td class="col-sm-1"><label>{{$countLike[$i]}}</label></td>
+                            <td class="col-sm-1">
+                                <div class="sm-text">Posts</div>
+                                <label>{{$countPost[$i]}}</label>
+                            </td>
+                            <td class="col-sm-1">
+                                <div class="sm-text">Comments</div>
+                                <label>{{$countComment[$i]}}</label>
+                            </td>
                             <?php $i++ ?>
                         </tr>
                     @endforeach
-                @endforeach
-            </table>
+                </table>
+            @endforeach
         </div>
     </section>
 @endsection

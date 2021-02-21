@@ -51,6 +51,7 @@ Route::get('/post/{commentId}/update-like-comment', 'LikeController@updateLikeCo
 
 // Search
 Route::get('/search', 'PostController@search');
+Route::get('/pets-category/{categoryPetName}/{categoryName}/search-by-category', 'PostController@searchByCategory');
 
 // Notification
 Route::get('/me/notifications', 'NotificationController@index');

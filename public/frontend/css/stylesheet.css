@@ -13,7 +13,7 @@ span#loginError {
 	height: auto;
 	min-height: 400px;
 	background: #FFDEAE;
-    box-shadow: 0px 4px 4px 0px #0000002b;
+    box-shadow: 0 4px 4px 0 #0000002b;
     border-radius: 4px;
 	margin-top: 30px;
 	margin-left: auto;
@@ -45,7 +45,7 @@ span#loginError {
 	height: 40px;
 	width: 100%;
 	border-radius: 4px;
-    border-width: 0px;
+    border-width: 0;
     padding-left: 20px;
 }
 .submit-button {
@@ -58,10 +58,9 @@ span#loginError {
 	height: 40px;
 	width: 100%;
 	border-radius: 4px;
-	border-width: 0px;
+	border-width: 0;
 	color: white;
 	background-color: #FF9800;
-	box-shadow: px 2px 5px grey;
 }
 
 .help-box {
@@ -91,7 +90,7 @@ span#loginError {
 	height: auto;
 	min-height: 400px;
 	background: #FFDEAE;
-    box-shadow: 0px 4px 4px 0px #0000002b;
+    box-shadow: 0 4px 4px 0 #0000002b;
     border-radius: 4px;
 	margin-top: 30px;
 	margin-left: auto;
@@ -110,7 +109,7 @@ span#loginError {
 	margin-top: 50px;
 }
 .input-field div {
-	margin-top: 0px;
+	margin-top: 0;
 	margin-bottom: 5px;
 	float: left;
 	margin-left: -150px;
@@ -128,7 +127,7 @@ span#loginError {
 	width: 100%;
 	height: 40px;
 	border-radius: 4px;
-	border-width: 0px;
+	border-width: 0;
 }
 
 .submit-button {
@@ -156,7 +155,7 @@ span#loginError {
 	height: auto;
 	min-height: 400px;
     background: #FFDEAE;
-    box-shadow: 0px 4px 4px 0px #0000002b;
+    box-shadow: 0 4px 4px 0 #0000002b;
 	border-radius: 4px;
 	margin-top: 30px;
 	margin-left: auto;
@@ -227,10 +226,9 @@ h2 {
 	height: 40px;
 	width: 100%;
 	border-radius: 4px;
-	border-width: 0px;
+	border-width: 0;
 	color: white;
 	background-color: #FF9800;
-    box-shadow: px 2px 5px grey;
     font-weight: 700;
 }
 
@@ -319,7 +317,7 @@ h2 {
 	background: #FF9800;
 	float: right;
 	border-radius: 4px;
-	border-width: 0px;
+	border-width: 0;
 	margin-right: 5%;
 }
 .login-acc {
@@ -477,7 +475,7 @@ li.menu a:hover {
 #searchInput {
     padding-left: 20px;
     font-size: 20px;
-    min-width: 79%;
+    width: 79%;
     height: 50px;
     border-radius: 4px;
     border: 1px;
@@ -513,7 +511,6 @@ li.menu a:hover {
 }
 #hotPosts .category-list .category-post a {
     font-size: 20px;
-    margin-right: 30px;
 }
 #hotPosts .category-list .category-post .content-foot-user a {
     font-size: 12px;
@@ -524,41 +521,68 @@ li.menu a:hover {
     margin-bottom: 20px;
 }
 #Category {
-    /*margin-left: 50px;*/
     margin-bottom: 50px;
-}
-#Category {
-    /*width: 80%;*/
-    border:2px solid rgba(0, 0, 0, 0.5);
-    border-top:15px solid rgba(0, 0, 0, 0.5);
-    border-right:15px solid rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
 }
 #Category tr {
     height: 50px;
-    border-left: 2px solid grey;
-    border-right: 2px solid grey;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
     border-bottom: 1px solid grey;
     border-radius: 4px;
 }
 #Category td {
     padding-left: 20px;
     font-size: 18px;
+    background-color: white;
 }
 #Category th {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 32px;
+    padding-top: 30px;
+    padding-left: 30px;
+    background-color: #FFA530;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+}
+#Category a {
+    color: #2577b1;
+}
+#Category th a {
+    color: white;
+}
+
+
+.category-name {
     font-family: 'Luckiest Guy', cursive;
     font-size: large;
     padding-top: 30px;
     padding-left: 30px;
-    background-color: #edf6fdb0;
-    border: 2px solid grey;
 }
 
-#Category a {
-    color: #2577b1;
+.category-name a {
+    color: black !important;
 }
 
-.tables{ border-collapse:collapse; table-layout:fixed;}
+.tables {
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+.table {
+    box-shadow: 0 4px 4px 0 #0000002b;
+}
+
+.col-sm-4 {
+    width: 33.3333%;
+}
+.col-sm-1 {
+    text-align: center;
+    width: 8.3333%;
+}
+.sm-text {
+    color: darkgrey;
+    font-size: 12px;
+}
 
 .post-column {
     max-width: 100px !important;
@@ -597,7 +621,7 @@ li.menu a:hover {
     text-align: center;
 }
 #endButtonsDiv .info-button {
-    border: 0px;
+    border: 0;
     font-weight: 700;
     color: white;
 }
@@ -715,40 +739,8 @@ input.radioRole {
 }
 
 
-/* Screen 10: showHistory Popup */
-td.showHistoryName{
-    height: 20px;
-    padding: 5px 5px 0 12px;
-    border-bottom: none;
-}
-p.showHistoryEmail{
-    height: 20px;
-    padding: 0 5px 5px 12px;
-    border-top: none;
-    color: dodgerblue;
-    font-style: italic;
-}
 
-/* Screen 12: show request Popup */
-div.form-group.showRequestInfoModalContent2 {
-    padding: 5px 5px 20px 5px;
-    border: 1px solid black;
-    border-radius: 4px;
-}
-td.showUserName{
-    height: 20px;
-    padding: 5px 5px 0 12px;
-    border-bottom: none;
-}
-p.showUserEmail{
-    height: 20px;
-    margin: 0;
-    border-top: none;
-    color: dodgerblue;
-    font-style: italic;
-}
-
-/*Screen 13: show request info Popup*/
+/*Screen 13: show Post*/
 .post-sw-body {
     width: 80%;
     margin-top: 30px;
@@ -756,7 +748,7 @@ p.showUserEmail{
 #showComment h2 {
     font-size: 16px;
 }
-#showComment .usercmt {
+#showComment .userCmt {
     height: auto;
     min-height: 70px;
     width: 80%;
@@ -778,15 +770,12 @@ p.showUserEmail{
     width: 70%;
 
 }
-#showComment .usercmt .cmt-content {
+#showComment.userCmt.cmt-content {
     margin-left: 30px;
 }
 #writeComment {
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin: 30px auto 50px;
 }
 #writeComment form {
     width: 100%;
@@ -834,86 +823,6 @@ label.completedStatus {
     color: darkgray;
 }
 
-/*Screen 15: add edit request*/
-textarea#reasonOfRequest {
-    padding: 5px 10px 5px 10px;
-}
-.signup-box h2 {
-    width: fit-content;
-    font-size: 30px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.info-button {
-    float: right;
-    margin-right: 30%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border-radius: 4px;
-    background-color: #FF9800;
-}
-.info-button a {
-    color: white;
-    font-weight: 700;
-}
-
-/*Screen 14: edit profile*/
-.info-box{
-    margin-top: 40px;
-    width: 80%;
-    background: #FFDEAE;
-    box-shadow: 0px 4px 4px 0px #0000002b;
-    border-radius: 4px;
-}
-.info-box .signup-box {
-    box-shadow: 0px 0px 0px 0px;
-}
-.info-box img {
-       width: 250px;
-       height: 250px;
-       background-size: cover;
-       background-position: top center;
-       border-radius: 50%;
-       overflow: hidden;
-       display: block;
-       margin-top: 100px;
-       margin-left: auto;
-       margin-right: auto;
-       border: 1px solid #EDAA00;
-        background: #98C3FF;
-}
-
-div#info-avatar-box{
-    width: 39%;
-    margin-left: 0;
-    margin-right: initial;
-    float:left;
-    height:800px;
-    position: relative;
-    border-radius: 4px;
-}
-
-div#profile-box {
-    width: 60%;
-    float: right;
-    margin-left:initial;
-    margin-right: 0;
-    position: relative;
-    min-height: 800px;
-    border-radius: 4px;
-}
-
-div#info-sex {
-    margin-top: 10px;
-    margin-left: 50%;
-}
-
-div#info-add-avatar .form-control {
-    height: 45px;
-}
-
 /* Custom profile - end*/
 
 /* Screen 4: home page */
@@ -954,7 +863,7 @@ section#advertisement img {
 }
 .new_notification {
     background-color: white;
-    box-shadow: 0px 4px 4px 0px #0000002b;
+    box-shadow: 0 4px 4px 0 #0000002b;
     border-radius: 4px;
     padding: 10px;
     max-width: 100%;
@@ -1025,10 +934,9 @@ section#advertisement img {
     width: 25%;
     margin-left: 25%;
 	border-radius: 4px;
-	border-width: 0px;
+	border-width: 0;
 	color: white;
 	background-color: #FF9800;
-	box-shadow: px 2px 5px grey;
 }
 .post-content {
     background-color: #FF9800;
@@ -1041,7 +949,7 @@ section#advertisement img {
     color: white;
     padding: 5px;
     background-color:#FF9800;
-    border: 0px;
+    border: 0;
     border-radius: 4px;
     margin-right: 10px;
 }
@@ -1050,38 +958,117 @@ section#advertisement img {
     color: white;
     padding: 5px;
     background-color: red;
-    border: 0px;
+    border: 0;
     border-radius: 4px;
 }
+
 /* Screen08 pet category */
 .category-body {
-    width: 80%;
+    width: 94%;
     margin-top: 30px;
 }
+#categoryLeft {
+    background-color: white;
+    float: left;
+    display: inline-block;
+    width: 18%;
+    min-height: 300px;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 #0000002b;
+}
+#searchTitle {
+    font-weight: bold;
+}
+#categoryRight {
+    background-color: white;
+    float: left;
+    display: inline-block;
+    width: 18%;
+    min-height: 300px;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 #0000002b;
+}
+#createPost {
+    color: white;
+    background-color: #FF9800;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+#searchInput2 {
+    margin: auto;
+    width: 100%;
+    background-color: lightgrey;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px;
+}
+#searchInputCategory {
+    background-color: lightgrey;
+    width: 80%;
+    font-size: 14px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px;
+}
+#categoryMid {
+    float: left;
+    display: inline-block;
+    width: 64%;
+    padding: 0 4% 0 4%;
+}
+#categoryMid h1 {
+    font-size: 48px;
+}
+
+#categoryRight {
+    float: left;
+    display: inline-block;
+    width: 18%;
+}
+.top-user {
+    margin: 10px 0 0 0;
+}
+.like-number {
+    display: inline-block;
+    float: right;
+}
+.avatar-mini {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+}
+
+.user-name-mini {
+    margin: 0 !important;
+    color: #FF9800 !important;
+    font-weight: bold !important;
+    font-size: 12px !important;
+}
+
 .category-body h1 {
-    margin-top: 1em;
-    margin-bottom: 10px;
     width: 500px;
     text-align: center;
     font-size: 30px;
     font-weight: 700;
     display: block;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 10px auto 10px;
 }
 .category-list {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 20px;
     margin: 30px 0 30px 0;
 }
 .category-post {
     height: 220px;
-    /*overflow: hidden;*/
     background-color: white;
-    margin-top: 10px;
+    margin: 10px 0 20px 0;
     padding-top: 20px;
-    box-shadow: 0px 4px 4px 0px #0000002b;
+    box-shadow: 0 4px 4px 0 #0000002b;
     border-radius: 4px;
 }
 .category-post a {
@@ -1109,18 +1096,19 @@ section#advertisement img {
     float: left;
 }
 .content-foot-user {
-    float: left;
-    margin-left: 65% !important;
+    float: right !important;
     font-size: 12px;
-    margin-top: -3px;
+    margin: -3px 20px 0 0;
 }
-.content-foot-user a {
-    margin: 0;
-    color: #FF9800;
-    font-weight: bold;
-    font-size: 12px;
-}
+/*.content-foot-user a {*/
+/*    color: #FF9800;*/
+/*    font-weight: bold;*/
+/*    font-size: 12px;*/
+/*}*/
 .content-foot i {
+    color: #FF9800;
+}
+.fas.fa-paw {
     color: #FF9800;
 }
 .request-post {
@@ -1129,7 +1117,7 @@ section#advertisement img {
     padding: 10px;
     background-color: white;
     border-radius: 4px;
-    box-shadow: 0px 4px 4px 0px #0000002b;
+    box-shadow: 0 4px 4px 0 #0000002b;
 }
 .request-post a {
     font-size: 18px;
@@ -1155,12 +1143,16 @@ section#advertisement img {
 .author a {
     margin-left: 15px;
     font-size: 16px;
-    color: #000000;
+    color: #FF9800;
     font-weight: 700;
 }
 #showPostContent {
+    background-color: white;
+    padding: 20px 20px 20px 40px;
     width: 100%;
     font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 #0000002b;
 }
 #showPostContent p img {
     width: auto;
@@ -1171,13 +1163,17 @@ section#advertisement img {
     word-wrap: break-word;
 }
 #showPostTitle {
+    text-align: center;
+    margin: 10px 0 30px 0;
     font-size: 40px;
     font-weight: 400;
 }
 #show-comment {
+    margin-top: 50px;
     width: 100%;
 }
 #likePostButton {
+    margin: 20px;
     float: right;
 }
 #likePostNumber {
@@ -1186,10 +1182,12 @@ section#advertisement img {
     margin: 10px 10px 0 10px;
 }
 .comment {
+    background-color: white;
     min-width: 50px;
-    margin: 10px;
+    margin: 10px 10px 15px 10px;
     border: 1px solid darkgrey;
     border-radius: 4px;
+    box-shadow: 0 4px 4px 0 #0000002b;
     height: fit-content;
 }
 .left-comment {
@@ -1238,7 +1236,8 @@ section#advertisement img {
     width: 50px;
     height: 50px;
 }
-.user-name {
+b.user-name {
+    color: #FF9800 !important;
     display: block;
 }
 
@@ -1260,10 +1259,7 @@ footer {
 }
 .footer-left header {
     width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin: 10px auto;
 }
 .footer-left h {
     display: block;
@@ -1280,7 +1276,6 @@ footer {
 .left-left {
     width: 40%;
     float: left;
-    border-right: 20%;
 }
 .footer-left .left-left img {
     width: 50px;
@@ -1337,10 +1332,11 @@ button#loginButton {
 }
 
 #user-avatar-box img {
-    margin-top: 100px;
     border: 8px solid #FFFFFF;
     width: 200px;
     height: 200px;
+    border-radius: 50%;
+    margin: 30% 20% 30% 20%;
 }
 
 #user-profile-box {
@@ -1357,10 +1353,7 @@ button#loginButton {
 }
 
 #user-profile-box .input-field {
-    margin-left:77px;
-    margin-right: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px auto 5px 77px;
     width: 80%;
 }
 
@@ -1371,7 +1364,6 @@ button#loginButton {
     margin-top: 100px;
     background-color: #FFFFFF;
     text-align: center;
-    width: 250px;
     height: 300px;
     border-radius: 4px;
     font-size: 22px;
@@ -1384,19 +1376,13 @@ button#loginButton {
 }
 
 #user-status .input-field{
-    margin-left:auto;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-top:0px;
+    margin: 0 auto;
     width: 100%;
 
 }
 
 .input-field#status-tittle{
-    margin-left:auto;
-    margin-right: auto;
-    margin-bottom: 35px;
-    margin-top:0px;
+    margin: 0 auto 35px;
     font-weight: bold;
     width: 100%;
 }
