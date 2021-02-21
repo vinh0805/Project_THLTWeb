@@ -2,7 +2,7 @@
 @section('content')
 <div class="info-box">
 <div class="signup-box" id=info-avatar-box>
-    <img src="{{url('frontend/images/avatars/' . $user->avatar)}}" id="avatar">
+    <img src="{{url('frontend/images/avatars/' . $user->avatar)}}" id="avatar2" alt="avatar">
 </div>
 <div class="signup-box" id=profile-box> <!-- Đồng bộ với class style của phần signup -->
     <form role="form" method="post" id="editProfileForm" action="{{url('update-profile/' . $user->id)}}"

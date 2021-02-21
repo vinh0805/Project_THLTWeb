@@ -22,16 +22,16 @@
         <br>
         <section id="showPost">
             <div id="showPostTitle"><b>{{$post->title}}</b></div>
+            @if($post->status == 1)
+                <i id="likePostButton" class="fas fa-paw fa-4x"
+                   @if(isset($postIsLiked) && $postIsLiked == 1) style="color: #FF9800" liked="1"
+                   @else style="color: #1a1c1b" liked="0" @endif
+                   data-post-id="{{$post->id}}">  {{$likePostNumber}}</i>
+            @endif
             <div id="showPostContent">{!! $post->content !!}</div>
         </section>
-        <hr>
 
         @if($post->status == 1)
-            <i id="likePostButton" class="far fa-thumbs-up fa-3x"
-                @if(isset($postIsLiked) && $postIsLiked == 1) style="color: #006cfa" liked="1"
-                @else style="color: #1a1c1b" liked="0" @endif
-                data-post-id="{{$post->id}}">  {{$likePostNumber}}</i>
-            <hr>
             <section id="show-comment">
                 <h2><b>Comment</b></h2>
                 <?php $i = 0; ?>
@@ -39,14 +39,14 @@
                     <div class="comment">
                         <div class="left-comment">
                             <img class="avatar" src="{{url('frontend/images/avatars/' . $comment->avatar)}}" alt="avatar">
-                            <b class="user-name"><a href="{{url('user/' . $comment->user_id . '/info')}}">{{$comment->name}}</a></b>
+                            <a href="{{url('user/' . $comment->user_id . '/info')}}"><b class="user-name">{{$comment->name}}</b></a>
                         </div>
                         <div class="right-comment">
                             <header class="right-top-comment">
                                 <div class="comment-created-at">{{$comment->created_at}}</div>
-                                <i class="like-comment-button far fa-thumbs-up fa-2x"
+                                <i class="like-comment-button fas fa-paw fa-2x"
                                    @if(isset($commentIsLikedArray[$i]) && $commentIsLikedArray[$i] == 1)
-                                        style="color: #006cfa" liked="1"
+                                        style="color: #FF9800" liked="1"
                                    @elseif(isset($commentIsLikedArray[$i]) && $commentIsLikedArray[$i] == 0)
                                         style="color: #1a1c1b" liked="0"
                                    @endif

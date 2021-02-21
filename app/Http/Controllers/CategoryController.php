@@ -9,6 +9,7 @@ use App\Models\LikePost;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -26,6 +27,29 @@ class CategoryController extends Controller
                 ->where('category_pet_id', $categoryPet->id)
                 ->where('category_id', $category->id)
                 ->where('status', 1)->get();
+            $topUsers = DB::table('like_post')
+                ->leftJoin('posts', 'posts.id', '=', 'like_post.post_id')
+                ->leftJoin('users', 'users.id', '=', 'posts.user_id')
+                ->select('like_post.id as id', 'like_post.post_id as post_id',
+                            'posts.user_id as user_id', 'users.name as user_name',
+                            'users.avatar as avatar', DB::raw('count(*) as user_count'))
+                ->groupBy('posts.user_id')
+                ->orderBy('user_count', 'desc')
+                ->take(5)->get();
+            $you = Session::get('sUser');
+            if (isset($you)) {
+                $you = DB::table('like_post')
+                    ->leftJoin('posts', 'posts.id', '=', 'like_post.post_id')
+                    ->leftJoin('users', 'users.id', '=', 'posts.user_id')
+                    ->select('like_post.id as id', 'like_post.post_id as post_id',
+                        'posts.user_id as user_id', 'users.name as user_name',
+                        'users.avatar as avatar', DB::raw('count(*) as user_count'))
+                    ->groupBy('posts.user_id')
+                    ->where('posts.user_id', '=', Session::get('sUser')->id)
+                    ->first();
+            } else {
+                $you = null;
+            }
             foreach ($allPosts as $post) {
                 $likePostArray[$i] = count(LikePost::where('post_id', '=', $post->id)->get());
                 $commentPostArray[$i] = count(Comment::where('post_id', '=', $post->id)->get());
@@ -34,7 +58,8 @@ class CategoryController extends Controller
             return view('categories.screen08-pet-category')
                 ->with('allPosts', $allPosts)->with('categoryPet', $categoryPet)
                 ->with('category', $category)->with('likePostArray', $likePostArray)
-                ->with('commentPostArray', $commentPostArray);
+                ->with('topUsers', $topUsers)->with('commentPostArray', $commentPostArray)
+                ->with('you', $you);
         }
         return 0;
     }

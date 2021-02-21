@@ -49,15 +49,15 @@ class PostController extends Controller
         $hotPostLikeArray = [];
         $hotPostCommentArray = [];
         $countPost = [];
-        $countLike = [];
+        $countComment = [];
         $newestPostList = [];
         $i = 0;
         foreach ($allCategoryPet as $categoryPet) {
             foreach ($allCategory as $category) {
                 $countPost[$i] = count(Post::where('category_pet_id', '=', $categoryPet->id)
                     ->where('category_id', '=', $category->id)->where('status', '=', 1)->get());
-                $countLike[$i] = count(DB::table('posts')
-                    ->join('like_post', 'posts.id', '=', 'like_post.post_id')
+                $countComment[$i] = count(DB::table('posts')
+                    ->join('comments', 'posts.id', '=', 'comments.post_id')
                     ->where('category_pet_id', '=', $categoryPet->id)
                     ->where('category_id', '=', $category->id)
                     ->where('status', '=', 1)->get());
@@ -76,7 +76,7 @@ class PostController extends Controller
 
         return view('screen04-home-page')->with('allCategoryPet', $allCategoryPet)
             ->with('allCategory', $allCategory)->with('hotPosts', $hotPosts)
-            ->with('countPost', $countPost)->with('countLike', $countLike)
+            ->with('countPost', $countPost)->with('countComment', $countComment)
             ->with('newestPostList', $newestPostList)
             ->with('hotPostLikeArray', $hotPostLikeArray)
             ->with('hotPostCommentArray', $hotPostCommentArray);
@@ -202,7 +202,8 @@ class PostController extends Controller
         return 0;
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         if($request->ajax()) {
             if ($request['title'] == '' || $request['title'] == null) {
                 $output = '';
@@ -213,6 +214,33 @@ class PostController extends Controller
 
                 if (count($posts) > 0) {
                     $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
+                    foreach ($posts as $post){
+                        $output .= '<li class="list-group-item"><a href="post/' . $post->id . '">'.$post->title.'</a></li>';
+                    }
+                    $output .= '</ul>';
+                } else {
+                    $output .= '<li class="list-group-item">'.'No results'.'</li>';
+                }
+            }
+            return $output;
+        }
+    }
+
+    public function searchByCategory(Request $request)
+    {
+        if($request->ajax()) {
+            if ($request['title'] == '' || $request['title'] == null) {
+                $output = '';
+            } else {
+                $posts = Post::where('title', 'LIKE', '%'.$request['title'].'%')
+                    ->where('category_id', '=', $request['category'])
+                    ->where('category_pet_id', '=', $request['categoryPet'])
+                    ->where('status', '=', '1')->get();
+                $output = '';
+
+                if (count($posts) > 0) {
+                    $output = '<ul class="list-group" style="display: block; position: relative;
+                                                             z-index: 1; overflow: hidden">';
                     foreach ($posts as $post){
                         $output .= '<li class="list-group-item"><a href="post/' . $post->id . '">'.$post->title.'</a></li>';
                     }
