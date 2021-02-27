@@ -27,21 +27,20 @@ class CommentController extends Controller
         $comment = Comment::orderBy('id', 'desc')->first();
         $cmtList = Comment::where([
             ['postId', $comment->post_id],
-            ['user_id', '!=',$comment->user_id],
+            ['user_id', '!=', $comment->user_id],
         ]);
         $post = Post::where('id', $comment->post_id)->first();
         $userPost = User::where('id', $post->user_id)->first();
         $status = false;
         foreach ($cmtList as $cmt) {
-            if ($post->user_id == $comment->user_id) {
-
-            }
             if ($cmt->user_id == $post->user_id && $comment->user_id != $post->user_id){
-                $status = true; //if status = false, User who create post doesn't comment -> this is not notification for this user
+                $status = true; // if status = false, User who created post doesn't comment
+                                // -> this is not notification for this user
                 $content = $user->name . ' created comment in your post';
             } else {
                 $content = $user->name . ' created comment in ' . $userPost->name . ' \'s post';
             }
+            if($cmt->user_id != $user->id) {
                 $newNotification = new Notification([
                     'user_id' => $cmt->user_id,
                     'fuser_id' => $user->id,
@@ -50,16 +49,19 @@ class CommentController extends Controller
                     'content' => $content,
                 ]);
                 $newNotification->save();
+            }
         }
         if ($status == false && $comment->user_id != $post->user_id) {
-            $newNotification = new Notification([
-                'user_id' => $post->user_id,
-                'fuser_id' => $user->id,
-                'post_id' => $post->id,
-                'comment_id' => $comment->id,
-                'content' => $user->name . ' created comment in your post',
-            ]);
-            $newNotification->save();
+            if($post->user_id != $user->id) {
+                $newNotification = new Notification([
+                    'user_id' => $post->user_id,
+                    'fuser_id' => $user->id,
+                    'post_id' => $post->id,
+                    'comment_id' => $comment->id,
+                    'content' => $user->name . ' created comment in your post',
+                ]);
+                $newNotification->save();
+            }
         }
         return redirect('post/' . $postId)->with('message', "Add comment successfully!");
     }

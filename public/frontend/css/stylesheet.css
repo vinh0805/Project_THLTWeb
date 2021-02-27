@@ -92,9 +92,7 @@ span#loginError {
 	background: #FFDEAE;
     box-shadow: 0 4px 4px 0 #0000002b;
     border-radius: 4px;
-	margin-top: 30px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 20px auto 20px auto;
 	overflow: hidden;
 }
 .card-body {
@@ -103,7 +101,7 @@ span#loginError {
 }
 
 .input-field {
-	width: 40%;
+	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 50px;
@@ -349,7 +347,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 .menu.dropdown.name a h1 {
-    color: black;
+    color: #FF9800;
     font-size: 20px;
 }
 
@@ -809,6 +807,87 @@ div.modal-body div label.show-request-info-row2 {
     font-weight: normal;
 }
 
+/*Screen 14: edit profile*/
+.info-box{
+    margin-top: 40px;
+    width: 80%;
+    background: #FFDEAE;
+    box-shadow: 0px 4px 4px 0px #0000002b;
+    border-radius: 4px;
+}
+.info-box .signup-box {
+    box-shadow: 0 0 0 0;
+}
+.info-box img {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: top center;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #EDAA00;
+    background: #98C3FF;
+}
+
+div#info-avatar-box{
+    width: 39%;
+    margin-left: 0;
+    margin-right: initial;
+    float:left;
+    height:800px;
+    position: relative;
+    border-radius: 4px;
+}
+
+div#profile-box {
+    width: 60%;
+    float: right;
+    margin-left:initial;
+    margin-right: 0;
+    position: relative;
+    min-height: 800px;
+    border-radius: 4px;
+}
+
+div#info-sex {
+    margin-top: 10px;
+    margin-left: 50%;
+}
+
+div#info-add-avatar .form-control {
+    height: 45px;
+}
+
+textarea#reasonOfRequest {
+    padding: 5px 10px 5px 10px;
+}
+.signup-box h2 {
+    width: fit-content;
+    font-size: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-button {
+    margin: 0 auto 20px auto;
+    width: 140px;
+    padding: 12px;
+    border-radius: 4px;
+    background-color: #FF9800;
+}
+.info-button a {
+    color: white;
+    font-weight: 700;
+}
+
+
+/* Custom profile - end*/
+
 /*Screen 13+14: change color by status*/
 label.newStatus {
     color: #00aa00;
@@ -980,9 +1059,14 @@ section#advertisement img {
 #searchTitle {
     font-weight: bold;
 }
-#categoryRight {
+#searchTitle2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.categoryRight {
+    margin-bottom: 20px;
     background-color: white;
-    float: left;
+    float: right;
     display: inline-block;
     width: 18%;
     min-height: 300px;
@@ -1020,6 +1104,7 @@ section#advertisement img {
     float: left;
     display: inline-block;
     width: 64%;
+    min-height: 500px;
     padding: 0 4% 0 4%;
 }
 #categoryMid h1 {
@@ -1319,6 +1404,7 @@ button#loginButton {
 /* Screen 20: User info addition */
 
 #user-cardbody {
+    margin-top: 2%;
     width: 95%;
 }
 

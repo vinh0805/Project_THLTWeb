@@ -40,13 +40,15 @@ class LikeController extends Controller
                     ->where('fuser_id', '=', $user->id)
                     ->where('content', '=', $user->name . ' liked your status')->first();
                 if(!isset($notification)) {
-                    $newNotification = new Notification([
-                        'user_id' => $post->user_id,
-                        'fuser_id' => $user->id,
-                        'post_id' => $post->id,
-                        'content' => $user->name . ' liked your status',
-                    ]);
-                    $newNotification->save();
+                    if($post->user_id != $user->id) {
+                        $newNotification = new Notification([
+                            'user_id' => $post->user_id,
+                            'fuser_id' => $user->id,
+                            'post_id' => $post->id,
+                            'content' => $user->name . ' liked your status',
+                        ]);
+                        $newNotification->save();
+                    }
                 }
             }
             if(!isset($post)){
@@ -88,14 +90,16 @@ class LikeController extends Controller
                     ->where('fuser_id', '=', $user->id)
                     ->where('content', '=', $user->name . ' liked your comment')->first();
                 if (!$notification) {
-                    $newNotification = new Notification([
-                        'user_id' => $comment->user_id,
-                        'fuser_id' => $user->id,
-                        'post_id' => $comment->post_id,
-                        'comment_id' => $comment->id,
-                        'content' => $user->name . ' liked your comment',
-                    ]);
-                    $newNotification->save();
+                    if ($comment->user_id != $user->id) {
+                        $newNotification = new Notification([
+                            'user_id' => $comment->user_id,
+                            'fuser_id' => $user->id,
+                            'post_id' => $comment->post_id,
+                            'comment_id' => $comment->id,
+                            'content' => $user->name . ' liked your comment',
+                        ]);
+                        $newNotification->save();
+                    }
                 }
             }
             $comment = Comment::find($commentId);

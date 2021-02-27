@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\LikePost;
 use App\Models\Post;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -50,8 +52,20 @@ class UserController extends Controller
         if (isset($user)) {
             $postNumber = count(Post::where('user_id', '=', $user->id)->where('status', '=', '1')->get());
             $commentNumber = count(Comment::where('user_id', '=', $user->id)->get());
+            $likeNumber = count(LikePost::where('user_id', '=', $user->id)->get());
+            $isLikedNumber = DB::table('like_post')
+                ->leftJoin('posts', 'posts.id', '=', 'like_post.post_id')
+                ->leftJoin('users', 'users.id', '=', 'posts.user_id')
+                ->select('like_post.id as id', 'like_post.post_id as post_id',
+                    'posts.user_id as user_id', 'users.name as user_name',
+                    'users.avatar as avatar', DB::raw('count(*) as user_count'))
+                ->groupBy('posts.user_id')
+                ->where('posts.user_id', '=', Session::get('sUser')->id)
+                ->first();
+
             return view('users.screen20-user-info')->with('user', $user)
-                ->with('postNumber', $postNumber)->with('commentNumber', $commentNumber);
+                ->with('postNumber', $postNumber)->with('commentNumber', $commentNumber)
+                ->with('likeNumber', $likeNumber)->with('isLikedNumber', $isLikedNumber);
         } else return redirect('/');
     }
 

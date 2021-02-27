@@ -45,12 +45,12 @@
                 @endforeach
             </div>
         </div>
-        <div id="categoryRight">
+        <div class="categoryRight">
             <a href="{{url('/post/create')}}">
                 <button id="createPost"> + Create a post here </button>
             </a>
             <hr>
-            <h4 id="searchTitle">Top Users</h4>
+            <h4 id="searchTitle2">Top Users</h4>
             @foreach($topUsers as $topUser)
                 <div class="top-user">
                     <a href="{{url('user/' . $topUser->user_id . '/info')}}">
@@ -65,18 +65,46 @@
             @endforeach
             <hr>
             @if(isset($you))
-            <div class="top-user">
-                <a href="{{url('user/' . $you->user_id . '/info')}}">
-                    <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $you->avatar)}}" alt="miniAvatar">
-                    <span class="user-name-mini">{{$you->user_name}}</span>
-                </a>
-                <div class="like-number">
-                    <span>{{$you->user_count}}</span>
-                    <i class="fas fa-paw"></i>
+                <div class="top-user">
+                    <a href="{{url('user/' . $you->user_id . '/info')}}">
+                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $you->avatar)}}" alt="miniAvatar">
+                        <span class="user-name-mini">{{$you->user_name}}</span>
+                    </a>
+                    <div class="like-number">
+                        <span>{{$you->user_count}}</span>
+                        <i class="fas fa-paw"></i>
+                    </div>
                 </div>
-            </div>
             @endif
+        </div>
 
+        <div class="categoryRight">
+            <h4 id="searchTitle2">Top Users in this Category</h4>
+            @foreach($topUsers2 as $topUser2)
+                <div class="top-user">
+                    <a href="{{url('user/' . $topUser2->user_id . '/info')}}">
+                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $topUser2->avatar)}}" alt="miniAvatar">
+                        <span class="user-name-mini">{{$topUser2->user_name}}</span>
+                    </a>
+                    <div class="like-number">
+                        <span>{{$topUser2->user_count}}</span>
+                        <i class="fas fa-paw"></i>
+                    </div>
+                </div>
+            @endforeach
+            <hr>
+            @if(isset($you2))
+                <div class="top-user">
+                    <a href="{{url('user/' . $you2->user_id . '/info')}}">
+                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $you2->avatar)}}" alt="miniAvatar">
+                        <span class="user-name-mini">{{$you2->user_name}}</span>
+                    </a>
+                    <div class="like-number">
+                        <span>{{$you2->user_count}}</span>
+                        <i class="fas fa-paw"></i>
+                    </div>
+                </div>
+            @endif
         </div>
     </section>
 @endsection
