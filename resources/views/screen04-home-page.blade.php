@@ -60,9 +60,9 @@
 
         <div id="hotPosts">
             <div class = "category-list">
+                <hr>
                 <h2><b>Hot</b></h2>
                 @if(isset($hotPosts))
-                    <hr>
                     @foreach($hotPosts as $hotPost)
                         <div class = "category-post">
                             <a href="{{url('post/' . $hotPost->id)}}">{{$hotPost->title}}</a>
@@ -80,8 +80,8 @@
         </div>
 
         <div id="Category">
-            <h2><b>Category</b></h2>
             <hr>
+            <h2><b>Category</b></h2>
             @foreach($allCategoryPet as $categoryPet)
                 <table class="table">
                     <tr>

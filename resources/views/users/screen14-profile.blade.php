@@ -23,7 +23,7 @@
                    maxlength="16" data-msg-required="Bạn phải nhập trường này!" required name="name">
         </div>
         <div class="input-field">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="exampleInputEmail1">Email</label>
             <label for="inputEmail1"></label>
             <input type="email" class="form-control" id="inputEmail1" placeholder="Enter email" value="{{$user->email}}" name="email">
         </div>
@@ -49,7 +49,7 @@
 
         <br><br> <!-- End checkbox for sex -->
         <div class="input-field">
-            <label for="inputBirthday">Date of birth</label>
+            <label for="inputBirthday">Birthday</label>
             <?php
             $date = (isset($_POST["datepicker"])) ? $_POST["datepicker"] : $user->birthday;
             ?>

@@ -23,10 +23,12 @@
 {{--        number post & comment--}}
         <div class="signup-box" id=user-status>
             <div class="white-box">
-            <br>
-            <div class="input-field" id=status-tittle>User status</div> 
-            <div class="input-field">{{$postNumber}} Posts</div>
-            <div class="input-field">{{$commentNumber}} Comments</div> 
+                <br>
+                <div class="input-field" id=status-tittle>User status</div>
+                <div class="input-field">{{$postNumber}} Posts</div>
+                <div class="input-field">{{$commentNumber}} Comments</div>
+                <div class="input-field">Like: {{$likeNumber}}</div>
+                <div class="input-field">Is liked: {{$isLikedNumber->user_count}}</div>
             </div>
         </div>
     </div>

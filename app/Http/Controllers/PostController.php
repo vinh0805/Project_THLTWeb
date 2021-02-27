@@ -150,13 +150,15 @@ class PostController extends Controller
         $admin = User::where('role', 1)->first();
         $content = Session::get('sUser')->name . '\'s Post need approve';
         $currentPost = Post::orderBy('id', 'desc')->first();
-        $newNotification = new Notification([
-            'post_id'  => $currentPost->id,
-            'user_id' => $admin->id,
-            'fuser_id' => Session::get('sUser')->id,
-            'content' => $content,
-        ]);
-        $newNotification->save();
+        if ($admin->id != Session::get('sUser')->id) {
+            $newNotification = new Notification([
+                'post_id'  => $currentPost->id,
+                'user_id' => $admin->id,
+                'fuser_id' => Session::get('sUser')->id,
+                'content' => $content,
+            ]);
+            $newNotification->save();
+        }
         return redirect('post/' . $currentPost->id);
     }
 
