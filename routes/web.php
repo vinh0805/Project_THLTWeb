@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,15 @@ Route::get('/me/notifications/{notificationId}', 'NotificationController@show');
 
 // Test function
 Route::get('/test', 'PostController@findHotPosts');
+
+// Chat function
+//Auth::routes();
+
+Route::get('/chat', 'ContactsController@home');
+Route::get('/contacts', 'ContactsController@get');
+Route::get('/conversation/{id}', 'ContactsController@getMessagesFor');
+Route::post('/conversation/send', 'ContactsController@send');
+
 
 //Route::group(['middleware' => ['auth']], function () {
 //    Route::get('/home', function () {

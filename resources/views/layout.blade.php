@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Pet Forum</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,6 +28,9 @@
     <!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="{{asset('frontend/css/plugin/bootstrap/css/bootstrap.min.css')}}">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
 </head>
 <body class="hold-transition login-page" style = "background: #FFF6EA;">
 
@@ -90,7 +96,8 @@
 			</div>
             <div class="acc">
                 <?php
-                    $user = \Illuminate\Support\Facades\Session::get('sUser');
+                    use Illuminate\Support\Facades\Session;
+                    $user = Session::get('sUser');
                     if(isset($user)) {
                 ?>
                     <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
@@ -110,10 +117,18 @@
                                     ['status', 0],
                                     ['user_id', $user->id],
                                 ])->count();
+                                $totalMessages = \App\Models\Message::where([
+                                    ['read', 0],
+                                    ['to', $user->id],
+                                ])->count();
                             ?>
                             <a href="{{url('/me/notifications')}}">
                                 Notifications
                                 <p class = "notify"> {{$totalNotification}} </p>   <!--  Notification amount  -->
+                            </a>
+                            <a href="{{url('/chat')}}">
+                                Messages
+                                <p class = "notify"> {{$totalMessages}} </p>   <!--  Notification amount  -->
                             </a>
                             <a href="{{url('/me/password')}}">Change password</a>
                             <a href="{{url('/logout')}}">Log out</a>

@@ -11,6 +11,17 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\Facades\Session;
+
+$user = Session::get('sUser');
+
+//Broadcast::channel('messages.{id}', function ($id) use ($user) {
+//
+//    return $user->id == (int) $id;
+//});
+Broadcast::channel('messages.{id}', function () {
+
+    return true;
 });
+

@@ -6,9 +6,7 @@
         {{csrf_field()}}
             <h2>Change password</h2> <br>
             <div id="changePassButton" class = "info-button">
-                <a href="{{url('me/')}}">
-                    My information
-                </a>
+                <a href="{{url('me/')}}"> My information </a>
             </div>
             <div class="input-field">
                 <div>
