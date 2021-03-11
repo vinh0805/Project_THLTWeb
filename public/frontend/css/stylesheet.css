@@ -2,6 +2,25 @@ body {
 
 }
 
+/*Chat function*/
+#app {
+    width: 100%;
+}
+#charCard {
+    margin-top: 50px;
+}
+#chatHeader {
+    text-align: center;
+    font-weight: bold;
+    font-family: "Luckiest Guy", cursive;
+    font-size: 20px;
+}
+#contactName {
+    font-weight: bold;
+    text-align: center;
+}
+/*End chat function*/
+
 span#loginError {
     color: red;
     text-align: center;
@@ -673,6 +692,7 @@ button#changePassButton {
     position: relative;
 }
 button#changePassButton a{
+    text-align: center;
     color: white;
 }
 
@@ -1279,7 +1299,7 @@ section#advertisement img {
     word-wrap: break-word;
     position: relative;
     float: left;
-    width: 15%;
+    width: 10%;
     padding: 20px;
     display: inline-block;
     border: 1px solid darkgrey;
@@ -1290,7 +1310,7 @@ section#advertisement img {
     position: relative;
     margin: 10px 10px 0 0;
     height: fit-content;
-    width: 80%;
+    width: 85%;
     display: inline-block;
 }
 .right-top-comment {
