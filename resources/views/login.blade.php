@@ -18,84 +18,84 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="{{asset('frontend/fonts/font.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('frontend/css/stylesheet.css')}}">
-	<style>
-		
-	</style>
-	
+    <style>
+
+    </style>
+
 </head>
 <body class="hold-transition ">
 <div class="page_wrapper">
-	
-	<div class="header">
-		<div class = "logo-field">
-			<a href="{{url('home')}}">
-				<div>
-				<img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
-				<img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
-				</div>
-			</a>
-		</div>
-		<nav class = "nav-bar">
-		</nav>
-		<div class = "account">
-			<div class="social">
-				<a href="#"><img src="{{asset('frontend/images/Facebook.svg')}}" alt="facebook"></a>
-				<a href="#"><img src="{{asset('frontend/images/Twitter.svg')}}" alt="twitter"></a>
-				<a href="#"><img src="{{asset('frontend/images/Instagram.svg')}}" alt="instagram"></a>
-			</div>
-			<div class="acc"> 
-				<!--
+
+    <div class="header">
+        <div class="logo-field">
+            <a href="{{url('home')}}">
+                <div>
+                    <img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
+                    <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
+                </div>
+            </a>
+        </div>
+        <nav class="nav-bar">
+        </nav>
+        <div class="account">
+            <div class="social">
+                <a href="#"><img src="{{asset('frontend/images/Facebook.svg')}}" alt="facebook"></a>
+                <a href="#"><img src="{{asset('frontend/images/Twitter.svg')}}" alt="twitter"></a>
+                <a href="#"><img src="{{asset('frontend/images/Instagram.svg')}}" alt="instagram"></a>
+            </div>
+            <div class="acc">
+            <!--
 				<a class="login-acc" href="{{url('login')}}">SIGN IN</a>
 				-->
-				<a class="signup-acc" href="{{url('signup')}}">SIGN UP?</a>
-			</div>
-		</div>
-	</div>
-	<!-- /.header -->
-	
-	<div class="login-box">
-		<div class="login-card">
-			<?php
-			use Illuminate\Support\Facades\Session;
-			$message = Session::get('message');
-			if($message) {
-				echo '<span id="loginError">' . $message . '</span>';
-				Session::put('message', null);
-			}
-			?>
+                <a class="signup-acc" href="{{url('signup')}}">SIGN UP?</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.header -->
 
-			<div class="login-body">
-				<form action="{{url('login-confirm')}}" method="post">
-					{{csrf_field()}}
-					<div class="input-field">
-						<label>Email:</label>
-						<input type="email" class="input-form" name="email">
-						
-					</div>
-					<div class="input-field">
-						<label>Password:</label>
-						<input type="password" class="input-form" name="password">
-						
-					</div>
-					<div class="submit-button">
-							<input type="submit" class="login-button" id="loginButton" value = "SIGN IN">
-					</div>
-					
-				</form>
-				
-			</div>
-			<!-- /.login-card-body -->
-		</div>
-		<div class="help-box">
-			<a href="#">
-				<div>
-					<img src="{{asset('frontend/images/help.png')}}" alt="help">
-					<p>Need help?</p>
-				</div>
-			</a>
-		</div>
-	</div>
-	<!-- /.login-box -->
+    <div class="login-box">
+        <div class="login-card">
+            <?php
+            use Illuminate\Support\Facades\Session;
+            $message = Session::get('message');
+            if ($message) {
+                echo '<span id="loginError">' . $message . '</span>';
+                Session::put('message', null);
+            }
+            ?>
+
+            <div class="login-body">
+                <form action="{{url('login-confirm')}}" method="post">
+                    {{csrf_field()}}
+                    <div class="input-field">
+                        <label>Email:</label>
+                        <input type="email" class="input-form" name="email">
+
+                    </div>
+                    <div class="input-field">
+                        <label>Password:</label>
+                        <input type="password" class="input-form" name="password">
+
+                    </div>
+                    <div class="submit-button">
+                        <input type="submit" class="login-button" id="loginButton" value="SIGN IN">
+                    </div>
+
+                </form>
+
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+        <div class="help-box">
+            <a href="#">
+                <div>
+                    <img src="{{asset('frontend/images/help.png')}}" alt="help">
+                    <p>Need help?</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- /.login-box -->
 </div>
 
 <!-- jQuery -->

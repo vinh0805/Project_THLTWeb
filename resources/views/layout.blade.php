@@ -25,30 +25,30 @@
     <link rel="stylesheet" href="{{asset('frontend/css/stylesheet.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-    <!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
+<!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="{{asset('frontend/css/plugin/bootstrap/css/bootstrap.min.css')}}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 </head>
-<body class="hold-transition login-page" style = "background: #FFF6EA;">
+<body class="hold-transition login-page" style="background: #FFF6EA;">
 
 <section class="header" id="header">
     {{--    Menu--}}
-        <div class = "logo-field">
-			<a href="{{url('home')}}">
-                <div>
-                    <img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
-                    <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
-                </div>
-			</a>
-		</div>
-        <nav class = "nav-bar">
+    <div class="logo-field">
+        <a href="{{url('home')}}">
+            <div>
+                <img class="logo" src="{{asset('frontend/images/Logo.png')}}" alt="logo">
+                <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
+            </div>
+        </a>
+    </div>
+    <nav class="nav-bar">
         <li class="menu dropdown">
-            <div class = "dropdown-img">
+            <div class="dropdown-img">
                 <a href="{{url('#')}}">
-                    <img class = "catego" src="{{asset('frontend/images/dog.png')}}" alt="Dog">
+                    <img class="catego" src="{{asset('frontend/images/dog.png')}}" alt="Dog">
                 </a>
             </div>
             <div class="dropdown-content">
@@ -60,9 +60,9 @@
             </div>
         </li>
         <li class="menu dropdown">
-            <div class = "dropdown-img">
+            <div class="dropdown-img">
                 <a href="{{url('#')}}">
-                    <img class = "catego" src="{{asset('frontend/images/cat.png')}}" alt="Cat">
+                    <img class="catego" src="{{asset('frontend/images/cat.png')}}" alt="Cat">
                 </a>
             </div>
             <div class="dropdown-content">
@@ -74,9 +74,9 @@
             </div>
         </li>
         <li class="menu dropdown">
-            <div class = "dropdown-img">
+            <div class="dropdown-img">
                 <a href="{{url('#')}}">
-                    <img class = "catego" src="{{asset('frontend/images/others.png')}}" alt="Others">
+                    <img class="catego" src="{{asset('frontend/images/others.png')}}" alt="Others">
                 </a>
             </div>
             <div class="dropdown-content">
@@ -87,63 +87,64 @@
                 <a href="{{url('/pets-category/others/meme')}}">Meme</a>
             </div>
         </li>
-        </nav>
-        <div class = "account">
-            <div class="social">
-				<a href="#"><img src="{{asset('frontend/images/Facebook.svg')}}" alt="facebook"></a>
-				<a href="#"><img src="{{asset('frontend/images/Twitter.svg')}}" alt="twitter"></a>
-				<a href="#"><img src="{{asset('frontend/images/Instagram.svg')}}" alt="instagram"></a>
-			</div>
-            <div class="acc">
-                <?php
-                    use Illuminate\Support\Facades\Session;
-                    $user = Session::get('sUser');
-                    if(isset($user)) {
-                ?>
-                    <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar"></li>
-                    <li class="menu dropdown name">
-                        <a href="{{url('user/' . $user->id . '/info')}}">
-                            <h1> {{$user->name}} </h1>
-                        </a>
-                        <div class="dropdown-content">
-
-                            <a href="{{url('/post/create')}}">New post</a>
-                            @if($user->role == 1)
-                                <a href="{{url('requests/post/list')}}">Review post</a>
-                            @endif
-                            <a href="{{url('/me')}}">Your information</a>
-                            <?php
-                                $totalNotification = App\Models\Notification::where([
-                                    ['status', 0],
-                                    ['user_id', $user->id],
-                                ])->count();
-                                $totalMessages = \App\Models\Message::where([
-                                    ['read', 0],
-                                    ['to', $user->id],
-                                ])->count();
-                            ?>
-                            <a href="{{url('/me/notifications')}}">
-                                Notifications
-                                <p class = "notify"> {{$totalNotification}} </p>   <!--  Notification amount  -->
-                            </a>
-                            <a href="{{url('/chat')}}">
-                                Messages
-                                <p class = "notify"> {{$totalMessages}} </p>   <!--  Notification amount  -->
-                            </a>
-                            <a href="{{url('/me/password')}}">Change password</a>
-                            <a href="{{url('/logout')}}">Log out</a>
-                        </div>
-                    </li>
-                <?php
-                    } else {
-                ?>
-                    <a class="login-acc" href="{{url('login')}}">SIGN IN</a>
-					<a class="signup-acc" href="{{url('signup')}}">SIGN UP?</a>
-                <?php
-                    }
-                ?>
-            </div>
+    </nav>
+    <div class="account">
+        <div class="social">
+            <a href="#"><img src="{{asset('frontend/images/Facebook.svg')}}" alt="facebook"></a>
+            <a href="#"><img src="{{asset('frontend/images/Twitter.svg')}}" alt="twitter"></a>
+            <a href="#"><img src="{{asset('frontend/images/Instagram.svg')}}" alt="instagram"></a>
         </div>
+        <div class="acc">
+            <?php
+            use Illuminate\Support\Facades\Session;
+            $user = Session::get('sUser');
+            if(isset($user)) {
+            ?>
+            <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar"
+                                         id="avatar"></li>
+            <li class="menu dropdown name">
+                <a href="{{url('user/' . $user->id . '/info')}}">
+                    <h1> {{$user->name}} </h1>
+                </a>
+                <div class="dropdown-content">
+
+                    <a href="{{url('/post/create')}}">New post</a>
+                    @if($user->role == 1)
+                        <a href="{{url('requests/post/list')}}">Review post</a>
+                    @endif
+                    <a href="{{url('/me')}}">Your information</a>
+                    <?php
+                    $totalNotification = App\Models\Notification::where([
+                        ['status', 0],
+                        ['user_id', $user->id],
+                    ])->count();
+                    $totalMessages = \App\Models\Message::where([
+                        ['read', 0],
+                        ['to', $user->id],
+                    ])->count();
+                    ?>
+                    <a href="{{url('/me/notifications')}}">
+                        Notifications
+                        <p class="notify"> {{$totalNotification}} </p>   <!--  Notification amount  -->
+                    </a>
+                    <a href="{{url('/chat')}}">
+                        Messages
+                        <p class="notify"> {{$totalMessages}} </p>   <!--  Notification amount  -->
+                    </a>
+                    <a href="{{url('/me/password')}}">Change password</a>
+                    <a href="{{url('/logout')}}">Log out</a>
+                </div>
+            </li>
+            <?php
+            } else {
+            ?>
+            <a class="login-acc" href="{{url('login')}}">SIGN IN</a>
+            <a class="signup-acc" href="{{url('signup')}}">SIGN UP?</a>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
 </section>
 
 {{--Content--}}
@@ -166,12 +167,12 @@
 
 @if(isset($user))
     <script>
-        $("#likePostButton").click(function (){
+        $("#likePostButton").click(function () {
             $.ajax({
                 type: "get",
                 url: $(this).data('post-id') + '/update-like',
                 dataType: 'json',
-                success: function (response){
+                success: function (response) {
                     if ($("#likePostButton").attr("liked") == '0') {
                         console.log('liked!');
                         $("#likePostButton").attr('liked', "1");
@@ -186,12 +187,12 @@
             });
         });
 
-        $(".like-comment-button").click(function (){
+        $(".like-comment-button").click(function () {
             $.ajax({
                 type: "get",
                 url: $(this).attr('id') + '/update-like-comment',
                 dataType: 'json',
-                success: function (response){
+                success: function (response) {
                     console.log(response);
                     if ($("#" + response.commentId).attr("liked") == '0') {
                         console.log('liked!');
@@ -211,25 +212,25 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#searchInput').on('keyup',function() {
+        $('#searchInput').on('keyup', function () {
             let query = $(this).val();
             $.ajax({
                 url: 'search',
                 type: 'get',
                 data: {'title': query},
-                success: function(data) {
+                success: function (data) {
                     $('#searchedPosts').html(data);
                 }
             })
             // end of ajax call
         });
-        $('#searchButton').click(function() {
+        $('#searchButton').click(function () {
             let query = $("#searchInput").val();
             $.ajax({
                 url: 'search',
                 type: 'get',
                 data: {'title': query},
-                success: function(data) {
+                success: function (data) {
                     $('#searchedPosts').html(data);
                 }
             })
@@ -241,7 +242,7 @@
         let category_pet_name = $('#searchInputCategory').data('category-pet2');
         let url2 = url + category_pet_name + '/' + category_name;
         console.log(url2);
-        $('#searchInputCategory').on('keyup', function() {
+        $('#searchInputCategory').on('keyup', function () {
             let val = $(this).val();
             let category = $(this).data('category');
             let categoryPet = $(this).data('category-pet');
@@ -251,7 +252,7 @@
                 url: category_name + '/search-by-category',
                 type: 'get',
                 data: {'title': val, 'category': category, 'categoryPet': categoryPet},
-                success: function(data) {
+                success: function (data) {
                     console.log(data);
                     $('#searchedCategoryPosts').html(data);
                 }
@@ -262,8 +263,8 @@
 </script>
 
 <script>
-    $(function() {
-        $( "#datepicker" ).datepicker({
+    $(function () {
+        $("#datepicker").datepicker({
             dateFormat: "dd/mm/yy",
             defaultDate: "0d",
             changeYear: true,
@@ -329,15 +330,15 @@
         <header>
             <img src="{{asset('frontend/images/PETforum.svg')}}" alt="logo">
         </header>
-        <div class = "left-left">
+        <div class="left-left">
             <h>“A Forum created for pet lover and people who interested about pet”</h>
-            <img src="{{asset('frontend/images/vinh.svg')}}" alt="logo" class = "ruler">
-            <p class = "ruler_name">- Vinh.M ( Founder of PETforum )</p>
+            <img src="{{asset('frontend/images/vinh.svg')}}" alt="logo" class="ruler">
+            <p class="ruler_name">- Vinh.M ( Founder of PETforum )</p>
         </div>
-        <div class = "left-right">
+        <div class="left-right">
             <h>“Life without Ricardo is meaning less”</h>
-            <img src="{{asset('frontend/images/vinh2.jpg')}}" alt="logo" class = "ruler">
-            <p class = "ruler_name">- Still Vinh but actually Ngôn Phi</p>
+            <img src="{{asset('frontend/images/vinh2.jpg')}}" alt="logo" class="ruler">
+            <p class="ruler_name">- Still Vinh but actually Ngôn Phi</p>
         </div>
         <!--
         <label>Forum created by Team 5</label>
@@ -351,14 +352,14 @@
         -->
     </div>
     <div class="footer-right">
-    <div class = "left-left">
+        <div class="left-left">
             <h>About us</h>
             <div><a href=#>About PETforum</a></div>
             <div><a href=#>Contact us</a></div>
             <div><a href=#>Features</a></div>
             <div><a href=#>Careers</a></div>
         </div>
-        <div class = "left-right">
+        <div class="left-right">
             <h>Get in touch</h>
             <div><a href="https://www.facebook.com/emquen.ten.5/"><b>Ngo Thu Huyen</b></a></div>
             <div><a href="https://www.facebook.com/chung.levan.334839/">Le Van Chung</a></div>

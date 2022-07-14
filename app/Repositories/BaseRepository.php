@@ -43,18 +43,6 @@ abstract class BaseRepository
     }
 
     /**
-     * Get one
-     * @param $id
-     * @return mixed
-     */
-    public function find($id)
-    {
-        $result = $this->_model->find($id);
-
-        return $result;
-    }
-
-    /**
      * Check if model exists
      * @param $id
      * @return mixed
@@ -113,6 +101,18 @@ abstract class BaseRepository
         }
 
         return false;
+    }
+
+    /**
+     * Get one
+     * @param $id
+     * @return mixed
+     */
+    public function find($id)
+    {
+        $result = $this->_model->find($id);
+
+        return $result;
     }
 
     /**

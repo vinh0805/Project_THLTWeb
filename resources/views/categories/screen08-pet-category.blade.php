@@ -3,7 +3,7 @@
     <?php
     use Illuminate\Support\Facades\Session;
     $message = Session::get('message');
-    if(isset($message)) {
+    if (isset($message)) {
         echo '<span id="loginError">' . $message . '</span>';
         Session::put('message', null);
     }
@@ -11,7 +11,7 @@
     $i = 0;
     ?>
 
-    <section class = "category-body">
+    <section class="category-body">
         <div id="categoryLeft">
             <h4 id="searchTitle">Search</h4>
             <label for="searchInputCategory"></label>
@@ -27,18 +27,20 @@
         </div>
         <div id="categoryMid">
             <h1>{{$categoryPet->name}} {{$category->name}}</h1>
-            <div class = "category-list">
+            <div class="category-list">
                 @foreach($allPosts as $post)
-                    <div class = "category-post">
+                    <div class="category-post">
                         <a href="{{url('post/' . $post->id)}}">{{$post->title}}</a>
-                        <div class = "content">
+                        <div class="content">
                             <p>{!! $post->content !!} </p>
                         </div>
                         <hr>
                         <div class="content-foot">
-                            <div>{{$likePostArray[$i]}}  <i class="fas fa-paw"></i></div>
-                            <div>{{$commentPostArray[$i]}}  <i class="fas fa-comment-dots"></i></div>
-                            <div class="content-foot-user">Posted by <a class="user-name-mini" href="{{url('user/' . $post->user_id . '/info')}}">{{$post->name}}</a> at {{$post->created_at}}</div>
+                            <div>{{$likePostArray[$i]}} <i class="fas fa-paw"></i></div>
+                            <div>{{$commentPostArray[$i]}} <i class="fas fa-comment-dots"></i></div>
+                            <div class="content-foot-user">Posted by <a class="user-name-mini"
+                                                                        href="{{url('user/' . $post->user_id . '/info')}}">{{$post->name}}</a>
+                                at {{$post->created_at}}</div>
                         </div>
                     </div>
                     <?php $i++ ?>
@@ -47,14 +49,15 @@
         </div>
         <div class="categoryRight">
             <a href="{{url('/post/create')}}">
-                <button id="createPost"> + Create a post here </button>
+                <button id="createPost"> + Create a post here</button>
             </a>
             <hr>
             <h4 id="searchTitle2">Top Users</h4>
             @foreach($topUsers as $topUser)
                 <div class="top-user">
                     <a href="{{url('user/' . $topUser->user_id . '/info')}}">
-                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $topUser->avatar)}}" alt="miniAvatar">
+                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $topUser->avatar)}}"
+                             alt="miniAvatar">
                         <span class="user-name-mini">{{$topUser->user_name}}</span>
                     </a>
                     <div class="like-number">
@@ -67,7 +70,8 @@
             @if(isset($you))
                 <div class="top-user">
                     <a href="{{url('user/' . $you->user_id . '/info')}}">
-                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $you->avatar)}}" alt="miniAvatar">
+                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $you->avatar)}}"
+                             alt="miniAvatar">
                         <span class="user-name-mini">{{$you->user_name}}</span>
                     </a>
                     <div class="like-number">
@@ -83,7 +87,8 @@
             @foreach($topUsers2 as $topUser2)
                 <div class="top-user">
                     <a href="{{url('user/' . $topUser2->user_id . '/info')}}">
-                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $topUser2->avatar)}}" alt="miniAvatar">
+                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $topUser2->avatar)}}"
+                             alt="miniAvatar">
                         <span class="user-name-mini">{{$topUser2->user_name}}</span>
                     </a>
                     <div class="like-number">
@@ -96,7 +101,8 @@
             @if(isset($you2))
                 <div class="top-user">
                     <a href="{{url('user/' . $you2->user_id . '/info')}}">
-                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $you2->avatar)}}" alt="miniAvatar">
+                        <img class="avatar-mini" src="{{url('frontend/images/avatars/' . $you2->avatar)}}"
+                             alt="miniAvatar">
                         <span class="user-name-mini">{{$you2->user_name}}</span>
                     </a>
                     <div class="like-number">

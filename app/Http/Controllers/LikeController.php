@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\LikeComment;
 use App\Models\LikePost;
-use App\Models\Post;
 use App\Models\Notification;
-use Illuminate\Http\Request;
+use App\Models\Post;
 use Illuminate\Support\Facades\Session;
 
 class LikeController extends Controller
 {
-    public function updateLikeStatus($postId) {
+    public function updateLikeStatus($postId)
+    {
         $user = Session::get('sUser');
         if (isset($user)) {
             $post = Post::find($postId);
@@ -39,8 +39,8 @@ class LikeController extends Controller
                     ->where('user_id', '=', $post->user_id)
                     ->where('fuser_id', '=', $user->id)
                     ->where('content', '=', $user->name . ' liked your status')->first();
-                if(!isset($notification)) {
-                    if($post->user_id != $user->id) {
+                if (!isset($notification)) {
+                    if ($post->user_id != $user->id) {
                         $newNotification = new Notification([
                             'user_id' => $post->user_id,
                             'fuser_id' => $user->id,
@@ -51,7 +51,7 @@ class LikeController extends Controller
                     }
                 }
             }
-            if(!isset($post)){
+            if (!isset($post)) {
                 Session::put('message', "Have something wrong!");
                 return redirect('home');
             } else {
@@ -103,7 +103,7 @@ class LikeController extends Controller
                 }
             }
             $comment = Comment::find($commentId);
-            if(!isset($comment)){
+            if (!isset($comment)) {
                 Session::put('message', "Have something wrong!");
                 return redirect('home');
             } else {

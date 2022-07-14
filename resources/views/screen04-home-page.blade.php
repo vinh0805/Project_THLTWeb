@@ -3,7 +3,7 @@
     <?php
     use Illuminate\Support\Facades\Session;
     $message = Session::get('message');
-    if(isset($message)) {
+    if (isset($message)) {
         echo '<span id="loginError">' . $message . '</span>';
         Session::put('message', null);
     }
@@ -59,18 +59,20 @@
         </div>
 
         <div id="hotPosts">
-            <div class = "category-list">
+            <div class="category-list">
                 <hr>
                 <h2><b>Hot</b></h2>
                 @if(isset($hotPosts))
                     @foreach($hotPosts as $hotPost)
-                        <div class = "category-post">
+                        <div class="category-post">
                             <a href="{{url('post/' . $hotPost->id)}}">{{$hotPost->title}}</a>
                             <hr>
                             <div class="content-foot">
-                                <div>{{$hotPostLikeArray[$i2]}}  <i class="fas fa-paw"></i></div>
-                                <div>{{$hotPostCommentArray[$i2]}}  <i class="fas fa-comment-dots"></i></div>
-                                <div class="content-foot-user">Posted by <a class="user-name-mini" href="{{url('user/' . $hotPost->user_id . '/info')}}">{{$hotPost->name}}</a> at {{$hotPost->created_at}}</div>
+                                <div>{{$hotPostLikeArray[$i2]}} <i class="fas fa-paw"></i></div>
+                                <div>{{$hotPostCommentArray[$i2]}} <i class="fas fa-comment-dots"></i></div>
+                                <div class="content-foot-user">Posted by <a class="user-name-mini"
+                                                                            href="{{url('user/' . $hotPost->user_id . '/info')}}">{{$hotPost->name}}</a>
+                                    at {{$hotPost->created_at}}</div>
                             </div>
                         </div>
                         <?php $i2++; ?>

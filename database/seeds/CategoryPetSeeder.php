@@ -1,8 +1,8 @@
 <?php
 
+use App\Models\CategoryPet;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\CategoryPet;
 
 class CategoryPetSeeder extends Seeder
 {

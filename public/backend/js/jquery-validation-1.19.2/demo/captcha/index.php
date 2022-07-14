@@ -23,50 +23,62 @@ $_SESSION['captcha_id'] = $str;
 	<script src="captcha.js"></script>
 	<link rel="stylesheet" href="style.css">
 	<style>
-	img {
-		border: 1px solid #eee;
-	}
-	p#statusgreen {
-		font-size: 1.2em;
-		background-color: #fff;
-		color: #0a0;
-	}
-	p#statusred {
-		font-size: 1.2em;
-		background-color: #fff;
-		color: #a00;
-	}
-	fieldset label {
-		display: block;
-	}
-	fieldset div#captchaimage {
-		float: left;
-		margin-right: 15px;
-	}
-	fieldset input#captcha {
-		width: 25%;
-		border: 1px solid #ddd;
-		padding: 2px;
-	}
-	fieldset input#submit {
-		display: block;
-		margin: 2% 0% 0% 0%;
-	}
-	#captcha.success {
-		border: 1px solid #49c24f;
-		background: #bcffbf;
-	}
-	#captcha.error {
-		border: 1px solid #c24949;
-		background: #ffbcbc;
-	}
+		img {
+			border: 1px solid #eee;
+		}
+
+		p#statusgreen {
+			font-size: 1.2em;
+			background-color: #fff;
+			color: #0a0;
+		}
+
+		p#statusred {
+			font-size: 1.2em;
+			background-color: #fff;
+			color: #a00;
+		}
+
+		fieldset label {
+			display: block;
+		}
+
+		fieldset div#captchaimage {
+			float: left;
+			margin-right: 15px;
+		}
+
+		fieldset input#captcha {
+			width: 25%;
+			border: 1px solid #ddd;
+			padding: 2px;
+		}
+
+		fieldset input#submit {
+			display: block;
+			margin: 2% 0% 0% 0%;
+		}
+
+		#captcha.success {
+			border: 1px solid #49c24f;
+			background: #bcffbf;
+		}
+
+		#captcha.error {
+			border: 1px solid #c24949;
+			background: #ffbcbc;
+		}
 	</style>
 </head>
 <body>
-<h1><acronym title="Asynchronous JavaScript And XML">AJAX</acronym> <acronym title="Completely Automated Public Turing test to tell Computers and Humans Apart">CAPTCHA</acronym></h1>
+<h1><acronym title="Asynchronous JavaScript And XML">AJAX</acronym> <acronym
+		title="Completely Automated Public Turing test to tell Computers and Humans Apart">CAPTCHA</acronym></h1>
 <form id="captchaform" action="">
 	<fieldset>
-		<div id="captchaimage"><a href="<?php echo htmlEntities($_SERVER['PHP_SELF'], ENT_QUOTES); ?>" id="refreshimg" title="Click to refresh image"><img src="images/image.php?<?php echo time(); ?>" width="132" height="46" alt="Captcha image"></a></div>
+		<div id="captchaimage"><a href="<?php echo htmlEntities($_SERVER['PHP_SELF'], ENT_QUOTES); ?>" id="refreshimg"
+								  title="Click to refresh image"><img src="images/image.php?<?php echo time(); ?>"
+																	  width="132" height="46" alt="Captcha image"></a>
+		</div>
 		<label for="captcha">Enter the characters as seen on the image above (case insensitive):</label>
 		<input type="text" maxlength="6" name="captcha" id="captcha">
 		<input type="submit" name="submit" id="submit" value="Check">

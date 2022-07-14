@@ -20,15 +20,6 @@ class UserController extends Controller
         $this->userRepository = $userRepository;
     }
 
-    public function authLogin()
-    {
-        if (Session::get('sUser')) {
-            return redirect('me');
-        } else {
-            return redirect('login')->send();
-        }
-    }
-
     public function isAdmin()
     {
         $this->authLogin();
@@ -38,6 +29,15 @@ class UserController extends Controller
                 return 1;
         }
         return 0;
+    }
+
+    public function authLogin()
+    {
+        if (Session::get('sUser')) {
+            return redirect('me');
+        } else {
+            return redirect('login')->send();
+        }
     }
 
     public function showProfile()
@@ -74,7 +74,7 @@ class UserController extends Controller
         $data = $request->all();
         $checkEmail = User::where('email', '=', $data['email'])->first();
         if (!isset($checkEmail)) {
-            if($data['password'] == $data['confirm_password']) {
+            if ($data['password'] == $data['confirm_password']) {
                 if (!isset($data['gender'])) {
                     $data['gender'] = 1;
                 }
@@ -157,7 +157,8 @@ class UserController extends Controller
             ->with('message', 'CANNOT UPDATE PASSWORD!');
     }
 
-    public function signupSuccess() {
+    public function signupSuccess()
+    {
         return view('users.signupSuccess');
     }
 }

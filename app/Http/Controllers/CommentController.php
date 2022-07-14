@@ -15,7 +15,7 @@ class CommentController extends Controller
     {
         $data = $request->all();
         $user = Session::get('sUser');
-        if(!$data['commentContent']) {
+        if (!$data['commentContent']) {
             return redirect('post/' . $postId)->with('message', "Cannot add blank comment!");
         }
         $newComment = new Comment([
@@ -33,14 +33,14 @@ class CommentController extends Controller
         $userPost = User::where('id', $post->user_id)->first();
         $status = false;
         foreach ($cmtList as $cmt) {
-            if ($cmt->user_id == $post->user_id && $comment->user_id != $post->user_id){
+            if ($cmt->user_id == $post->user_id && $comment->user_id != $post->user_id) {
                 $status = true; // if status = false, User who created post doesn't comment
-                                // -> this is not notification for this user
+                // -> this is not notification for this user
                 $content = $user->name . ' created comment in your post';
             } else {
                 $content = $user->name . ' created comment in ' . $userPost->name . ' \'s post';
             }
-            if($cmt->user_id != $user->id) {
+            if ($cmt->user_id != $user->id) {
                 $newNotification = new Notification([
                     'user_id' => $cmt->user_id,
                     'fuser_id' => $user->id,
@@ -52,7 +52,7 @@ class CommentController extends Controller
             }
         }
         if ($status == false && $comment->user_id != $post->user_id) {
-            if($post->user_id != $user->id) {
+            if ($post->user_id != $user->id) {
                 $newNotification = new Notification([
                     'user_id' => $post->user_id,
                     'fuser_id' => $user->id,

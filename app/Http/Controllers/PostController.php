@@ -7,37 +7,15 @@ use App\Models\CategoryPet;
 use App\Models\Comment;
 use App\Models\LikeComment;
 use App\Models\LikePost;
-use App\Models\Post;
 use App\Models\Notification;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Repositories\CategoryRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-use Mockery\Matcher\Not;
 
 class PostController extends Controller
 {
-    public function authLogin()
-    {
-        if (Session::get('sUser')) {
-            return redirect('me');
-        } else {
-            return redirect('login')->send();
-        }
-    }
-
-    public function isAdmin()
-    {
-        $this->authLogin();
-        $user = Session::get('sUser');
-        if (isset($user->role)) {
-            if ($user->role == 1)
-                return 1;
-        }
-        return 0;
-    }
-
     public function showPostsHomePage()
     {
         $allCategoryPet = CategoryPet::all();
@@ -91,15 +69,15 @@ class PostController extends Controller
         foreach ($allPosts as $post) {
             $likePostNumber = count(LikePost::where('post_id', '=', $post->id)->get());
             $commentPostNumber = count(Comment::where('post_id', '=', $post->id)->get());
-            $hotPostPoint = $likePostNumber + 3*$commentPostNumber;
-            if($hotPostPoint > 0) {
+            $hotPostPoint = $likePostNumber + 3 * $commentPostNumber;
+            if ($hotPostPoint > 0) {
                 array_push($hotPostList, (object)[
                     'id' => $post->id,
                     'point' => $hotPostPoint
                 ]);
             }
         }
-        usort($hotPostList, function($a, $b) {
+        usort($hotPostList, function ($a, $b) {
             return $a->point < $b->point;
         });
         $bestHotPosts = array_slice($hotPostList, 0, 5);
@@ -118,20 +96,29 @@ class PostController extends Controller
             ->with('allCategory', $allCategory);
     }
 
+    public function authLogin()
+    {
+        if (Session::get('sUser')) {
+            return redirect('me');
+        } else {
+            return redirect('login')->send();
+        }
+    }
+
     public function savePost(Request $request)
     {
         $this->authLogin();
         $data = $request->all();
-        if($request->hasFile('upload')) {
+        if ($request->hasFile('upload')) {
             $originName = $request->file('upload')->getClientOriginalName();
             $fileName = pathinfo($originName, PATHINFO_FILENAME);
             $extension = $request->file('upload')->getClientOriginalExtension();
-            $fileName = $fileName.'_'.time().'.'.$extension;
+            $fileName = $fileName . '_' . time() . '.' . $extension;
 
             $request->file('upload')->move(public_path('posts'), $fileName);
 
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('posts/'.$fileName);
+            $url = asset('posts/' . $fileName);
             $msg = 'Image uploaded successfully';
             $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
 
@@ -152,7 +139,7 @@ class PostController extends Controller
         $currentPost = Post::orderBy('id', 'desc')->first();
         if ($admin->id != Session::get('sUser')->id) {
             $newNotification = new Notification([
-                'post_id'  => $currentPost->id,
+                'post_id' => $currentPost->id,
                 'user_id' => $admin->id,
                 'fuser_id' => Session::get('sUser')->id,
                 'content' => $content,
@@ -169,7 +156,7 @@ class PostController extends Controller
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->select('posts.*', 'users.name', 'users.avatar')
             ->where('posts.id', '=', $postId)->first();
-        if(!isset($post)){
+        if (!isset($post)) {
             echo "Have bug!!!";
         } else {
             $likePostNumber = count(LikePost::where('post_id', '=', $post->id)->get());
@@ -190,14 +177,14 @@ class PostController extends Controller
                 $i++;
             }
             $user = Session::get('sUser');
-            if (isset($user)){
+            if (isset($user)) {
                 $likePost = LikePost::where('user_id', '=', $user->id)->where('post_id', '=', $post->id)->first();
                 $postIsLiked = isset($likePost) ? 1 : 0;
-                return view('posts.screen13-show-post')->with('likeArray' ,$likeArray)
+                return view('posts.screen13-show-post')->with('likeArray', $likeArray)
                     ->with('post', $post)->with('allComments', $allComments)->with('likePostNumber', $likePostNumber)
                     ->with('postIsLiked', $postIsLiked)->with('commentIsLikedArray', $commentIsLikedArray);
             } else {
-                return view('posts.screen13-show-post')->with('likeArray' ,$likeArray)
+                return view('posts.screen13-show-post')->with('likeArray', $likeArray)
                     ->with('post', $post)->with('allComments', $allComments)->with('likePostNumber', $likePostNumber);
             }
         }
@@ -206,22 +193,22 @@ class PostController extends Controller
 
     public function search(Request $request)
     {
-        if($request->ajax()) {
+        if ($request->ajax()) {
             if ($request['title'] == '' || $request['title'] == null) {
                 $output = '';
             } else {
-                $posts = Post::where('title', 'LIKE', '%'.$request['title'].'%')
+                $posts = Post::where('title', 'LIKE', '%' . $request['title'] . '%')
                     ->where('status', '=', '1')->get();
                 $output = '';
 
                 if (count($posts) > 0) {
                     $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
-                    foreach ($posts as $post){
-                        $output .= '<li class="list-group-item"><a href="post/' . $post->id . '">'.$post->title.'</a></li>';
+                    foreach ($posts as $post) {
+                        $output .= '<li class="list-group-item"><a href="post/' . $post->id . '">' . $post->title . '</a></li>';
                     }
                     $output .= '</ul>';
                 } else {
-                    $output .= '<li class="list-group-item">'.'No results'.'</li>';
+                    $output .= '<li class="list-group-item">' . 'No results' . '</li>';
                 }
             }
             return $output;
@@ -230,11 +217,11 @@ class PostController extends Controller
 
     public function searchByCategory(Request $request)
     {
-        if($request->ajax()) {
+        if ($request->ajax()) {
             if ($request['title'] == '' || $request['title'] == null) {
                 $output = '';
             } else {
-                $posts = Post::where('title', 'LIKE', '%'.$request['title'].'%')
+                $posts = Post::where('title', 'LIKE', '%' . $request['title'] . '%')
                     ->where('category_id', '=', $request['category'])
                     ->where('category_pet_id', '=', $request['categoryPet'])
                     ->where('status', '=', '1')->get();
@@ -243,12 +230,12 @@ class PostController extends Controller
                 if (count($posts) > 0) {
                     $output = '<ul class="list-group" style="display: block; position: relative;
                                                              z-index: 1; overflow: hidden">';
-                    foreach ($posts as $post){
-                        $output .= '<li class="list-group-item"><a href="post/' . $post->id . '">'.$post->title.'</a></li>';
+                    foreach ($posts as $post) {
+                        $output .= '<li class="list-group-item"><a href="post/' . $post->id . '">' . $post->title . '</a></li>';
                     }
                     $output .= '</ul>';
                 } else {
-                    $output .= '<li class="list-group-item">'.'No results'.'</li>';
+                    $output .= '<li class="list-group-item">' . 'No results' . '</li>';
                 }
             }
             return $output;
@@ -257,19 +244,30 @@ class PostController extends Controller
 
     public function showRequestPostList()
     {
-        if($this->isAdmin()){
+        if ($this->isAdmin()) {
             $allRequestPosts = Post::where('status', '=', '0')->get();
-            return view('posts.screen19-request-post-list')->with('allRequestPosts' ,$allRequestPosts);
+            return view('posts.screen19-request-post-list')->with('allRequestPosts', $allRequestPosts);
         } else return redirect('home');
+    }
+
+    public function isAdmin()
+    {
+        $this->authLogin();
+        $user = Session::get('sUser');
+        if (isset($user->role)) {
+            if ($user->role == 1)
+                return 1;
+        }
+        return 0;
     }
 
     public function reviewPost(Request $request, $postId)
     {
-        if($this->isAdmin()){
+        if ($this->isAdmin()) {
             $post = Post::find($postId);
             if (isset($post)) {
                 $acceptance = $request['submitButton'];
-                if ($acceptance){
+                if ($acceptance) {
                     $post->status = 1;
                     $post->save();
                     $newNotification = new Notification([

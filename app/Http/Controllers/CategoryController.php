@@ -6,8 +6,6 @@ use App\Models\Category;
 use App\Models\CategoryPet;
 use App\Models\Comment;
 use App\Models\LikePost;
-use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -20,7 +18,7 @@ class CategoryController extends Controller
         $likePostArray = [];
         $commentPostArray = [];
         $i = 0;
-        if(isset($categoryPet) && isset($category)){
+        if (isset($categoryPet) && isset($category)) {
             $allPosts = DB::table('posts')
                 ->join('users', 'posts.user_id', '=', 'users.id')
                 ->select('posts.*', 'users.name', 'users.avatar')

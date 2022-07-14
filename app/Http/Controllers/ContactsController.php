@@ -6,7 +6,6 @@ use App\Events\NewMessage;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class ContactsController extends Controller
@@ -14,7 +13,7 @@ class ContactsController extends Controller
     public function home()
     {
         $user = Session::get('sUser');
-        if(isset($user)) {
+        if (isset($user)) {
             return view('chat');
         } else return redirect('home');
     }
@@ -22,7 +21,7 @@ class ContactsController extends Controller
     public function get()
     {
         $user = Session::get('sUser');
-        if(isset($user)) {
+        if (isset($user)) {
             $contacts = User::where('id', '!=', $user->id)->get();
 //            $contactsTo = DB::table('users')
 //                ->join('messages', 'users.id', '=', 'messages.to')
@@ -77,7 +76,7 @@ class ContactsController extends Controller
     public function send(Request $request)
     {
         $user = Session::get('sUser');
-        if(isset($user)) {
+        if (isset($user)) {
             $message = Message::create([
                 'from' => $user->id,
                 'to' => $request['contact_id'],

@@ -2,8 +2,8 @@
 
 @section('content')
     <?php
-        use Illuminate\Support\Facades\Session;
-        $user = Session::get('sUser');
+    use Illuminate\Support\Facades\Session;
+    $user = Session::get('sUser');
     ?>
     <div class="container">
         <div class="row justify-content-center">
@@ -13,7 +13,7 @@
 
                     <div id="app">
                         @if(isset($user))
-                        <chat-app :user="{{$user}}"></chat-app>
+                            <chat-app :user="{{$user}}"></chat-app>
                         @endif
                     </div>
                 </div>
