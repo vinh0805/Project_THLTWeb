@@ -1,3 +1,4 @@
+/* jshint node: true */
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -18,7 +19,9 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+require('./components/common/GlobalFunction');
 
+const Vue = window.vue;
 Vue.component('chat-app', require('./components/ChatApp.vue').default);
 
 /**
@@ -27,6 +30,6 @@ Vue.component('chat-app', require('./components/ChatApp.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+new Vue({
     el: '#app',
 });

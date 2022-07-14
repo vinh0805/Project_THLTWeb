@@ -4,7 +4,7 @@
             <li v-for="contact in sortedContacts" :key="contact.id" @click="selectContact(contact)"
                 :class="{'selected': contact === selected}">
                 <div class="avatar">
-                    <img :src="`/ProjectWeb/public/frontend/images/avatars/${contact.avatar}`" :alt="contact.name">
+                    <img :src="contact.avatar" :alt="contact.name">
                 </div>
                 <div class="contact">
                     <p class="name">{{contact.name}}</p>
@@ -39,6 +39,9 @@
         computed: {
             sortedContacts() {
                 return _.sortBy(this.contacts, [(contact) => {
+                    if (contact.avatar) {
+                        contact.avatar = getImgUrl(contact.avatar);
+                    }
                     if(contact === this.selected) {
                         return Infinity;
                     }

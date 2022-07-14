@@ -26,5 +26,8 @@
     "dependencies": {
         "laravel-echo": "^1.10.0",
         "pusher-js": "^7.0.3"
+    },
+    "jshintConfig": {
+        "esversion": 6
     }
 }

@@ -20,5 +20,6 @@
 		"methodTest": false,
 		"QUnit": true,
 		"JSHINT": false
-	}
+	},
+	"esversion": 6
 }
