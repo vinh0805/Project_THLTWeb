@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 <!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
     {{-- Bootstrap --}}
-    <link rel="stylesheet" href="{{asset('frontend/css/plugin/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/plugins/bootstrap/css/bootstrap.min.css')}}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -274,7 +274,7 @@
     });
 </script>
 
-<script src="{{asset('backend/js/jquery-validation-1.19.2/dist/jquery.validate.js')}}"></script>
+<script src="{{asset('frontend/css/plugins/jquery-validation/jquery.validate.js')}}"></script>
 <script>
     $("#editProfileForm").validate();
     $().ready(function () {
