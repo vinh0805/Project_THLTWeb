@@ -1,4 +1,11 @@
 @extends('layout')
+@section('styles')
+    <style>
+        .post-sw-body #showPostContent input[type="image"] {
+            max-width: 100%;
+        }
+    </style>
+@endsection
 @section('content')
     <?php
     use Illuminate\Support\Facades\Session;

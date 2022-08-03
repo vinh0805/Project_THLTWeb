@@ -25,12 +25,14 @@
     <link rel="stylesheet" href="{{asset('frontend/css/stylesheet.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-<!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
+    <!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="{{asset('frontend/css/plugins/bootstrap/css/bootstrap.min.css')}}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    {{--Style--}}
+    @yield('styles')
 </head>
 <body class="hold-transition login-page" style="background: #FFF6EA;">
 
