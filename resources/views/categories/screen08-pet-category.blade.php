@@ -114,3 +114,25 @@
         </div>
     </section>
 @endsection
+@section('footer')
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            let search_input_category = $('#searchInputCategory');
+            let category_name = search_input_category.data('category2');
+            search_input_category.on('keyup', function () {
+                let val = $(this).val();
+                let category = $(this).data('category');
+                let categoryPet = $(this).data('category-pet');
+                $.ajax({
+                    url: category_name + '/search-by-category',
+                    type: 'get',
+                    data: {'title': val, 'category': category, 'categoryPet': categoryPet},
+                    success: function (data) {
+                        $('#searchedCategoryPosts').html(data);
+                    }
+                })
+            });
+        });
+    </script>
+@endsection

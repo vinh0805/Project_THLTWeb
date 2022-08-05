@@ -123,3 +123,32 @@
         </div>
     </section>
 @endsection
+@section('footer')
+    <script>
+        $('.carousel').carousel();
+        $(document).ready(function () {
+            $('#searchInput').on('keyup', function () {
+                let query = $(this).val();
+                $.ajax({
+                    url: 'search',
+                    type: 'get',
+                    data: {'title': query},
+                    success: function (data) {
+                        $('#searchedPosts').html(data);
+                    }
+                })
+            });
+            $('#searchButton').click(function () {
+                let query = $("#searchInput").val();
+                $.ajax({
+                    url: 'search',
+                    type: 'get',
+                    data: {'title': query},
+                    success: function (data) {
+                        $('#searchedPosts').html(data);
+                    }
+                })
+            });
+        });
+    </script>
+@endsection

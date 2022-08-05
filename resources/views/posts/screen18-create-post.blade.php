@@ -37,3 +37,12 @@
         </form>
     </div>
 @endsection
+@section('footer')
+    <script src="https://cdn.ckeditor.com/4.15.1/full/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('postContent', {
+            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+    </script>
+@endsection

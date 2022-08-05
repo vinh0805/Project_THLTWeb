@@ -94,3 +94,50 @@
         @endif
     </div>
 @endsection
+@section('footer')
+    @if(isset($user))
+        <script>
+            let like_post_button = $("#likePostButton");
+            like_post_button.click(function () {
+                $.ajax({
+                    type: "get",
+                    url: $(this).data('post-id') + '/update-like',
+                    dataType: 'json',
+                    success: function (response) {
+                        if (like_post_button.attr("liked") == '0') {
+                            like_post_button.attr('liked', "1");
+                            like_post_button.css("color", "#FF9800");
+                        } else if (like_post_button.attr("liked") == '1') {
+                            like_post_button.attr('liked', "0");
+                            like_post_button.css("color", "#1a1c1b");
+                        }
+                        like_post_button.html("  " + response);
+                    }
+                });
+            });
+
+            $(".like-comment-button").click(function () {
+                $.ajax({
+                    type: "get",
+                    url: $(this).attr('id') + '/update-like-comment',
+                    dataType: 'json',
+                    success: function (response) {
+                        if (!response.commentID) {
+                            return;
+                        }
+
+                        let response_el = $("#" + response.commentId);
+                        if (response_el.attr("liked") == '0') {
+                            response_el.attr('liked', "1");
+                            response_el.css("color", "#FF9800");
+                        } else if (response_el.attr("liked") == '1') {
+                            response_el.attr('liked', "0");
+                            response_el.css("color", "#1a1c1b");
+                        }
+                        response_el.html("  " + response.likeCommentNumber);
+                    }
+                });
+            })
+        </script>
+    @endif
+@endsection

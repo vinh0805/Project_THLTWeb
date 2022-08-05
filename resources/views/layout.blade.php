@@ -102,9 +102,10 @@
             $user = Session::get('sUser');
             if(isset($user)) {
             ?>
-            <li class="menu avatar"><img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar"
-                                         id="avatar"></li>
-            <li class="menu dropdown name">
+            <li class="menu avatar">
+                <img src="{{url('frontend/images/avatars/' . $user->avatar)}}" alt="avatar" id="avatar">
+            </li>
+            <li class="menu dropdown name px-2">
                 <a href="{{url('user/' . $user->id . '/info')}}">
                     <h1> {{$user->name}} </h1>
                 </a>
@@ -155,177 +156,22 @@
 <!-- jQuery -->
 <script src="{{asset('frontend/css/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{asset('frontend/css/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('frontend/css/dist/js/adminlte.min.js')}}"></script>
 
 <script src="{{asset('frontend/js/jquery-1.12.4.js')}}"></script>
 <script src="{{asset('backend/js/jquery-validation-1.19.2/lib/jquery.mockjax-2.2.1.js')}}"></script>
 <script src="{{asset('frontend/js/jquery-ui.js')}}"></script>
-
-<script>
-    $('.carousel').carousel();
-</script>
-
-@if(isset($user))
-    <script>
-        $("#likePostButton").click(function () {
-            $.ajax({
-                type: "get",
-                url: $(this).data('post-id') + '/update-like',
-                dataType: 'json',
-                success: function (response) {
-                    if ($("#likePostButton").attr("liked") == '0') {
-                        console.log('liked!');
-                        $("#likePostButton").attr('liked', "1");
-                        $("#likePostButton").css("color", "#FF9800");
-                    } else if ($("#likePostButton").attr("liked") == '1') {
-                        console.log('unliked!');
-                        $("#likePostButton").attr('liked', "0");
-                        $("#likePostButton").css("color", "#1a1c1b");
-                    }
-                    $("#likePostButton").html("  " + response);
-                }
-            });
-        });
-
-        $(".like-comment-button").click(function () {
-            $.ajax({
-                type: "get",
-                url: $(this).attr('id') + '/update-like-comment',
-                dataType: 'json',
-                success: function (response) {
-                    console.log(response);
-                    if ($("#" + response.commentId).attr("liked") == '0') {
-                        console.log('liked!');
-                        $("#" + response.commentId).attr('liked', "1");
-                        $("#" + response.commentId).css("color", "#FF9800");
-                    } else if ($("#" + response.commentId).attr("liked") == '1') {
-                        console.log('unliked!');
-                        $("#" + response.commentId).attr('liked', "0");
-                        $("#" + response.commentId).css("color", "#1a1c1b");
-                    }
-                    $("#" + response.commentId).html("  " + response.likeCommentNumber);
-                }
-            });
-        })
-    </script>
-@endif
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#searchInput').on('keyup', function () {
-            let query = $(this).val();
-            $.ajax({
-                url: 'search',
-                type: 'get',
-                data: {'title': query},
-                success: function (data) {
-                    $('#searchedPosts').html(data);
-                }
-            })
-            // end of ajax call
-        });
-        $('#searchButton').click(function () {
-            let query = $("#searchInput").val();
-            $.ajax({
-                url: 'search',
-                type: 'get',
-                data: {'title': query},
-                success: function (data) {
-                    $('#searchedPosts').html(data);
-                }
-            })
-            // end of ajax call
-        });
-
-        let url = 'pets-category/';
-        let category_name = $('#searchInputCategory').data('category2');
-        let category_pet_name = $('#searchInputCategory').data('category-pet2');
-        let url2 = url + category_pet_name + '/' + category_name;
-        console.log(url2);
-        $('#searchInputCategory').on('keyup', function () {
-            let val = $(this).val();
-            let category = $(this).data('category');
-            let categoryPet = $(this).data('category-pet');
-            console.log(category);
-            console.log(categoryPet);
-            $.ajax({
-                url: category_name + '/search-by-category',
-                type: 'get',
-                data: {'title': val, 'category': category, 'categoryPet': categoryPet},
-                success: function (data) {
-                    console.log(data);
-                    $('#searchedCategoryPosts').html(data);
-                }
-            })
-            // end of ajax call
-        });
-    });
-</script>
-
-<script>
-    $(function () {
-        $("#datepicker").datepicker({
-            dateFormat: "dd/mm/yy",
-            defaultDate: "0d",
-            changeYear: true,
-            changeMonth: true,
-            yearRange: "1980:2020"
-        });
-    });
-</script>
+<script src="{{asset('frontend/css/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+{{--Footer--}}
+@yield('footer')
 
 <script src="{{asset('frontend/css/plugins/jquery-validation/jquery.validate.js')}}"></script>
-<script>
-    $("#editProfileForm").validate();
-    $().ready(function () {
-        $("#changePasswordForm").validate({
-            rules: {
-                password: "required",
-                new_password: {
-                    required: true
-                    // strongPassword: true
-                },
-                confirm_new_password: {
-                    required: true,
-                    // strongPassword: true
-                    equalTo: "#new_password"
-                }
-            }
-        })
-
-        $("#editDeviceForm").validate({
-            rules: {
-                devicePrice: {
-                    required: true,
-                    number: true
-                }
-            }
-        })
-
-        $("#AddEditRequestForm").validate({
-            rules: {
-                reasonOfRequest: {
-                    required: true,
-                    minlength: 8
-                }
-            }
-        })
-    })
-</script>
 @if(isset($message))
     <script>alert({{$message}})</script>
 @endif
 {{--<script src="{{asset('backend/js/jquery-validation-1.19.2/src/localization/messages_vi.js')}}"></script>--}}
 {{--<script src="{{asset('backend/js/jquery-validation-1.19.2/src/additional/strongPassword.js')}}"></script>--}}
-<script src="https://cdn.ckeditor.com/4.15.1/full/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace('postContent', {
-        filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
-    });
-</script>
 </body>
 <footer>
     <div class="footer-left">
@@ -342,16 +188,6 @@
             <img src="{{asset('frontend/images/vinh2.jpg')}}" alt="logo" class="ruler">
             <p class="ruler_name">- Still Vinh but actually Ngôn Phi</p>
         </div>
-        <!--
-        <label>Forum created by Team 5</label>
-        <div><a href="https://www.facebook.com/emquen.ten.5/"><b>Ngo Thu Huyen</b></a></div>
-        <div><a href="https://www.facebook.com/chung.levan.334839/">Le Van Chung</a></div>
-        <div><a href="https://www.facebook.com/balduusavage/">Nguyen Bao Duc</a></div>
-        <div><a href="https://www.facebook.com/phongdk29101999/">Do Kim Phong</a></div>
-        <div><a href="https://www.facebook.com/trannhatthong99/">Tran Nhat Thong</a></div>
-        <div><a href="https://www.facebook.com/vinhemt/">Mau Tien Vinh</a></div>
-        <div><a></a></div>
-        -->
     </div>
     <div class="footer-right">
         <div class="left-left">

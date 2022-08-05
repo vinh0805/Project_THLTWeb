@@ -90,3 +90,19 @@
         </div>
     </div>
 @endsection
+@section('footer')
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                dateFormat: "dd/mm/yy",
+                defaultDate: "0d",
+                changeYear: true,
+                changeMonth: true,
+                yearRange: "1980:2020"
+            });
+        });
+        $().ready(function () {
+            $("#editProfileForm").validate();
+        })
+    </script>
+@endsection

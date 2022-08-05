@@ -2038,10 +2038,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return _.sortBy(this.contacts, [function (contact) {
-        if (contact.avatar) {
-          contact.avatar = getImgUrl(contact.avatar);
-        }
-
         if (contact === _this.selected) {
           return Infinity;
         }
@@ -44870,7 +44866,9 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "avatar" }, [
-              _c("img", { attrs: { src: contact.avatar, alt: contact.name } })
+              _c("img", {
+                attrs: { src: _vm.getImgUrl(contact.avatar), alt: contact.name }
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "contact" }, [
@@ -57231,9 +57229,14 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-__webpack_require__(/*! ./components/common/GlobalFunction */ "./resources/js/components/common/GlobalFunction.js");
-
-var Vue = window.vue;
+var Vue = window.Vue;
+Vue.mixin({
+  methods: {
+    getImgUrl: function getImgUrl(pic) {
+      return '/../../../frontend/images/avatars/' + pic;
+    }
+  }
+});
 Vue.component('chat-app', __webpack_require__(/*! ./components/ChatApp.vue */ "./resources/js/components/ChatApp.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -57732,25 +57735,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/common/GlobalFunction.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/common/GlobalFunction.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* jshint node: true */
-var Vue = window.vue;
-
-var getImgUrl = function getImgUrl(pic) {
-  // return require('../Chat' + pic);
-  return '/../../../frontend/images/avatars/' + pic;
-};
-
-Vue.use(getImgUrl); //register
-
-/***/ }),
-
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -57769,8 +57753,8 @@ Vue.use(getImgUrl); //register
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xampp\htdocs\DoAnTotNghiep\Project_THLTWeb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\DoAnTotNghiep\Project_THLTWeb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\DoAn\PetForum\Project_THLTWeb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\DoAn\PetForum\Project_THLTWeb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

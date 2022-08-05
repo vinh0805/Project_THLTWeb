@@ -63,3 +63,42 @@
         </form>
     </div>
 @endsection
+@section('footer')
+    <script>
+        $().ready(function () {
+            $("#changePasswordForm").validate({
+                rules: {
+                    password: "required",
+                    new_password: {
+                        required: true
+                        // strongPassword: true
+                    },
+                    confirm_new_password: {
+                        required: true,
+                        // strongPassword: true
+                        equalTo: "#new_password"
+                    }
+                }
+            })
+
+            $("#editDeviceForm").validate({
+                rules: {
+                    devicePrice: {
+                        required: true,
+                        number: true
+                    }
+                }
+            })
+
+            $("#AddEditRequestForm").validate({
+                rules: {
+                    reasonOfRequest: {
+                        required: true,
+                        minlength: 8
+                    }
+                }
+            })
+        })
+    </script>
+
+@endsection

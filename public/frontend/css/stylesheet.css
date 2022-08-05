@@ -443,7 +443,7 @@ li.menu a {
     display: block;
     color: white;
     text-align: center;
-    padding: 15px 20px 15px 0;
+    padding: 15px 20px;
     text-decoration: none;
 }
 li.menu.logo {
@@ -467,7 +467,6 @@ li.menu.name {
     position: absolute;
     left: 79%;
     max-width: 250px;
-    width: fit-content;
 }
 li.menu a:hover {
     /* background-color: #0080ff; */
@@ -492,7 +491,7 @@ li.menu a:hover {
 #searchInput {
     padding-left: 20px;
     font-size: 20px;
-    width: 79%;
+    width: 78%;
     height: 50px;
     border-radius: 4px;
     border: 1px;
