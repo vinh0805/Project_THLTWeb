@@ -28,8 +28,6 @@
     <!--<link rel="stylesheet" href="{{asset('frontend/css/homestyle.css')}}"> -->
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="{{asset('frontend/css/plugins/bootstrap/css/bootstrap.min.css')}}">
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     {{--Style--}}
     @yield('styles')
