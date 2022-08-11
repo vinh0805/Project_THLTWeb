@@ -63,7 +63,7 @@
         </form>
     </div>
 @endsection
-@section('footer')
+@section('script')
     <script>
         $().ready(function () {
             $("#changePasswordForm").validate({

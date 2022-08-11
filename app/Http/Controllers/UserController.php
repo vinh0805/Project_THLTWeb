@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Friend;
 use App\Models\LikePost;
 use App\Models\Post;
 use App\Models\User;
@@ -49,6 +50,7 @@ class UserController extends Controller
     public function showUserInfo($userId)
     {
         $user = User::find($userId);
+        $sUser = Session::get('sUser');
         if (isset($user)) {
             $postNumber = count(Post::where('user_id', '=', $user->id)->where('status', '=', '1')->get());
             $commentNumber = count(Comment::where('user_id', '=', $user->id)->get());
@@ -60,12 +62,29 @@ class UserController extends Controller
                     'posts.user_id as user_id', 'users.name as user_name',
                     'users.avatar as avatar', DB::raw('count(*) as user_count'))
                 ->groupBy('posts.user_id')
-                ->where('posts.user_id', '=', Session::get('sUser')->id)
+                ->where('posts.user_id', '=', $userId)
+                ->first();
+
+            $request_friend = Friend::where([
+                'from' => @$sUser['id'],
+                'to' => $userId
+            ])
+                ->whereNotIn('status', [2, 3])
+                ->first();
+
+            $requested_friend = Friend::where([
+                'from' => $userId,
+                'to' => @$sUser['id']
+            ])
+                ->whereNotIn('status', [2, 3])
                 ->first();
 
             return view('users.screen20-user-info')->with('user', $user)
                 ->with('postNumber', $postNumber)->with('commentNumber', $commentNumber)
-                ->with('likeNumber', $likeNumber)->with('isLikedNumber', $isLikedNumber);
+                ->with('likeNumber', $likeNumber)->with('isLikedNumber', $isLikedNumber)
+                ->with('sUser', Session::get('sUser'))
+                ->with('request_friend', $request_friend)
+                ->with('requested_friend', $requested_friend);
         } else return redirect('/');
     }
 

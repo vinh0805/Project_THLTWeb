@@ -94,7 +94,7 @@
         @endif
     </div>
 @endsection
-@section('footer')
+@section('script')
     @if(isset($user))
         <script>
             let like_post_button = $("#likePostButton");
@@ -122,7 +122,7 @@
                     url: $(this).attr('id') + '/update-like-comment',
                     dataType: 'json',
                     success: function (response) {
-                        if (!response.commentID) {
+                        if (!response.commentId) {
                             return;
                         }
 

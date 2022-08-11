@@ -77,7 +77,9 @@ class LikeController extends Controller
                     ->where('user_id', '=', $comment->user_id)
                     ->where('fuser_id', '=', $user->id)
                     ->where('content', '=', $user->name . ' liked your comment')->first();
-                Notification::destroy($notification->id);
+                if ($notification) {
+                    Notification::destroy($notification->id);
+                }
             } else {
                 $likeComment = new likeComment([
                     'user_id' => $user->id,

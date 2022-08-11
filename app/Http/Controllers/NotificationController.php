@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Notification;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -27,6 +28,16 @@ class NotificationController extends Controller
         $notification = Notification::find($id);
         $notification->status = 1;
         $notification->save();
+        if ($notification['type'] === 1) {
+            $send_user = User::find($notification['fuser_id']);
+            if (!isset($send_user)) {
+                Session::put('message', "Can't find user!");
+                return redirect('/');
+            } else {
+                return redirect('user/' . $send_user['id'] . '/info');
+            }
+        }
+
         $post = Post::find($notification->post_id);
 
         if (!isset($post)) {

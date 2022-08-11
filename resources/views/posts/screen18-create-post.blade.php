@@ -37,7 +37,7 @@
         </form>
     </div>
 @endsection
-@section('footer')
+@section('script')
     <script src="https://cdn.ckeditor.com/4.15.1/full/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('postContent', {

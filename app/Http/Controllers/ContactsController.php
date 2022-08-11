@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\NewMessage;
+use App\Models\Friend;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,7 +23,16 @@ class ContactsController extends Controller
     {
         $user = Session::get('sUser');
         if (isset($user)) {
-            $contacts = User::where('id', '!=', $user->id)->get();
+            $friend_ids1 = Friend::where('from', $user['id'])
+                ->pluck('to')
+                ->toArray();
+            $friend_ids2 = Friend::where('to', $user['id'])
+                ->pluck('from')
+                ->toArray();
+            $friend_ids = array_unique(array_merge($friend_ids1, $friend_ids2));
+            $contacts = User::where('id', '!=', $user->id)
+                ->whereIn('id', $friend_ids)
+                ->get();
 //            $contactsTo = DB::table('users')
 //                ->join('messages', 'users.id', '=', 'messages.to')
 //                ->select('users.*')->get();

@@ -47,7 +47,7 @@
     <nav class="nav-bar">
         <li class="menu dropdown">
             <div class="dropdown-img">
-                <a href="{{url('#')}}">
+                <a href="{{url('#')}}" title="DOGS">
                     <img class="catego" src="{{asset('frontend/images/dog.png')}}" alt="Dog">
                 </a>
             </div>
@@ -61,7 +61,7 @@
         </li>
         <li class="menu dropdown">
             <div class="dropdown-img">
-                <a href="{{url('#')}}">
+                <a href="{{url('#')}}" title="CATS">
                     <img class="catego" src="{{asset('frontend/images/cat.png')}}" alt="Cat">
                 </a>
             </div>
@@ -75,7 +75,7 @@
         </li>
         <li class="menu dropdown">
             <div class="dropdown-img">
-                <a href="{{url('#')}}">
+                <a href="{{url('#')}}" title="OTHERS">
                     <img class="catego" src="{{asset('frontend/images/others.png')}}" alt="Others">
                 </a>
             </div>
@@ -125,11 +125,11 @@
                     ])->count();
                     ?>
                     <a href="{{url('/me/notifications')}}">
-                        Notifications
+                        <div>Notifications</div>
                         <p class="notify"> {{$totalNotification}} </p>   <!--  Notification amount  -->
                     </a>
                     <a href="{{url('/chat')}}">
-                        Messages
+                        <div>Messages</div>
                         <p class="notify"> {{$totalMessages}} </p>   <!--  Notification amount  -->
                     </a>
                     <a href="{{url('/me/password')}}">Change password</a>
@@ -162,12 +162,9 @@
 <script src="{{asset('frontend/js/jquery-ui.js')}}"></script>
 <script src="{{asset('frontend/css/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 {{--Footer--}}
-@yield('footer')
+@yield('script')
 
 <script src="{{asset('frontend/css/plugins/jquery-validation/jquery.validate.js')}}"></script>
-@if(isset($message))
-    <script>alert({{$message}})</script>
-@endif
 {{--<script src="{{asset('backend/js/jquery-validation-1.19.2/src/localization/messages_vi.js')}}"></script>--}}
 {{--<script src="{{asset('backend/js/jquery-validation-1.19.2/src/additional/strongPassword.js')}}"></script>--}}
 </body>

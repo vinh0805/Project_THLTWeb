@@ -123,7 +123,7 @@
         </div>
     </section>
 @endsection
-@section('footer')
+@section('script')
     <script>
         $('.carousel').carousel();
         $(document).ready(function () {

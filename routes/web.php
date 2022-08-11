@@ -69,6 +69,11 @@ Route::get('/contacts', 'ContactsController@get');
 Route::get('/conversation/{id}', 'ContactsController@getMessagesFor');
 Route::post('/conversation/send', 'ContactsController@send');
 
+// Friend function
+Route::post('/friend/send-request', 'FriendsController@sendRequest');
+Route::post('/friend/delete', 'FriendsController@delete');
+Route::post('/friend/reply', 'FriendsController@reply');
+
 
 //Route::group(['middleware' => ['auth']], function () {
 //    Route::get('/home', function () {

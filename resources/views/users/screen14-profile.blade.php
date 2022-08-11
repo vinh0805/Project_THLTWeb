@@ -9,7 +9,7 @@
                   enctype="multipart/form-data">
                 {{csrf_field()}}
                 <h2>My information</h2> <br>
-                <div id="changePassButton" class="info-button">
+                <div id="changePassButton" class="info-button" style="width: 180px">
                     <a href="{{url('me/password/')}}">
                         Change password
                     </a>
@@ -30,7 +30,7 @@
                 </div>
                 <!-- Checkbox for sex -->
                 <div class="input-field" id="info-sex">
-                    <label class="container">Male
+                    <label class="container pl-5">Male
                         <input type="radio" name="gender" id="male" value="1"
                                @if($user->gender == 1)
                                checked
@@ -38,7 +38,7 @@
                         >
                         <span class="checkmark"></span>
                     </label>
-                    <label class="container">Female
+                    <label class="container pl-5">Female
                         <input type="radio" name="gender" id="female" value="2"
                                @if($user->gender == 2)
                                checked
@@ -90,7 +90,7 @@
         </div>
     </div>
 @endsection
-@section('footer')
+@section('script')
     <script>
         $(function () {
             $("#datepicker").datepicker({
