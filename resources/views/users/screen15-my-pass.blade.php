@@ -12,7 +12,7 @@
                 <div>
                     <label for="exampleInputEmail1">Current password:</label>
                     <span class="br"></span>
-                    <label class="option">required</label>
+                    <label class="option text-danger">*required</label>
                     <label for="inputName"></label>
                 </div>
                 <input type="password" class="input-form" id="password" data-validation="length"
@@ -23,7 +23,7 @@
                 <div>
                     <label for="exampleInputEmail1">New password:</label>
                     <span class="br"></span>
-                    <label class="option">required</label>
+                    <label class="option text-danger">*required</label>
                     <label for="inputName"></label>
                 </div>
                 <input type="password" class="input-form" id="new_password" data-validation="length"
@@ -34,7 +34,7 @@
                 <div>
                     <label for="exampleInputEmail1">Confirm password:</label>
                     <span class="br"></span>
-                    <label class="option">required</label>
+                    <label class="option text-danger">*required</label>
                     <label for="inputName"></label>
                 </div>
                 <input type="password" class="input-form" id="confirm_new_password" data-validation="length"

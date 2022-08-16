@@ -9,7 +9,7 @@
                   enctype="multipart/form-data">
                 {{csrf_field()}}
                 <h2>My information</h2> <br>
-                <div id="changePassButton" class="info-button" style="width: 180px">
+                <div id="changePassButton" class="info-button" style="width: 170px">
                     <a href="{{url('me/password/')}}">
                         Change password
                     </a>
@@ -17,7 +17,7 @@
 
                 <div class="input-field">
                     <label for="exampleInputEmail1">Name</label>
-                    <label class="option">required</label>
+                    <label class="option text-danger">*required</label>
                     <label for="inputName"></label>
                     <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$user->name}}"
                            maxlength="16" data-msg-required="Bạn phải nhập trường này!" required name="name">

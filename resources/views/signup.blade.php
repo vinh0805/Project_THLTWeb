@@ -70,7 +70,7 @@
                     <div>
                         <label for="exampleInputEmail1">Username:</label>
                         <span class="br"></span>
-                        <label class="option">required</label>
+                        <label class="option text-danger">*required</label>
                         <label for="inputName"></label>
                     </div>
                     <input type="text" class="input-form" id="inputName"
@@ -80,7 +80,7 @@
                     <div>
                         <label for="exampleInputEmail1">Email:</label>
                         <span class="br"></span>
-                        <label class="option">required</label>
+                        <label class="option text-danger">*required</label>
                         <label for="inputEmail1"></label>
                     </div>
                     <input type="email" class="input-form" id="inputEmail1" required name="email">
@@ -89,7 +89,7 @@
                     <div>
                         <label for="exampleInputEmail1">Password</label>
                         <span class="br"></span>
-                        <label class="option">required</label>
+                        <label class="option text-danger">*required</label>
                         <label for="password"></label>
                     </div>
                     <input type="password" class="input-form" id="password" data-validation="length"
@@ -99,7 +99,7 @@
                     <div>
                         <label for="exampleInputEmail1">Confirm password:</label>
                         <span class="br"></span>
-                        <label class="option">required</label>
+                        <label class="option text-danger">*required</label>
                         <label for="confirm_password"></label>
                     </div>
                     <input type="password" class="input-form" id="confirm_password" data-validation="length"
