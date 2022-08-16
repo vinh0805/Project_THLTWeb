@@ -286,29 +286,24 @@ h2 {
 .header {
     z-index: 999;
 	width: 100%;
-	height: 160px;
 	background: #FFFFFF;
 }
 .logo-field {
 	width: 25%;
-	height: 140px;
 	float: left;
 }
 .logo-field img {
 	width: 38%;
 	margin-left: 20%;
-	margin-top: 5%;
+	margin-top: 0;
 }
 
 .nav-bar {
 	width: 45%;
-	height: 115px;
 	float: left;
-	margin-top: 50px;
 }
 .account {
 	width: 30%;
-	height: 115px;
 	float: left;
 }
 .social {
@@ -354,7 +349,7 @@ input:focus, textarea:focus, select:focus{
     position: relative;
     display: inline-block;
     padding-top: 10px;
-    margin-left: 20%;
+    margin-left: 17%;
 }
 .menu.dropdown.name {
     margin-left: 30px;
@@ -371,7 +366,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 .catego {
-    margin-left: 20px;
+    margin-left: 4px;
     width: 40%;
     height: auto;
     color: black;
@@ -611,7 +606,7 @@ li.menu a:hover {
     position: sticky;
     float: left;
     width: 100%;
-    padding: 0;
+    padding: 0 0 4px 0;
     margin-top: 5px;
 }
 
