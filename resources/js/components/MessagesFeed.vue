@@ -42,8 +42,7 @@ export default {
 <style lang="scss" scoped>
     .feed {
         background: #fffaf5;
-        height: 100%;
-        max-height: 350px;
+        height: 350px;
         overflow: scroll;
         overflow-x: hidden;
 

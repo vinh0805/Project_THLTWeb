@@ -8,6 +8,7 @@ body {
 }
 #charCard {
     margin-top: 50px;
+    min-height: 555px;
 }
 #chatHeader {
     text-align: center;
@@ -276,8 +277,7 @@ h2 {
 /* Menu */
 .page_wrapper {
 	max-width: 100%;
-	height: auto;
-	min-height: 750px;
+	min-height: 550px;
 	background: #FFF6EA;
 	margin-left: auto;
 	margin-right: auto;
@@ -304,7 +304,7 @@ h2 {
 }
 .account {
 	width: 30%;
-	float: left;
+	float: right;
 }
 .social {
 	width: 100%;
@@ -340,6 +340,7 @@ h2 {
 	text-align: center;
 	float: left;
 	margin-left: 15%;
+    margin-top: 24px;
 }
 input:focus, textarea:focus, select:focus{
         outline: none;
